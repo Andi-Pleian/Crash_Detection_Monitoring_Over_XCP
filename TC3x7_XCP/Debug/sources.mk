@@ -33,6 +33,7 @@ Libraries/Service/CpuGeneric/SysSe/Bsp \
 Libraries/iLLD/TC36A/Tricore/Cpu/Irq \
 Libraries/iLLD/TC36A/Tricore/Cpu/Std \
 Libraries/iLLD/TC36A/Tricore/Cpu/Trap \
+Libraries/iLLD/TC36A/Tricore/Gpt12/Std \
 Libraries/iLLD/TC36A/Tricore/Gtm/Std \
 Libraries/iLLD/TC36A/Tricore/Mtu/Std \
 Libraries/iLLD/TC36A/Tricore/Pms/Std \
@@ -43,4 +44,5 @@ Libraries/iLLD/TC36A/Tricore/Stm/Std \
 Libraries/iLLD/TC36A/Tricore/_Impl \
 Libraries/iLLD/TC36A/Tricore/_PinMap \
 Task_Scheduler \
+Timer_Interrupt \
 

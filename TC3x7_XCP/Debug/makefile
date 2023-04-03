@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Timer_Interrupt/subdir.mk
 -include Task_Scheduler/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_PinMap/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_Impl/subdir.mk
@@ -18,6 +19,7 @@ RM := rm -rf
 -include Libraries/iLLD/TC36A/Tricore/Pms/Std/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Mtu/Std/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Gtm/Std/subdir.mk
+-include Libraries/iLLD/TC36A/Tricore/Gpt12/Std/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Trap/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Std/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Irq/subdir.mk

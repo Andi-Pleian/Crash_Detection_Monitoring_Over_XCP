@@ -7,7 +7,6 @@
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
 #include "Task_Scheduler.h"
-#include "GPT12_Timer_Interrupt.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -32,13 +31,11 @@ void core0_main(void)
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
-    //initLED();
-    initGpt12Timer();
+    initLED();
     
     while(1)
     {
-        //blinkLED();
-        //interruptGpt12();
+        blinkLED();
     }
 }
 
