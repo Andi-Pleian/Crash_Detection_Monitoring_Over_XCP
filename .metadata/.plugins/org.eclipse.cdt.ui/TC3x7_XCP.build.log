@@ -1,9 +1,46 @@
-Aurix Flasher 2.5.3.0, built on 3/17/2022 3:12:47 PM
-Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
-::Loading HEX file .......... 
- ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
-::Erasing Flash memory .......... (Pass)
-::Programming Flash memory .......... (Pass)
-Overall time: 921 ms
-AurixFlasher Exit Status: Pass
-Flashing was successfull
+23:38:31 **** Incremental Build of configuration Debug for project TC3x7_XCP ****
+make --output-sync -j16 all 
+Building file: ../Task_Scheduler/Task_Scheduler.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Task_Scheduler/Task_Scheduler.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Task_Scheduler/Task_Scheduler.src" "../Task_Scheduler/Task_Scheduler.c" && \
+if [ -f "Task_Scheduler/Task_Scheduler.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Task_Scheduler\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Task_Scheduler/Task_Scheduler.d" > "Task_Scheduler/Task_Scheduler.d_sed" && cp "Task_Scheduler/Task_Scheduler.d_sed" "Task_Scheduler/Task_Scheduler.d" && rm -f "Task_Scheduler/Task_Scheduler.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Task_Scheduler/Task_Scheduler.c
+ 
+Building file: ../Cpu0_Main.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Cpu0_Main.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Cpu0_Main.src" "../Cpu0_Main.c" && \
+if [ -f "Cpu0_Main.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Cpu0_Main.d" > "Cpu0_Main.d_sed" && cp "Cpu0_Main.d_sed" "Cpu0_Main.d" && rm -f "Cpu0_Main.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Finished building: ../Cpu0_Main.c
+ 
+Building file: Task_Scheduler/Task_Scheduler.src
+Invoking: TASKING Assembler
+astc -Og -Os --no-warnings= --error-limit=42 -o  "Task_Scheduler/Task_Scheduler.o" "Task_Scheduler/Task_Scheduler.src"
+Finished building: Task_Scheduler/Task_Scheduler.src
+ 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): assembler v1.1r8 Build 22011964
+Building file: Cpu0_Main.src
+TASKING VX-toolset for AURIX Development Studio (non-commercial): assembler v1.1r8 Build 22011964
+Invoking: TASKING Assembler
+astc -Og -Os --no-warnings= --error-limit=42 -o  "Cpu0_Main.o" "Cpu0_Main.src"
+Finished building: Cpu0_Main.src
+ 
+Building target: TC3x7_XCP.elf
+Invoking: TASKING Linker
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+cctc --lsl-file="../Lcf_Tasking_Tricore_Tc.lsl" -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="TC3x7_XCP.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 -lcs_fpu -lfp_fpu -lrt --lsl-core=vtc --exceptions --strict --anachronisms --force-c++ -Ctc36x -o"TC3x7_XCP.elf" -Wl-o"TC3x7_XCP.hex:IHEX"  ./Task_Scheduler/Task_Scheduler.o  ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxGeth_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxGpt12_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxGtm_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxI2c_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxMsc_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxPms_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxPort_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxPsi5_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxPsi5s_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxQspi_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxScu_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxSent_PinMap.o ./Libraries/iLLD/TC36A/Tricore/_PinMap/IfxSmu_PinMap.o  ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxAsclin_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxCan_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxCcu6_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxCpu_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxDma_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxEray_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxEvadc_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxFlash_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxGeth_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxGtm_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxHssl_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxI2c_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxMsc_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxMtu_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxPort_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxPsi5_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxQspi_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxScu_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxSent_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxSmu_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxSrc_cfg.o ./Libraries/iLLD/TC36A/Tricore/_Impl/IfxStm_cfg.o  ./Libraries/iLLD/TC36A/Tricore/Stm/Std/IfxStm.o  ./Libraries/iLLD/TC36A/Tricore/Src/Std/IfxSrc.o  ./Libraries/iLLD/TC36A/Tricore/Scu/Std/IfxScuCcu.o ./Libraries/iLLD/TC36A/Tricore/Scu/Std/IfxScuEru.o ./Libraries/iLLD/TC36A/Tricore/Scu/Std/IfxScuLbist.o ./Libraries/iLLD/TC36A/Tricore/Scu/Std/IfxScuRcu.o ./Libraries/iLLD/TC36A/Tricore/Scu/Std/IfxScuWdt.o  ./Libraries/iLLD/TC36A/Tricore/Port/Std/IfxPort.o  ./Libraries/iLLD/TC36A/Tricore/Pms/Std/IfxPmsEvr.o ./Libraries/iLLD/TC36A/Tricore/Pms/Std/IfxPmsPm.o  ./Libraries/iLLD/TC36A/Tricore/Mtu/Std/IfxMtu.o  ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Atom.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Cmu.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Dpll.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Dtm.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Psm.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Spe.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Tbu.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Tim.o ./Libraries/iLLD/TC36A/Tricore/Gtm/Std/IfxGtm_Tom.o  ./Libraries/iLLD/TC36A/Tricore/Cpu/Trap/IfxCpu_Trap.o  ./Libraries/iLLD/TC36A/Tricore/Cpu/Std/IfxCpu.o  ./Libraries/iLLD/TC36A/Tricore/Cpu/Irq/IfxCpu_Irq.o  ./Libraries/Service/CpuGeneric/SysSe/Bsp/Assert.o ./Libraries/Service/CpuGeneric/SysSe/Bsp/Bsp.o  ./Libraries/Infra/Ssw/TC36A/Tricore/Ifx_Ssw_Infra.o ./Libraries/Infra/Ssw/TC36A/Tricore/Ifx_Ssw_Tc0.o ./Libraries/Infra/Ssw/TC36A/Tricore/Ifx_Ssw_Tc1.o  ./Libraries/Infra/Platform/Tricore/Compilers/CompilerDcc.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerGhs.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerGnuc.o ./Libraries/Infra/Platform/Tricore/Compilers/CompilerTasking.o  ./Configurations/Debug/sync_on_halt.o  ./Configurations/Ifx_Cfg_Ssw.o ./Configurations/Ifx_Cfg_SswBmhd.o  ./Blinky_LED.o ./Cpu0_Main.o ./Cpu1_Main.o 
+Finished building target: TC3x7_XCP.elf
+ 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): ELF size v1.1r8 Build 22011964
+Invoking: Print Size
+elfsize  "TC3x7_XCP.elf"
+Total sizes:
+ROM: 0x3667 (13927) = code: 0x2326 (8998) + romdata: 0x1341 (4929)
+RAM: 0x6915 (26901) = data + bss
+Finished building: TC3x7_XCP.siz
+ 
+rm Task_Scheduler/Task_Scheduler.src Cpu0_Main.src
+
+23:38:47 Build Finished. 0 errors, 0 warnings. (took 15s.608ms)
+

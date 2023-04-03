@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include Task_Scheduler/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_PinMap/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_Impl/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Stm/Std/subdir.mk

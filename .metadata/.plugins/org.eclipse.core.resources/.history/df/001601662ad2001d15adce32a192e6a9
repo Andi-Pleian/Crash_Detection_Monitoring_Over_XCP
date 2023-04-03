@@ -1,0 +1,336 @@
+/*****************************************************************************
+**                                                                            **
+** Copyright (C) Infineon Technologies (2016)                                 **
+**                                                                            **
+** All rights reserved.                                                       **
+**                                                                            **
+** This document contains proprietary information belonging to Infineon       **
+** Technologies. Passing on and copying of this document, and communication   **
+** of its contents is not permitted without prior written authorization.      **
+**                                                                            **
+********************************************************************************
+**                                                                            **
+**  FILENAME  : Adc_PBCfg.c                                                   **
+**                                                                            **
+**  VERSION   : 4.0.0                                                         **
+**                                                                            **
+**  DATE, TIME: 2023-03-31, 15:32:49                                      **
+**                                                                            **
+**  GENERATOR : Build b171004-0528                                          **
+**                                                                            **
+**  BSW MODULE DECRIPTION : Adc.bmd                                           **
+**                                                                            **
+**  VARIANT   : Variant PB                                                    **
+**                                                                            **
+**  PLATFORM  : Infineon AURIX2G                                              **
+**                                                                            **
+**  AUTHOR    : DL-AUTOSAR-Engineering                                        **
+**                                                                            **
+**  VENDOR    : Infineon Technologies                                         **
+**                                                                            **
+**  DESCRIPTION :  Adc configuration generated out of ECUC file               **
+**                                                                            **
+**  SPECIFICATION(S) : Specification of ADC Driver, AUTOSAR Release 4.2.2     **
+**                                                                            **
+**  MAY BE CHANGED BY USER : no                                               **
+**                                                                            **
+*******************************************************************************/
+
+/*******************************************************************************
+**                      Includes                                              **
+*******************************************************************************/
+/* Inclution of module header file */
+#include "Adc.h"
+
+/*Function declaration for Notification Function of AdcGroup_0*/
+extern void IoHwAb_AdcNotification0(void);
+
+#define ADC_START_SEC_CONFIG_DATA_QM_UNSPECIFIED
+/* MISRA2012_RULE_20_1_JUSTIFICATION: Memmap header usage as per Autosar 
+   guideline. */
+/* MISRA2012_RULE_4_10_JUSTIFICATION: Memmap header is repeatedly included
+   without safegaurd. It complies to Autosar guidelines. */ 
+#include "Adc_MemMap.h"
+
+/***********Configuration for External HW trigger and gating signals***********/
+
+/*******************Group Definition - Channel Sequence*******************/
+
+/**Group Definition of AdcGroup_0- ID0 of HW Unit 0 for AdcConfigSet_0**/
+/* MISRA2012_RULE_5_1_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_2_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_4_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_5_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+static const Adc_GroupDefType Adc_kCSAdcConfigSet_0HwUnit0GrpAdcGroup_0[3]=
+{
+  /*AS Logical Channel*/ /*Analog Channel*/ /*Result Register*/
+  {  0U,                   0U,                0U  },
+  {  1U,                   1U,                1U  },
+  {  2U,                   2U,                2U  }
+};
+
+
+/**Group Definition of AdcGroup_1- ID256 of HW Unit 8 for AdcConfigSet_0**/
+/* MISRA2012_RULE_5_1_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_2_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_4_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_5_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+static const Adc_GroupDefType Adc_kCSAdcConfigSet_0HwUnit8GrpAdcGroup_1[2]=
+{
+  /*AS Logical Channel*/ /*Analog Channel*/ /*Result Register*/
+  {  0U,                   13U,                0U  },
+  {  1U,                   15U,                1U  }
+};
+
+
+/***********************Group Configuration Definition***********************/
+/*****Group Configuration Definition of HW Unit 0 for AdcConfigSet_0******/
+/* MISRA2012_RULE_5_1_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_2_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_4_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_5_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+static const Adc_GroupCfgType Adc_kCSAdcConfigSet_0HwUnit0GrpCfg[1]=
+{
+  {/*Group Configuration structure for AdcGroup_0 - ID0*/
+    /*
+      Group Properties:
+      Trigger Source: ADC_TRIGG_SRC_SW
+      Trigger Edge: 
+      HW Trigger Source: ADC_TRIG_NONE
+      HW Gate Source: ADC_GATE_NONE
+      Gate Level: ADC_GATE_LVL_HIGH
+    */
+    /* Notification Function Address */
+    (Adc_NotifyFnPtrType)IoHwAb_AdcNotification0,
+    /*Address for Group Definition Structure*/
+    &Adc_kCSAdcConfigSet_0HwUnit0GrpAdcGroup_0[0U],
+    /*Address for the GTM trigger configuration structure*/
+    (const Mcal_GtmTomChConfigType *)0U,
+    /*Address for the GTM gate configuration structure*/
+    (const Mcal_GtmTomChConfigType *)0U,
+    /*Address for the ERU trigger configuration structure*/
+    (const Adc_EruChannelCfgType *)0U,
+    /*Address for the ERU gate configuration structure*/
+    (const Adc_EruChannelCfgType *)0U,
+    /*Configuration value for the G0QCTRL0 register*/
+    0x00000000U,
+    /*Configuration value for the G0QMR0 register*/
+    0x00000001U,
+    /*Configuration value for the G0ALIAS register*/
+    0x00000100U,
+    /*Bit Mask for all the analog channels configured for the group*/
+    0x0007U,
+    /*Bit Mask for all the result registers configured for the group*/
+    0x0007U,
+    ADC_TRIGG_SRC_SW,
+    ADC_CONV_MODE_ONESHOT,
+    ADC_ACCESS_MODE_SINGLE,
+    ADC_STREAM_BUFFER_LINEAR,
+    1U, /*Number of streaming samples for the group*/
+    ADC_OTHER_HW_USED, /*HW peripheral used for Trigger*/
+    ADC_OTHER_HW_USED, /*HW peripheral used for Gate*/
+    0U,/*Group Request Source*/
+    3U, /*Channel Count for the group*/
+    0U /*Limit Check enabled for the group*/
+  }
+};
+/*****Group Configuration Definition of HW Unit 8 for AdcConfigSet_0******/
+/* MISRA2012_RULE_5_1_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_2_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_4_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+/* MISRA2012_RULE_5_5_JUSTIFICATION:Compiler supports macro names going beyond 
+   32 chars and this macro is used only inside the ADC module*/
+static const Adc_GroupCfgType Adc_kCSAdcConfigSet_0HwUnit8GrpCfg[1]=
+{
+  {/*Group Configuration structure for AdcGroup_1 - ID256*/
+    /*
+      Group Properties:
+      Trigger Source: ADC_TRIGG_SRC_SW
+      Trigger Edge: 
+      HW Trigger Source: ADC_TRIG_NONE
+      HW Gate Source: ADC_GATE_NONE
+      Gate Level: ADC_GATE_LVL_HIGH
+    */
+    /* Notification Function Address */
+    (Adc_NotifyFnPtrType)0U,
+    /*Address for Group Definition Structure*/
+    &Adc_kCSAdcConfigSet_0HwUnit8GrpAdcGroup_1[0U],
+    /*Address for the GTM trigger configuration structure*/
+    (const Mcal_GtmTomChConfigType *)0U,
+    /*Address for the GTM gate configuration structure*/
+    (const Mcal_GtmTomChConfigType *)0U,
+    /*Address for the ERU trigger configuration structure*/
+    (const Adc_EruChannelCfgType *)0U,
+    /*Address for the ERU gate configuration structure*/
+    (const Adc_EruChannelCfgType *)0U,
+    /*Configuration value for the G8QCTRL0 register*/
+    0x00000000U,
+    /*Configuration value for the G8QMR0 register*/
+    0x00000001U,
+    /*Configuration value for the G8ALIAS register*/
+    0x00000100U,
+    /*Bit Mask for all the analog channels configured for the group*/
+    0xa000U,
+    /*Bit Mask for all the result registers configured for the group*/
+    0x0003U,
+    ADC_TRIGG_SRC_SW,
+    ADC_CONV_MODE_ONESHOT,
+    ADC_ACCESS_MODE_SINGLE,
+    ADC_STREAM_BUFFER_LINEAR,
+    1U, /*Number of streaming samples for the group*/
+    ADC_OTHER_HW_USED, /*HW peripheral used for Trigger*/
+    ADC_OTHER_HW_USED, /*HW peripheral used for Gate*/
+    0U,/*Group Request Source*/
+    2U, /*Channel Count for the group*/
+    0U /*Limit Check enabled for the group*/
+  }
+};
+
+
+/***********************Channel Configuration Definition***********************/
+/*****Channel Configuration Definition of HW Unit 0 for AdcConfigSet_0*****/
+static const Adc_ChannelCfgType Adc_kCSAdcConfigSet_0HwUnit0ChCfg[3]=
+{
+  {
+    0x00000000U, /*Configuration value for the G0CHCTR0 register*/
+    0x00000000U, /*Configuration value for the G0BOUND register*/
+    0U, /*Analog Channel number for the corresponding Logical Channel*/
+    0U /*Limit Check channel or not */
+  },
+  {
+    0x00000000U, /*Configuration value for the G0CHCTR1 register*/
+    0x00000000U, /*Configuration value for the G0BOUND register*/
+    1U, /*Analog Channel number for the corresponding Logical Channel*/
+    0U /*Limit Check channel or not */
+  },
+  {
+    0x00000000U, /*Configuration value for the G0CHCTR2 register*/
+    0x00000000U, /*Configuration value for the G0BOUND register*/
+    2U, /*Analog Channel number for the corresponding Logical Channel*/
+    0U /*Limit Check channel or not */
+  }
+};
+/*****Channel Configuration Definition of HW Unit 8 for AdcConfigSet_0*****/
+static const Adc_ChannelCfgType Adc_kCSAdcConfigSet_0HwUnit8ChCfg[2]=
+{
+  {
+    0x00000000U, /*Configuration value for the G8CHCTR13 register*/
+    0x00000000U, /*Configuration value for the G8BOUND register*/
+    13U, /*Analog Channel number for the corresponding Logical Channel*/
+    0U /*Limit Check channel or not */
+  },
+  {
+    0x00000000U, /*Configuration value for the G8CHCTR15 register*/
+    0x00000000U, /*Configuration value for the G8BOUND register*/
+    15U, /*Analog Channel number for the corresponding Logical Channel*/
+    0U /*Limit Check channel or not */
+  }
+};
+
+/********************HW Unit Converter Configurations********************/
+/**HW Unit 0 Converter Configurations for AdcConfigSet_0**/
+static const Adc_HwCfgType Adc_kCSAdcConfigSet_0HwUnit0HwCfg=
+{
+  0x00300004U, /*Configuration value for G0ANCFG register*/
+  0x00000000U, /*Configuration value for G0ARBCFG register*/
+  0x01000000U, /*Configuration value for G0ARBPR register*/
+  0x00000000U, /*Configuration value for G0ICLASS0 register*/
+  0x00000000U, /*Configuration value for G0ICLASS1 register*/
+  0x00000000U /*Configuration value for G0SYNCTR register*/
+};
+
+/**HW Unit 8 Converter Configurations for AdcConfigSet_0**/
+static const Adc_HwCfgType Adc_kCSAdcConfigSet_0HwUnit8HwCfg=
+{
+  0x00300004U, /*Configuration value for G8ANCFG register*/
+  0x00000000U, /*Configuration value for G8ARBCFG register*/
+  0x01000000U, /*Configuration value for G8ARBPR register*/
+  0x00000000U, /*Configuration value for G8ICLASS0 register*/
+  0x00000000U, /*Configuration value for G8ICLASS1 register*/
+  0x00000000U /*Configuration value for G8SYNCTR register*/
+};
+
+
+/***************************HW Unit Configuration ***************************/
+
+/*************HW Unit 0 Configuration for AdcConfigSet_0**************/
+static const Adc_HwUnitCfgType Adc_kCSAdcConfigSet_0HwUnit0Cfg=
+{
+  &Adc_kCSAdcConfigSet_0HwUnit0HwCfg, /*Analog Converter Configuration*/
+  &Adc_kCSAdcConfigSet_0HwUnit0ChCfg[0U], /*Channel Configuration structure*/
+  &Adc_kCSAdcConfigSet_0HwUnit0GrpCfg[0U], /*Group Configuration structure*/
+  1U, /* Group Count for HW Unit 0*/
+  1U /* Bit Mask for SRNs used for HW Unit 0*/
+};
+
+/*************HW Unit 8 Configuration for AdcConfigSet_0**************/
+static const Adc_HwUnitCfgType Adc_kCSAdcConfigSet_0HwUnit8Cfg=
+{
+  &Adc_kCSAdcConfigSet_0HwUnit8HwCfg, /*Analog Converter Configuration*/
+  &Adc_kCSAdcConfigSet_0HwUnit8ChCfg[0U], /*Channel Configuration structure*/
+  &Adc_kCSAdcConfigSet_0HwUnit8GrpCfg[0U], /*Group Configuration structure*/
+  1U, /* Group Count for HW Unit 8*/
+  1U /* Bit Mask for SRNs used for HW Unit 8*/
+};
+
+/******************Global Configuration for AdcConfigSet_0*******************/
+static const Adc_GlobalCfgType Adc_kCSAdcConfigSet_0GlobCfg=
+{
+  0x00002200U, /*Configuration value for GLOBCFG register */
+  0x00000000U, /*Configuration value for GLOBICLASS0 register */
+  0x00000000U /*Configuration value for GLOBICLASS1 register */
+};
+
+/*******Configuration Root for AdcConfigSet_0*******/
+/* MISRA2012_RULE_8_7_JUSTIFICATION: Module configuration data structure
+   declaration is as per Autosar guidelines. This data structure is needed
+   by SW units using Adc Driver APIs hence it should be declared as extern in 
+   the SW unit from where it is used */
+/* MISRA2012_RULE_8_4_JUSTIFICATION: Module configuration data structure
+   declaration is as per Autosar guidelines. This data structure is needed
+   by SW units using Adc Driver APIs hence it should be declared as extern in 
+   the SW unit from where it is used */
+const Adc_ConfigType Adc_Config=
+{
+  {
+    &Adc_kCSAdcConfigSet_0HwUnit0Cfg,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    &Adc_kCSAdcConfigSet_0HwUnit8Cfg,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U,
+    (Adc_HwUnitCfgType *)0U
+  },
+  &Adc_kCSAdcConfigSet_0GlobCfg
+};
+
+#define ADC_STOP_SEC_CONFIG_DATA_QM_UNSPECIFIED
+/* MISRA2012_RULE_20_1_JUSTIFICATION: Memmap header usage as per Autosar
+   guideline. */
+/* MISRA2012_RULE_4_10_JUSTIFICATION: Memmap header is repeatedly included
+   without safegaurd. It complies to Autosar guidelines. */ 
+#include "Adc_MemMap.h"
+
+
+
+

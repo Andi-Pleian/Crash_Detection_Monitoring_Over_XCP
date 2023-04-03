@@ -42,4 +42,5 @@ Libraries/iLLD/TC36A/Tricore/Src/Std \
 Libraries/iLLD/TC36A/Tricore/Stm/Std \
 Libraries/iLLD/TC36A/Tricore/_Impl \
 Libraries/iLLD/TC36A/Tricore/_PinMap \
+Task_Scheduler \
 
