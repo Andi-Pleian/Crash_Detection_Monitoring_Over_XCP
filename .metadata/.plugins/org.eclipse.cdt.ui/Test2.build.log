@@ -1,0 +1,9 @@
+Aurix Flasher 2.5.3.0, built on 3/17/2022 3:12:47 PM
+Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
+::Loading HEX file .......... 
+ ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
+::Erasing Flash memory .......... (Pass)
+::Programming Flash memory .......... (Pass)
+Overall time: 1054 ms
+AurixFlasher Exit Status: Pass
+Flashing was successfull
