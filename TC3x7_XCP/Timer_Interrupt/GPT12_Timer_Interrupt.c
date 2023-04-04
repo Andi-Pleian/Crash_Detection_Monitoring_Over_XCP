@@ -20,7 +20,7 @@
 #define ISR_PRIORITY_GPT12_TIMER    6                       /* Define the GPT12 Timer interrupt priority            */
 #define ISR_PROVIDER_GPT12_TIMER    IfxSrc_Tos_cpu0         /* Interrupt provider                                   */
 #define RELOAD_VALUE                48828u                  /* Reload value to have an interrupt each 500ms         */
-#define LED                         &MODULE_P13, 0          /* LED which toggles in the Interrupt Service Routine   */
+#define LED                         &MODULE_P20,11          /* LED which toggles in the Interrupt Service Routine   */
 
 /*********************************************************************************************************************/
 /*--------------------------------------------Function Implementations-----------------------------------------------*/
@@ -61,5 +61,5 @@ void initGpt12Timer(void)
 /* Interrupt Service Routine of the GPT12 */
 void interruptGpt12(void)
 {
-    IfxPort_togglePin(LED);                                                         /* Toggle LED state             */
+    //IfxPort_togglePin(LED);                                                         /* Toggle LED state             */
 }

@@ -20,6 +20,11 @@
 /*********************************************************************************************************************/
 
 #define MAX_TASKS 10
+#define NUM_TASKS 3
+
+#define TASK1_ID 1
+#define TASK2_ID 2
+#define TASK3_ID 3
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Structs------------------------------------------------------*/
@@ -27,9 +32,8 @@
 
 typedef struct {
         uint8   id;
-        uint16  priority;
-        uint32  interval;     // in ms
-        uint32  nextExecTime; // in ms
+        uint16  period;
+        uint16  remainingTime;
         void    (*function)(void);
 } S_TS_Task;
 
@@ -46,5 +50,7 @@ extern void TS_Create_Task(uint8 id, uint16 priority, uint32 interval, void (*fu
 extern void TS_Handle_Timer(uint16 signum);
 
 extern void TS_Init();
+
+extern void schedule_tasks(void);
 
 #endif /* TASK_SCHEDULER_H_ */

@@ -10,7 +10,6 @@
 /*********************************************************************************************************************/
 
 #include "Task_Scheduler.h"
-#include <Time.h>
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Defines------------------------------------------------------*/
@@ -29,28 +28,66 @@ S_TS_Task taskList[MAX_TASKS];
 // Global var that stores the number of tasks
 uint16 numOfTasks = 0;
 
+void task1(void) {
+  // Task 1 code
+}
+
+void task2(void) {
+  // Task 2 code
+}
+
+void task3(void) {
+  // Task 3 code
+}
+
+S_TS_Task tasks[NUM_TASKS] = {
+  {TASK1_ID, 500, 500, task1},
+  {TASK2_ID, 1000, 1000, task2},
+  {TASK3_ID, 2000, 2000, task3},
+};
+
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 
-void TS_Create_Task(uint8 id, uint16 priority,  uint32 interval, void (*function)(void)) {
-    if (numOfTasks >= MAX_TASKS) {
-        // ERROR: too many tasks!
-    }
 
-    S_TS_Task newTask = { id, priority, interval, (uint32)0, function };
-    taskList[numOfTasks++] = newTask;
+
+void TS_Create_Task(uint8 id, uint16 priority,  uint32 interval, void (*function)(void)) {
+//    if (numOfTasks >= MAX_TASKS) {
+//        // ERROR: too many tasks!
+//    }
+//
+//    S_TS_Task newTask = { id, priority, interval, (uint32)0, function };
+//    taskList[numOfTasks++] = newTask;
 }
 
 void TS_Main() {
-    uint32 currentTime = time(NULL);
 
-    for (uint8 index = 0; index < numOfTasks; index++) {
-        if (currentTime >= taskList[index].nextExecTime) {
-            taskList[index].function();
-            taskList[index].nextExecTime = currentTime + taskList[index].interval;
-        }
-    }
 }
 
+void schedule_tasks(void) {
+  static unsigned int tick_counter = 0;
+  int i;
 
+  // Loop through each task
+  for (i = 0; i < NUM_TASKS; i++) {
+      S_TS_Task *task = &tasks[i];
+
+    // Check if task needs to be executed
+    if (task->remainingTime == 0) {
+      // Execute task
+      task->function();
+
+      // Reset remaining time to period
+      task->remainingTime = task->period;
+    }
+
+    // Decrement remaining time
+    if (tick_counter % 10 == 0) {
+      task->remainingTime -= 10; // Assume tick interval is 10 ms
+    }
+  }
+
+  // Increment tick counter
+  tick_counter += 10; // Assume tick interval is 10 ms
+}
