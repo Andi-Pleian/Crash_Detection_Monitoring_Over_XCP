@@ -47,9 +47,9 @@ void task3(void) {
 }
 
 S_TS_Task tasks[NUM_TASKS] = {
-  {TASK1_ID, 100, 100, task1},
-  {TASK2_ID, 200, 200, task2},
-  {TASK3_ID, 300, 300, task3},
+  {TASK1_ID, IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 500), IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 500), task1},
+  {TASK2_ID, IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 1000), IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 1000), task2},
+  {TASK3_ID, IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 2000), IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 2000), task3},
 };
 
 /*********************************************************************************************************************/

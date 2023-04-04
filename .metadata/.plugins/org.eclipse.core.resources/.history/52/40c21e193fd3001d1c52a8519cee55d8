@@ -20,10 +20,10 @@
 
 #define ISR_PRIORITY_GPT12_TIMER    6                       /* Define the GPT12 Timer interrupt priority            */
 #define ISR_PROVIDER_GPT12_TIMER    IfxSrc_Tos_cpu0         /* Interrupt provider                                   */
-#define RELOAD_VALUE                24414u//48828u                  /* Reload value to have an interrupt each 500ms         */
+#define RELOAD_VALUE                48828u                  /* Reload value to have an interrupt each 500ms         */
 #define LED                         &MODULE_P20,11          /* LED which toggles in the Interrupt Service Routine   */
-#define LED2                         &MODULE_P20,12
-#define LED3                         &MODULE_P20,13
+#define LED                         &MODULE_P20,12
+#define LED                         &MODULE_P20,13
 
 /*********************************************************************************************************************/
 /*--------------------------------------------Function Implementations-----------------------------------------------*/
@@ -57,8 +57,8 @@ void initGpt12Timer(void)
 
     /* Initialize the LED */
     IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinModeOutput(LED2, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    IfxPort_setPinModeOutput(LED3, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    IfxPort_setPinModeOutput(LED, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
 
     IfxGpt12_T3_run(&MODULE_GPT120, IfxGpt12_TimerRun_start);                       /* Start the timer              */
 }
@@ -67,5 +67,5 @@ void initGpt12Timer(void)
 void interruptGpt12(void)
 {
     //IfxPort_togglePin(LED);                                                         /* Toggle LED state             */
-    schedule_tasks();
+    schedule_tasks(void);
 }

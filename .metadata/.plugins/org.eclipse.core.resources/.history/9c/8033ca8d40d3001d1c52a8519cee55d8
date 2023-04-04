@@ -46,10 +46,14 @@ void task3(void) {
     IfxPort_togglePin(&MODULE_P20,13);
 }
 
+const uint16 time1 = IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 500);
+const uint16 time2 = IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 1000);
+const uint16 time3 = IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, 2000);
+
 S_TS_Task tasks[NUM_TASKS] = {
-  {TASK1_ID, 100, 100, task1},
-  {TASK2_ID, 200, 200, task2},
-  {TASK3_ID, 300, 300, task3},
+  {TASK1_ID, time1, time1, task1},
+  {TASK2_ID, time2, time2, task2},
+  {TASK3_ID, time3, time3, task3},
 };
 
 /*********************************************************************************************************************/
