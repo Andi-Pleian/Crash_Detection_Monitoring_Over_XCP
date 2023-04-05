@@ -20,12 +20,12 @@
 /*------------------------------------------------------Defines------------------------------------------------------*/
 /*********************************************************************************************************************/
 
-#define MAX_TASKS 10
-#define NUM_TASKS 3
+#define TS_MAX_TASKS        10
+#define TS_NUM_TASKS        3
 
-#define TASK1_ID 1
-#define TASK2_ID 2
-#define TASK3_ID 3
+#define TS_TASK_500MS_ID    1
+#define TS_TASK_1000MS_ID   2
+#define TS_TASK_1500MS_ID   3
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Structs------------------------------------------------------*/
@@ -46,12 +46,12 @@ typedef struct {
 /*---------------------------------------------Function Prototypes     ----------------------------------------------*/
 /*********************************************************************************************************************/
 
-extern void TS_Create_Task(uint8 id, uint16 priority, uint32 interval, void (*function)(void));
+extern void TS_v_Task500ms  (void);
+extern void TS_v_Task1000ms (void);
+extern void TS_v_Task1500ms (void);
 
-extern void TS_Handle_Timer(uint16 signum);
-
-extern void TS_Init();
-
-extern void schedule_tasks(void);
+extern void TS_v_Run        (void);
 
 #endif /* TASK_SCHEDULER_H_ */
+
+//END OF FILE

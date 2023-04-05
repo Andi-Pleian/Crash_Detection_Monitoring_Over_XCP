@@ -8,6 +8,7 @@
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
+
 #include "GPT12_Timer_Interrupt.h"
 #include "Ifx_Types.h"
 #include "IfxGpt12.h"
@@ -20,11 +21,16 @@
 
 #define ISR_PRIORITY_GPT12_TIMER    6                       /* Define the GPT12 Timer interrupt priority            */
 #define ISR_PROVIDER_GPT12_TIMER    IfxSrc_Tos_cpu0         /* Interrupt provider                                   */
-#define RELOAD_VALUE                24414u//48828u                  /* Reload value to have an interrupt each 500ms         */
-#define LED                         &MODULE_P20,11          /* LED which toggles in the Interrupt Service Routine   */
-#define LED2                         &MODULE_P20,12
-#define LED3                         &MODULE_P20,13
 
+#define RELOAD_VALUE                1220                    /* Reload value to have an interrupt each 500ms         */
+//2441//2441u //48828u
+
+#define LED                         &MODULE_P20,11          /* LED which toggles in the Interrupt Service Routine   */
+#define LED2                        &MODULE_P20,12
+#define LED3                        &MODULE_P20,13
+
+//reload_value = 2441 => imi executa taskul de 1sec la 1sec jumate cred
+//reload_value = 1220 => cred ca o secunda
 /*********************************************************************************************************************/
 /*--------------------------------------------Function Implementations-----------------------------------------------*/
 /*********************************************************************************************************************/
@@ -33,8 +39,7 @@
 IFX_INTERRUPT(interruptGpt12, 0, ISR_PRIORITY_GPT12_TIMER);
 
 /* Function to initialize the GPT12 and start the timer */
-void initGpt12Timer(void)
-{
+void GPT12_v_InitTimer(void) {
     /* Initialize the GPT12 module */
     IfxGpt12_enableModule(&MODULE_GPT120);                                          /* Enable the GPT12 module      */
     IfxGpt12_setGpt1BlockPrescaler(&MODULE_GPT120, IfxGpt12_Gpt1BlockPrescaler_16); /* Set GPT1 block prescaler     */
@@ -47,7 +52,8 @@ void initGpt12Timer(void)
 
     /* Initialize the Timer T2 */
     IfxGpt12_T2_setMode(&MODULE_GPT120, IfxGpt12_Mode_reload);                      /* Set T2 to reload mode        */
-    IfxGpt12_T2_setReloadInputMode(&MODULE_GPT120, IfxGpt12_ReloadInputMode_bothEdgesTxOTL); /* Set reload trigger  */
+    IfxGpt12_T2_setReloadInputMode(&MODULE_GPT120,
+            IfxGpt12_ReloadInputMode_bothEdgesTxOTL);                               /* Set reload trigger  */
     IfxGpt12_T2_setTimerValue(&MODULE_GPT120, RELOAD_VALUE);                        /* Set T2 reload value          */
 
     /* Initialize the interrupt */
@@ -64,8 +70,9 @@ void initGpt12Timer(void)
 }
 
 /* Interrupt Service Routine of the GPT12 */
-void interruptGpt12(void)
-{
-    //IfxPort_togglePin(LED);                                                         /* Toggle LED state             */
-    schedule_tasks();
+void interruptGpt12(void) {
+    TS_v_Run();     //Run task scheduler
 }
+
+//END OF FILE
+

@@ -16,8 +16,7 @@ extern IfxCpu_syncEvent g_cpuSyncEvent;
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 
-void core1_main(void)
-{
+void core1_main(void) {
     IfxCpu_enableInterrupts();
     
     /* !!WATCHDOG1 IS DISABLED HERE!!
@@ -29,7 +28,9 @@ void core1_main(void)
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
     
-    while(1)
-    {
+    while(1) {
+
     }
 }
+
+//END OF FILE

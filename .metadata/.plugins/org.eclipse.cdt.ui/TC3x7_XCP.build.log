@@ -4,6 +4,6 @@ Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
  ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
 ::Erasing Flash memory .......... (Pass)
 ::Programming Flash memory .......... (Pass)
-Overall time: 1212 ms
+Overall time: 1176 ms
 AurixFlasher Exit Status: Pass
 Flashing was successfull
