@@ -30,6 +30,8 @@ Configurations \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Infra/Ssw/TC36A/Tricore \
 Libraries/Service/CpuGeneric/SysSe/Bsp \
+Libraries/iLLD/TC36A/Tricore/Can/Can \
+Libraries/iLLD/TC36A/Tricore/Can/Std \
 Libraries/iLLD/TC36A/Tricore/Cpu/Irq \
 Libraries/iLLD/TC36A/Tricore/Cpu/Std \
 Libraries/iLLD/TC36A/Tricore/Cpu/Trap \
@@ -43,6 +45,7 @@ Libraries/iLLD/TC36A/Tricore/Src/Std \
 Libraries/iLLD/TC36A/Tricore/Stm/Std \
 Libraries/iLLD/TC36A/Tricore/_Impl \
 Libraries/iLLD/TC36A/Tricore/_PinMap \
+MCMCAN \
 Task_Scheduler \
 Timer_Interrupt \
 

@@ -65,7 +65,7 @@ void TS_v_Run (void) {
         }
         // Decrement remaining time
         if (tickCounter % 10 == 0) {
-            currentTask->remainingTime -= 10; // Assume tick interval is 10 ms
+            currentTask->remainingTime -= 10; // Tick interval is 10 ms
         }
     }
     // Increment tick counter
@@ -76,6 +76,7 @@ void TS_v_Run (void) {
  * Cyclic task that executes 500ms
  */
 void TS_v_Task500ms (void) {
+    // LED1 => ON
     IfxPort_setPinHigh(&MODULE_P20, 12);
     IfxPort_setPinHigh(&MODULE_P20, 13);
     IfxPort_setPinLow(&MODULE_P20, 11);
@@ -85,6 +86,7 @@ void TS_v_Task500ms (void) {
  * Cyclic task that executes 1000ms
  */
 void TS_v_Task1000ms (void) {
+    // LED2 => ON
     IfxPort_setPinLow(&MODULE_P20, 12);
     IfxPort_setPinHigh(&MODULE_P20, 13);
     IfxPort_setPinHigh(&MODULE_P20, 11);
@@ -94,6 +96,7 @@ void TS_v_Task1000ms (void) {
  * Cyclic task that executes 1500ms
  */
 void TS_v_Task1500ms (void) {
+    // LED3 => ON
     IfxPort_setPinHigh(&MODULE_P20, 12);
     IfxPort_setPinLow(&MODULE_P20, 13);
     IfxPort_setPinHigh(&MODULE_P20, 11);

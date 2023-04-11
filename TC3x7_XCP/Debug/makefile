@@ -10,6 +10,7 @@ RM := rm -rf
 -include sources.mk
 -include Timer_Interrupt/subdir.mk
 -include Task_Scheduler/subdir.mk
+-include MCMCAN/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_PinMap/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/_Impl/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Stm/Std/subdir.mk
@@ -23,6 +24,8 @@ RM := rm -rf
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Trap/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Std/subdir.mk
 -include Libraries/iLLD/TC36A/Tricore/Cpu/Irq/subdir.mk
+-include Libraries/iLLD/TC36A/Tricore/Can/Std/subdir.mk
+-include Libraries/iLLD/TC36A/Tricore/Can/Can/subdir.mk
 -include Libraries/Service/CpuGeneric/SysSe/Bsp/subdir.mk
 -include Libraries/Infra/Ssw/TC36A/Tricore/subdir.mk
 -include Libraries/Infra/Platform/Tricore/Compilers/subdir.mk
