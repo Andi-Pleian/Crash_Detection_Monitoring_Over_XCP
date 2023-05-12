@@ -6341,3 +6341,414 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:25:37.181
 !MESSAGE Include paths were discovered in 39 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:34:14.913
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1905 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:34:14.972
+!MESSAGE Include paths were discovered in 55 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:34:33.464
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 339 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:34:33.506
+!MESSAGE Include paths were discovered in 46 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:35:25.921
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 133 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:35:25.953
+!MESSAGE Include paths were discovered in 29 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:36:08.784
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1130 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:36:08.811
+!MESSAGE Include paths were discovered in 25 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:06.466
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1119 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:06.493
+!MESSAGE Include paths were discovered in 25 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:15.296
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1095 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:15.322
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:26.935
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 163 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:39:26.967
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:40:23.426
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1151 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:40:23.457
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:43:24.818
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1072 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:43:24.843
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:43:36.864
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 169 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:43:36.892
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:05.134
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1102 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:05.159
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:30.283
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1067 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:30.307
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:43.259
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 151 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:44:43.294
+!MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:45:21.538
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 109 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:45:21.569
+!MESSAGE Include paths were discovered in 29 milliseconds.
+
+!ENTRY com.tasking.debug.cdt.core 4 150 2023-05-12 12:45:24.962
+!MESSAGE Error creating session 
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-05-12 12:45:24.962
+!MESSAGE The debug instrument IO could not be initialized.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-05-12 12:45:24.962
+!MESSAGE The GDI debug instrument provided the following error message.
+!SUBENTRY 1 com.tasking.debug.cdt.core 4 150 2023-05-12 12:45:24.962
+!MESSAGE An internal error has occurred.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:45:52.749
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1075 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:45:52.776
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:02.648
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 151 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:02.677
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:09.861
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 118 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:09.892
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:37.101
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1091 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:37.126
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:51.022
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 166 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:46:51.052
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:12.759
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1089 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:12.783
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:28.869
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 148 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:28.896
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:58.997
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1075 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:47:59.023
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:48:09.912
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 166 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:48:09.941
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:04.006
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1050 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:04.029
+!MESSAGE Include paths were discovered in 21 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:19.713
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1064 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:19.738
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:30.009
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 150 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:49:30.035
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:09.190
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1076 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:09.216
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:21.427
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 152 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:21.454
+!MESSAGE Include paths were discovered in 25 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:43.823
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1076 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:43.850
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:54.022
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 147 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:50:54.048
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:52:48.943
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1029 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:52:48.968
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:52:58.965
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 150 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:52:58.993
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:53:30.744
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1057 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:53:30.769
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:53:41.546
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 153 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:53:41.571
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:54:17.427
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1098 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:54:17.452
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:54:48.138
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1128 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:54:48.165
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:03.485
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1131 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:03.512
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:31.077
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1046 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:31.101
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:41.271
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 148 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:55:41.298
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:56:20.831
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1098 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:56:20.858
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:56:52.420
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1048 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:56:52.446
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:57:02.294
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 162 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:57:02.325
+!MESSAGE Include paths were discovered in 29 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:57:45.803
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1091 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:57:45.828
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:09.777
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1081 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:09.804
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:34.142
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1026 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:34.166
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:45.359
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 156 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:58:45.389
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:18.299
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1108 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:18.326
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:44.568
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1040 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:44.592
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:55.505
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 149 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 12:59:55.532
+!MESSAGE Include paths were discovered in 24 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:22.213
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1097 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:22.237
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:31.938
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 109 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:31.963
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:58.360
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1091 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:00:58.385
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:01:13.543
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1128 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:01:13.568
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:02:23.924
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1081 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:02:23.949
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:02:49.421
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1109 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:02:49.447
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:05.328
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1092 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:05.359
+!MESSAGE Include paths were discovered in 28 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:26.724
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1096 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:26.750
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:46.568
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1145 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:03:46.592
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:04:47.421
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1091 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:04:47.445
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:09:58.986
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1152 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:09:59.011
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:10:31.001
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1104 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:10:31.026
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:11:08.436
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1095 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:11:08.460
+!MESSAGE Include paths were discovered in 21 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:11:54.701
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1072 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:11:54.726
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:12:27.311
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1093 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:12:27.338
+!MESSAGE Include paths were discovered in 25 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:12:49.542
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1114 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:12:49.566
+!MESSAGE Include paths were discovered in 22 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:13:19.652
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1112 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:13:19.678
+!MESSAGE Include paths were discovered in 23 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:13:59.645
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1093 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-12 13:13:59.672
+!MESSAGE Include paths were discovered in 24 milliseconds.

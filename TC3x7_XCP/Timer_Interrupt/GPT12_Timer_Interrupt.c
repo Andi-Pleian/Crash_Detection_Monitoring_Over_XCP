@@ -22,15 +22,12 @@
 #define ISR_PRIORITY_GPT12_TIMER    6                       /* Define the GPT12 Timer interrupt priority            */
 #define ISR_PROVIDER_GPT12_TIMER    IfxSrc_Tos_cpu0         /* Interrupt provider                                   */
 
-#define RELOAD_VALUE                1220                    /* Reload value to have an interrupt each 500ms         */
-//2441//2441u //48828u
+#define RELOAD_VALUE                7                       /* Reload value to have an interrupt each 500ms         */
 
 #define LED                         &MODULE_P20,11          /* LED which toggles in the Interrupt Service Routine   */
 #define LED2                        &MODULE_P20,12
 #define LED3                        &MODULE_P20,13
 
-//reload_value = 2441 => imi executa taskul de 1sec la 1sec jumate cred
-//reload_value = 1220 => cred ca o secunda
 /*********************************************************************************************************************/
 /*--------------------------------------------Function Implementations-----------------------------------------------*/
 /*********************************************************************************************************************/

@@ -30,6 +30,27 @@ void wait_ms(uint32 ms)
     wait(waitms);
 }
 
+void init_leds() {
+    /* Initialization of the LED */
+    IfxPort_setPinModeOutput(&MODULE_P20, 12, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    /* Switch OFF the LED (low-level active) */
+    IfxPort_setPinHigh(&MODULE_P20, 12);
+
+    /* Initialization of the LED */
+    IfxPort_setPinModeOutput(&MODULE_P20, 13, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    /* Switch OFF the LED (low-level active) */
+    IfxPort_setPinHigh(&MODULE_P20, 13);
+
+    /* Initialization of the LED */
+    IfxPort_setPinModeOutput(&MODULE_P20, 11, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    /* Switch OFF the LED (low-level active) */
+    IfxPort_setPinHigh(&MODULE_P20, 11);
+}
+
+void led2ON_Init() {
+    IfxPort_setPinLow(&MODULE_P20, 12);
+}
+
 void core0_main(void) {
     IfxCpu_enableInterrupts();
     
@@ -43,23 +64,10 @@ void core0_main(void) {
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
+    init_leds();
+
     // Start GPT12 timer
-    //GPT12_v_InitTimer();
-    
-
-
-    wait_ms(1000);
-    initMcmcan();
-    initLeds();
-    transmitCanMessage();   //LED ON
-    wait_ms(1000);
-    wait_ms(1000);
-    transmitCanMessage();   //LED OFF
-    wait_ms(1000);
-    wait_ms(1000);
-    transmitCanMessage();   //LED ON
-    wait_ms(1000);
-    wait_ms(1000);
+    GPT12_v_InitTimer();
 
     while(1) {
 

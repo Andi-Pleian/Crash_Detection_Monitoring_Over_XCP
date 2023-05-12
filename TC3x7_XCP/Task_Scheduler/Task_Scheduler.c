@@ -29,15 +29,17 @@
  * Array with all tasks
  */
 S_TS_Task tasks[TS_NUM_TASKS] = {
-        {TS_TASK_500MS_ID,      500,     500,   TS_v_Task500ms},
-        {TS_TASK_1000MS_ID,     1000,    1000,  TS_v_Task1000ms},
-        {TS_TASK_1500MS_ID,     1500,    1500,  TS_v_Task1500ms},
+        {TS_TASK_1MS_ID,      1,     1,   TS_v_Task1ms},
+        {TS_TASK_10MS_ID,     10,    10,  TS_v_Task10ms},
 };
 //S_TS_Task tasks[NUM_TASKS] = {
 //  {TASK1_ID, 100, 100, task1},
 //  {TASK2_ID, 200, 200, task2},
 //  {TASK3_ID, 300, 300, task3},
 //};
+
+uint32 counter1ms   = 0;
+uint32 counter10ms  = 0;
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
@@ -65,41 +67,49 @@ void TS_v_Run (void) {
         }
         // Decrement remaining time
         if (tickCounter % 10 == 0) {
-            currentTask->remainingTime -= 10; // Tick interval is 10 ms
+            currentTask->remainingTime -= 1; // Tick interval is 10 ms
         }
     }
     // Increment tick counter
-    tickCounter += 10; // Assume tick interval is 10 ms
+    tickCounter += 1; // Assume tick interval is 10 ms
 }
 
-/**
- * Cyclic task that executes 500ms
- */
-void TS_v_Task500ms (void) {
-    // LED1 => ON
-    IfxPort_setPinHigh(&MODULE_P20, 12);
-    IfxPort_setPinHigh(&MODULE_P20, 13);
+void led1ON() {
+    //IfxPort_setPinHigh(&MODULE_P20, 12);
+    //IfxPort_setPinHigh(&MODULE_P20, 13);
     IfxPort_setPinLow(&MODULE_P20, 11);
 }
 
-/**
- * Cyclic task that executes 1000ms
- */
-void TS_v_Task1000ms (void) {
-    // LED2 => ON
+void led2ON() {
     IfxPort_setPinLow(&MODULE_P20, 12);
     IfxPort_setPinHigh(&MODULE_P20, 13);
     IfxPort_setPinHigh(&MODULE_P20, 11);
 }
 
 /**
- * Cyclic task that executes 1500ms
+ * Cyclic task that executes at 1ms
  */
-void TS_v_Task1500ms (void) {
-    // LED3 => ON
-    IfxPort_setPinHigh(&MODULE_P20, 12);
-    IfxPort_setPinLow(&MODULE_P20, 13);
-    IfxPort_setPinHigh(&MODULE_P20, 11);
+void TS_v_Task1ms (void) {
+    // LED1 => ON
+    counter1ms++;
+
+    // if 5000ms passed turn on led1
+    if (counter1ms == 5000) {
+        led1ON();
+    }
+}
+
+/**
+ * Cyclic task that executes at 10ms
+ */
+void TS_v_Task10ms (void) {
+//    LED2 => ON
+    counter10ms++;
+
+    // if 10.000ms passed turn on led2
+    if (counter10ms == 1000) {
+        led2ON();
+    }
 }
 
 //END OF FILE
