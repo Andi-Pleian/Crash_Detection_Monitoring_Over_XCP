@@ -8,7 +8,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2018 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -33,7 +33,8 @@
 
 /*==================[macros]================================================*/
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_ISVALIDCONFIG_ENTRY
 /** \brief Entry point of function CanIf_IsValidConfig()
  **
@@ -41,9 +42,11 @@
  */
 #define DBG_CANIF_ISVALIDCONFIG_ENTRY(voidConfigPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_ISVALIDCONFIG_EXIT
 /** \brief Exit point of function CanIf_IsValidConfig()
  **
@@ -53,10 +56,12 @@
  */
 #define DBG_CANIF_ISVALIDCONFIG_EXIT(Retval,voidConfigPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_INIT_ENTRY
 /** \brief Entry point of function CanIf_Init()
  **
@@ -64,9 +69,11 @@
  */
 #define DBG_CANIF_INIT_ENTRY(ConfigPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_INIT_EXIT
 /** \brief Exit point of function CanIf_Init()
  **
@@ -74,10 +81,12 @@
  */
 #define DBG_CANIF_INIT_EXIT(ConfigPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETCONTROLLERMODE_ENTRY
 /** \brief Entry point of function CanIf_SetControllerMode()
  **
@@ -85,9 +94,11 @@
  */
 #define DBG_CANIF_SETCONTROLLERMODE_ENTRY(ControllerId,ControllerMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETCONTROLLERMODE_EXIT
 /** \brief Exit point of function CanIf_SetControllerMode()
  **
@@ -97,10 +108,12 @@
  */
 #define DBG_CANIF_SETCONTROLLERMODE_EXIT(Retval,ControllerId,ControllerMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETCONTROLLERMODE_ENTRY
 /** \brief Entry point of function CanIf_GetControllerMode()
  **
@@ -108,9 +121,11 @@
  */
 #define DBG_CANIF_GETCONTROLLERMODE_ENTRY(ControllerId,ControllerModePtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETCONTROLLERMODE_EXIT
 /** \brief Exit point of function CanIf_GetControllerMode()
  **
@@ -120,10 +135,12 @@
  */
 #define DBG_CANIF_GETCONTROLLERMODE_EXIT(Retval,ControllerId,ControllerModePtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TRANSMIT_ENTRY
 /** \brief Entry point of function CanIf_Transmit()
  **
@@ -131,9 +148,11 @@
  */
 #define DBG_CANIF_TRANSMIT_ENTRY(CanTxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TRANSMIT_EXIT
 /** \brief Exit point of function CanIf_Transmit()
  **
@@ -143,10 +162,12 @@
  */
 #define DBG_CANIF_TRANSMIT_EXIT(Retval,CanTxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETBAUDRATE_ENTRY
 /** \brief Entry point of function CanIf_SetBaudrate()
  **
@@ -154,9 +175,11 @@
  */
 #define DBG_CANIF_SETBAUDRATE_ENTRY(ControllerId,BaudRateConfigID)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETBAUDRATE_EXIT
 /** \brief Exit point of function CanIf_SetBaudrate()
  **
@@ -166,10 +189,12 @@
  */
 #define DBG_CANIF_SETBAUDRATE_EXIT(Retval,ControllerId,BaudRateConfigID)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CANCELTRANSMIT_ENTRY
 /** \brief Entry point of function CanIf_CancelTransmit()
  **
@@ -177,9 +202,11 @@
  */
 #define DBG_CANIF_CANCELTRANSMIT_ENTRY(CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CANCELTRANSMIT_EXIT
 /** \brief Exit point of function CanIf_CancelTransmit()
  **
@@ -189,10 +216,12 @@
  */
 #define DBG_CANIF_CANCELTRANSMIT_EXIT(Retval,CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READRXPDUDATA_ENTRY
 /** \brief Entry point of function CanIf_ReadRxPduData()
  **
@@ -200,9 +229,11 @@
  */
 #define DBG_CANIF_READRXPDUDATA_ENTRY(CanRxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READRXPDUDATA_EXIT
 /** \brief Exit point of function CanIf_ReadRxPduData()
  **
@@ -212,10 +243,12 @@
  */
 #define DBG_CANIF_READRXPDUDATA_EXIT(Retval,CanRxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READTXNOTIFSTATUS_ENTRY
 /** \brief Entry point of function CanIf_ReadTxNotifStatus()
  **
@@ -223,9 +256,11 @@
  */
 #define DBG_CANIF_READTXNOTIFSTATUS_ENTRY(CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READTXNOTIFSTATUS_EXIT
 /** \brief Exit point of function CanIf_ReadTxNotifStatus()
  **
@@ -235,10 +270,12 @@
  */
 #define DBG_CANIF_READTXNOTIFSTATUS_EXIT(Retval,CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READRXNOTIFSTATUS_ENTRY
 /** \brief Entry point of function CanIf_ReadRxNotifStatus()
  **
@@ -246,9 +283,11 @@
  */
 #define DBG_CANIF_READRXNOTIFSTATUS_ENTRY(CanRxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_READRXNOTIFSTATUS_EXIT
 /** \brief Exit point of function CanIf_ReadRxNotifStatus()
  **
@@ -258,10 +297,12 @@
  */
 #define DBG_CANIF_READRXNOTIFSTATUS_EXIT(Retval,CanRxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETPDUMODE_ENTRY
 /** \brief Entry point of function CanIf_SetPduMode()
  **
@@ -269,9 +310,11 @@
  */
 #define DBG_CANIF_SETPDUMODE_ENTRY(ControllerId,PduModeRequest)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETPDUMODE_EXIT
 /** \brief Exit point of function CanIf_SetPduMode()
  **
@@ -281,10 +324,12 @@
  */
 #define DBG_CANIF_SETPDUMODE_EXIT(Retval,ControllerId,PduModeRequest)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETPDUMODE_ENTRY
 /** \brief Entry point of function CanIf_GetPduMode()
  **
@@ -292,9 +337,11 @@
  */
 #define DBG_CANIF_GETPDUMODE_ENTRY(ControllerId,PduModePtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETPDUMODE_EXIT
 /** \brief Exit point of function CanIf_GetPduMode()
  **
@@ -304,10 +351,12 @@
  */
 #define DBG_CANIF_GETPDUMODE_EXIT(Retval,ControllerId,PduModePtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETVERSIONINFO_ENTRY
 /** \brief Entry point of function CanIf_GetVersionInfo()
  **
@@ -315,9 +364,11 @@
  */
 #define DBG_CANIF_GETVERSIONINFO_ENTRY(Versioninfo)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETVERSIONINFO_EXIT
 /** \brief Exit point of function CanIf_GetVersionInfo()
  **
@@ -325,10 +376,12 @@
  */
 #define DBG_CANIF_GETVERSIONINFO_EXIT(Versioninfo)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETDYNAMICTXID_ENTRY
 /** \brief Entry point of function CanIf_SetDynamicTxId()
  **
@@ -336,9 +389,11 @@
  */
 #define DBG_CANIF_SETDYNAMICTXID_ENTRY(CanTxPduId,CanId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETDYNAMICTXID_EXIT
 /** \brief Exit point of function CanIf_SetDynamicTxId()
  **
@@ -346,10 +401,12 @@
  */
 #define DBG_CANIF_SETDYNAMICTXID_EXIT(CanTxPduId,CanId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETTRCVMODE_ENTRY
 /** \brief Entry point of function CanIf_SetTrcvMode()
  **
@@ -357,9 +414,11 @@
  */
 #define DBG_CANIF_SETTRCVMODE_ENTRY(TransceiverId,TransceiverMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETTRCVMODE_EXIT
 /** \brief Exit point of function CanIf_SetTrcvMode()
  **
@@ -369,10 +428,12 @@
  */
 #define DBG_CANIF_SETTRCVMODE_EXIT(Retval,TransceiverId,TransceiverMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTRCVMODE_ENTRY
 /** \brief Entry point of function CanIf_GetTrcvMode()
  **
@@ -380,9 +441,11 @@
  */
 #define DBG_CANIF_GETTRCVMODE_ENTRY(TransceiverModePtr,TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTRCVMODE_EXIT
 /** \brief Exit point of function CanIf_GetTrcvMode()
  **
@@ -392,10 +455,12 @@
  */
 #define DBG_CANIF_GETTRCVMODE_EXIT(Retval,TransceiverModePtr,TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTRCVWAKEUPREASON_ENTRY
 /** \brief Entry point of function CanIf_GetTrcvWakeupReason()
  **
@@ -403,9 +468,11 @@
  */
 #define DBG_CANIF_GETTRCVWAKEUPREASON_ENTRY(TransceiverId,TrcvWuReasonPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTRCVWAKEUPREASON_EXIT
 /** \brief Exit point of function CanIf_GetTrcvWakeupReason()
  **
@@ -415,10 +482,12 @@
  */
 #define DBG_CANIF_GETTRCVWAKEUPREASON_EXIT(Retval,TransceiverId,TrcvWuReasonPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETTRCVWAKEUPMODE_ENTRY
 /** \brief Entry point of function CanIf_SetTrcvWakeupMode()
  **
@@ -426,9 +495,11 @@
  */
 #define DBG_CANIF_SETTRCVWAKEUPMODE_ENTRY(TransceiverId,TrcvWakeupMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_SETTRCVWAKEUPMODE_EXIT
 /** \brief Exit point of function CanIf_SetTrcvWakeupMode()
  **
@@ -438,10 +509,12 @@
  */
 #define DBG_CANIF_SETTRCVWAKEUPMODE_EXIT(Retval,TransceiverId,TrcvWakeupMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKWAKEUP_ENTRY
 /** \brief Entry point of function CanIf_CheckWakeup()
  **
@@ -449,9 +522,11 @@
  */
 #define DBG_CANIF_CHECKWAKEUP_ENTRY(WakeupSource)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKWAKEUP_EXIT
 /** \brief Exit point of function CanIf_CheckWakeup()
  **
@@ -461,10 +536,12 @@
  */
 #define DBG_CANIF_CHECKWAKEUP_EXIT(Retval,WakeupSource)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKVALIDATION_ENTRY
 /** \brief Entry point of function CanIf_CheckValidation()
  **
@@ -472,9 +549,11 @@
  */
 #define DBG_CANIF_CHECKVALIDATION_ENTRY(WakeupSource)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKVALIDATION_EXIT
 /** \brief Exit point of function CanIf_CheckValidation()
  **
@@ -484,10 +563,12 @@
  */
 #define DBG_CANIF_CHECKVALIDATION_EXIT(Retval,WakeupSource)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTXCONFIRMATIONSTATE_ENTRY
 /** \brief Entry point of function CanIf_GetTxConfirmationState()
  **
@@ -495,9 +576,11 @@
  */
 #define DBG_CANIF_GETTXCONFIRMATIONSTATE_ENTRY(ControllerId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_GETTXCONFIRMATIONSTATE_EXIT
 /** \brief Exit point of function CanIf_GetTxConfirmationState()
  **
@@ -507,10 +590,12 @@
  */
 #define DBG_CANIF_GETTXCONFIRMATIONSTATE_EXIT(Retval,ControllerId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CLEARTRCVWUFFLAG_ENTRY
 /** \brief Entry point of function CanIf_ClearTrcvWufFlag()
  **
@@ -518,9 +603,11 @@
  */
 #define DBG_CANIF_CLEARTRCVWUFFLAG_ENTRY(TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CLEARTRCVWUFFLAG_EXIT
 /** \brief Exit point of function CanIf_ClearTrcvWufFlag()
  **
@@ -530,10 +617,12 @@
  */
 #define DBG_CANIF_CLEARTRCVWUFFLAG_EXIT(Retval,TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKTRCVWAKEFLAG_ENTRY
 /** \brief Entry point of function CanIf_CheckTrcvWakeFlag()
  **
@@ -541,9 +630,11 @@
  */
 #define DBG_CANIF_CHECKTRCVWAKEFLAG_ENTRY(TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKTRCVWAKEFLAG_EXIT
 /** \brief Exit point of function CanIf_CheckTrcvWakeFlag()
  **
@@ -553,10 +644,12 @@
  */
 #define DBG_CANIF_CHECKTRCVWAKEFLAG_EXIT(Retval,TransceiverId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TXCONFIRMATION_ENTRY
 /** \brief Entry point of function CanIf_TxConfirmation()
  **
@@ -564,9 +657,11 @@
  */
 #define DBG_CANIF_TXCONFIRMATION_ENTRY(CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TXCONFIRMATION_EXIT
 /** \brief Exit point of function CanIf_TxConfirmation()
  **
@@ -574,11 +669,13 @@
  */
 #define DBG_CANIF_TXCONFIRMATION_EXIT(CanTxPduId)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
 #if(CANIF_CAN_REV422_COMPATIBILITY == STD_OFF)
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_RXINDICATION_ENTRY
 /** \brief Entry point of function CanIf_RxIndication()
  **
@@ -586,9 +683,11 @@
  */
 #define DBG_CANIF_RXINDICATION_ENTRY(Hrh,CanId,CanDlc,CanSduPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_RXINDICATION_EXIT
 /** \brief Exit point of function CanIf_RxIndication()
  **
@@ -596,9 +695,11 @@
  */
 #define DBG_CANIF_RXINDICATION_EXIT(Hrh,CanId,CanDlc,CanSduPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 #else
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_RXINDICATION_ENTRY
 /** \brief Entry point of function CanIf_RxIndication()
  **
@@ -606,9 +707,11 @@
  */
 #define DBG_CANIF_RXINDICATION_ENTRY(Mailbox,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_RXINDICATION_EXIT
 /** \brief Exit point of function CanIf_RxIndication()
  **
@@ -616,12 +719,14 @@
  */
 #define DBG_CANIF_RXINDICATION_EXIT(Mailbox,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 #endif /* (CANIF_CAN_REV422_COMPATIBILITY == STD_OFF) */
 
 
 #if(CANIF_CAN_REV2_COMPATIBILITY == STD_OFF)
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CANCELTXCONFIRMATION_ENTRY
 /** \brief Entry point of function CanIf_CancelTxConfirmation()
  **
@@ -629,9 +734,11 @@
  */
 #define DBG_CANIF_CANCELTXCONFIRMATION_ENTRY(CanTxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CANCELTXCONFIRMATION_EXIT
 /** \brief Exit point of function CanIf_CancelTxConfirmation()
  **
@@ -639,10 +746,12 @@
  */
 #define DBG_CANIF_CANCELTXCONFIRMATION_EXIT(CanTxPduId,PduInfoPtr)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 #endif /* (CANIF_CAN_REV2_COMPATIBILITY == STD_OFF) */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONTROLLERBUSOFF_ENTRY
 /** \brief Entry point of function CanIf_ControllerBusOff()
  **
@@ -650,9 +759,11 @@
  */
 #define DBG_CANIF_CONTROLLERBUSOFF_ENTRY(Controller)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONTROLLERBUSOFF_EXIT
 /** \brief Exit point of function CanIf_ControllerBusOff()
  **
@@ -660,10 +771,12 @@
  */
 #define DBG_CANIF_CONTROLLERBUSOFF_EXIT(Controller)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONTROLLERMODEINDICATION_ENTRY
 /** \brief Entry point of function CanIf_ControllerModeIndication()
  **
@@ -671,9 +784,11 @@
  */
 #define DBG_CANIF_CONTROLLERMODEINDICATION_ENTRY(Controller,ControllerMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONTROLLERMODEINDICATION_EXIT
 /** \brief Exit point of function CanIf_ControllerModeIndication()
  **
@@ -681,10 +796,12 @@
  */
 #define DBG_CANIF_CONTROLLERMODEINDICATION_EXIT(Controller,ControllerMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TRCVMODEINDICATION_ENTRY
 /** \brief Entry point of function CanIf_TrcvModeIndication()
  **
@@ -692,9 +809,11 @@
  */
 #define DBG_CANIF_TRCVMODEINDICATION_ENTRY(Transceiver,TransceiverMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_TRCVMODEINDICATION_EXIT
 /** \brief Exit point of function CanIf_TrcvModeIndication()
  **
@@ -702,10 +821,12 @@
  */
 #define DBG_CANIF_TRCVMODEINDICATION_EXIT(Transceiver,TransceiverMode)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONFIRMPNAVAILABILITY_ENTRY
 /** \brief Entry point of function CanIf_ConfirmPnAvailability()
  **
@@ -713,9 +834,11 @@
  */
 #define DBG_CANIF_CONFIRMPNAVAILABILITY_ENTRY(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CONFIRMPNAVAILABILITY_EXIT
 /** \brief Exit point of function CanIf_ConfirmPnAvailability()
  **
@@ -723,10 +846,12 @@
  */
 #define DBG_CANIF_CONFIRMPNAVAILABILITY_EXIT(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CLEARTRCVWUFFLAGINDICATION_ENTRY
 /** \brief Entry point of function CanIf_ClearTrcvWufFlagIndication()
  **
@@ -734,9 +859,11 @@
  */
 #define DBG_CANIF_CLEARTRCVWUFFLAGINDICATION_ENTRY(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CLEARTRCVWUFFLAGINDICATION_EXIT
 /** \brief Exit point of function CanIf_ClearTrcvWufFlagIndication()
  **
@@ -744,10 +871,12 @@
  */
 #define DBG_CANIF_CLEARTRCVWUFFLAGINDICATION_EXIT(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKTRCVWAKEFLAGINDICATION_ENTRY
 /** \brief Entry point of function CanIf_CheckTrcvWakeFlagIndication()
  **
@@ -755,9 +884,11 @@
  */
 #define DBG_CANIF_CHECKTRCVWAKEFLAGINDICATION_ENTRY(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
-/** @cond */
+/** @cond
+ ** \brief Exclude section from doxygen */
 #ifndef DBG_CANIF_CHECKTRCVWAKEFLAGINDICATION_EXIT
 /** \brief Exit point of function CanIf_CheckTrcvWakeFlagIndication()
  **
@@ -765,7 +896,8 @@
  */
 #define DBG_CANIF_CHECKTRCVWAKEFLAGINDICATION_EXIT(Transceiver)
 #endif
-/** @endcond */
+/** \brief Exclude section from doxygen
+ ** @endcond */
 
 
 /*==================[type definitions]======================================*/

@@ -17,16 +17,6 @@
  * unless expressly agreed to otherwise.
  */
 /* !LINKSTO COMTYPE003,1, COMTYPE015,1, COMTYPE029,1 */
-[!/* PduIdTypeEnum is fixed to UINT16, see deviations of EcuC */!][!//
-[!IF "node:exists(as:modconf('EcuC')[1]/EcucPduCollection/PduIdTypeEnum) and
-          (as:modconf('EcuC')[1]/EcucPduCollection/PduIdTypeEnum != 'UINT16')"!][!//
-[!ERROR  "For PduIdTypeEnum only data type UINT16 is supported"!]
-[!ENDIF!][!//
-[!/* PduLengthTypeEnum is fixed to UINT16, see deviations of EcuC */!][!//
-[!IF "node:exists(as:modconf('EcuC')[1]/EcucPduCollection/PduLengthTypeEnum) and
-          (as:modconf('EcuC')[1]/EcucPduCollection/PduLengthTypeEnum != 'UINT16')"!][!//
-[!ERROR  "For PduLengthTypeEnum only data type UINT16 is supported"!][!//
-[!ENDIF!][!//
 
 /*==================[macros]=================================================*/
 

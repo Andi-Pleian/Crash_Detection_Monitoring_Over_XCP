@@ -15,13 +15,9 @@
 #if (!defined XCP_WRAPPER_TRACE_H)
 #define XCP_WRAPPER_TRACE_H
 
-[!AUTOSPACING!][!//
 
 /*==================[inclusions]============================================*/
 
-[!IF "node:exists(as:modconf('Dbg'))"!]
-#include <Dbg.h>
-[!ENDIF!]
 
 /*==================[macros]================================================*/
 
@@ -55,37 +51,7 @@
 #define DBG_XCP_WRAPPER_MAINFUNCTION_EXIT()
 #endif
 
-[!IF "as:modconf('Xcp')[1]/XcpGeneral/XcpEventTriggerMainFunc = 'true'"!]
-  [!IF "(node:exists(as:modconf('Xcp')[1]/XcpConfig/*[1]/XcpEventChannel)) and
-        (num:i(count(as:modconf('Xcp')[1]/XcpConfig/*[1]/XcpEventChannel/*)) > 0)"!]
-    [!LOOP "as:modconf('Xcp')[1]/XcpConfig/*[1]/XcpEventChannel/*"!]
-      [!IF "XcpEventChannelTimeCycle > 0"!]
 
-#ifndef DBG_XCP_WRAPPER_MAINFUNCTION_[!"text:toupper(@name)"!]_ENTRY
-/** \brief Entry point of function Xcp_Wrapper_MainFunction_[!"@name"!]() */
-#define DBG_XCP_WRAPPER_MAINFUNCTION_[!"text:toupper(@name)"!]_ENTRY()
-#endif
-
-#ifndef DBG_XCP_WRAPPER_MAINFUNCTION_[!"text:toupper(@name)"!]_EXIT
-/** \brief Exit point of function Xcp_Wrapper_MainFunction_[!"@name"!]() */
-#define DBG_XCP_WRAPPER_MAINFUNCTION_[!"text:toupper(@name)"!]_EXIT()
-#endif
-      [!ENDIF!]
-    [!ENDLOOP!]
-  [!ENDIF!]
-[!ENDIF!]
-
-[!IF "as:modconf('Xcp')[1]/XcpGeneral/XcpBuildChecksumMainFunctionSupport = 'true'"!]
-#ifndef DBG_XCP_WRAPPER_CRCMAINFUNCTION_ENTRY
-/** \brief Entry point of function Xcp_Wrapper_CrcMainFunction() */
-#define DBG_XCP_WRAPPER_CRCMAINFUNCTION_ENTRY()
-#endif
-
-#ifndef DBG_XCP_WRAPPER_CRCMAINFUNCTION_EXIT
-/** \brief Exit point of function Xcp_Wrapper_CrcMainFunction() */
-#define DBG_XCP_WRAPPER_CRCMAINFUNCTION_EXIT()
-#endif
-[!ENDIF!]
 
 #ifndef DBG_XCP_WRAPPER_SOADSOCONMODECHG_ENTRY
 /** \brief Entry point of function Xcp_Wrapper_SoAdSoConModeChg() */

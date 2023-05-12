@@ -15,7 +15,6 @@
 #if (!defined COMM_LCFG_H)
 #define COMM_LCFG_H
 
-[!AUTOSPACING!]
 /*==================[includes]==============================================*/
 
 #include <TSAutosar.h>              /* global configuration */

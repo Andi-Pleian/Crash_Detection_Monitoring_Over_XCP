@@ -12,20 +12,14 @@
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
-[!AUTOSPACING!]
-[!INCLUDE "CanIf_PreCompileMacros.m"!]
-[!IF "$canifMFSupport"!]
-[!INCLUDE "CanIf_DecoupledProcessing.m"!]
-[!ELSE!]
-[!VAR "decoupledRxSupported" = "false()"!]
-[!VAR "txDecoupledSupport" = "false()"!]
-[!ENDIF!]
 #if (!defined CANIF_TYPES_H)
 #define CANIF_TYPES_H
+
 
 /*==================[inclusions]=============================================*/
 
 #include <TSAutosar.h>
+#include <CanIf_Cfg.h>
 #include <Can.h>
 
 #if( CANIF_WAKEUP_SUPPORT_API == STD_ON )
@@ -52,7 +46,7 @@
 
 /* --- CAN Transceiver Configuration ----------------------------------- */
 
-[!IF "$canTrcvSupport"!]
+#if (CANIF_TRCV_SUPPORT == STD_ON)
 /** \brief Pointer to function CanTrcv_SetOpMode()
  **
  ** This is a function pointer type for the CAN transceiver function
@@ -76,7 +70,8 @@ typedef P2FUNC( Std_ReturnType, CANTRCV_CODE, CanIf_TrcvGetOpModeFctPtrType )
     P2VAR( CanTrcv_TrcvModeType, AUTOMATIC, CANTRCV_APPL_DATA ) OpMode
   );
 
-[!IF "$canTrcvWakeupSupport"!]
+
+#if (CANIF_CANTRCV_WAKEUP_SUPPORT == STD_ON)
 /** \brief Pointer to function CanTrcv_GetBusWuReason()
  **
  ** This is a function pointer type for the CAN transceiver function
@@ -110,9 +105,10 @@ typedef P2FUNC( Std_ReturnType, CANTRCV_CODE, CanIf_CBWakeupByBusFctPtrType )
   (
     uint8 Transceiver
   );
-[!ENDIF!][!// CanTrcv Wakeup support
+#endif /* CANIF_CANTRCV_WAKEUP_SUPPORT == STD_ON */
 
-[!IF "$canifPNSupport"!]
+
+#if CANIF_PUBLIC_PN_SUPPORT == STD_ON
 /** \brief Pointer to function CanTrcv_ClearTrcvWufFlag()
  **
  ** This is a function pointer type for the CAN transceiver function
@@ -133,8 +129,9 @@ typedef P2FUNC( Std_ReturnType, CANTRCV_CODE, CanIf_CheckTrcvWakeFlagFctPtrType 
   (
     uint8 Transceiver
   );
-[!ENDIF!][!// Partial Networking support
-[!ENDIF!][!// CanTrcv support
+#endif /* CANIF_PUBLIC_PN_SUPPORT == STD_ON */
+#endif /* CANIF_TRCV_SUPPORT == STD_ON */
+
 
 
 /* --- upper layer callbacks and notifications ------------------------- */
@@ -201,7 +198,7 @@ typedef P2FUNC( void, CANIF_APPL_CODE, CanIf_ActMainFctPtrType )
 
 /* --- CAN Transceiver Configuration ----------------------------------- */
 
-[!IF "$canTrcvSupport"!]
+#if (CANIF_TRCV_SUPPORT == STD_ON)
 /** \brief CAN Transceiver Driver function configuration
  **
  ** This type is used for configuring the CAN Transceiver Driver functions.
@@ -210,21 +207,22 @@ typedef struct
 {
   CanIf_TrcvSetOpModeFctPtrType setOpMode;        /**< set operation mode */
   CanIf_TrcvGetOpModeFctPtrType getOpMode;        /**< get operation mode */
-[!IF "$canTrcvWakeupSupport"!]
+#if CANIF_CANTRCV_WAKEUP_SUPPORT == STD_ON
   CanIf_TrcvGetBusWuRFctPtrType getBusWuReason;   /**< get wakeup reason */
   CanIf_TrcvSetWuModeFctPtrType setWakeupMode;    /**< set wakeup mode */
   CanIf_CBWakeupByBusFctPtrType chkWakeupByBus;   /**< wakeup polling */
-[!ENDIF!][!// CanTrcv Wakeup support
-[!IF "$canifPNSupport"!]
+#endif /* CANIF_CANTRCV_WAKEUP_SUPPORT */
+#if CANIF_PUBLIC_PN_SUPPORT == STD_ON
   CanIf_ClearTrcvWufFlagFctPtrType clearWufFlag;  /**< clear wake flag */
   CanIf_CheckTrcvWakeFlagFctPtrType checkWakeFlag;/**< check wake flag */
-[!ENDIF!][!// Partial Networking support
+#endif /* CANIF_PUBLIC_PN_SUPPORT */
 } CanIf_CanTrcvConfigType;
-[!ENDIF!][!// CanTrcv support
+#endif /* CANIF_TRCV_SUPPORT == STD_ON */
+
 
 /* --- Upper Layer Configuration --------------------------------------- */
 
-[!IF "($ulRxIndicationSupport = 'true') or ($cddRxIndicationSupport = 'true') or ($ulTxConfirmationSupport = 'true') or ($dlcErrorNotifSupport = 'true') or ($dlcPassedNotifSupport = 'true')"!]
+#if (CANIF_ANY_UL_CBK_SUPPORT == STD_ON)
 /** \brief Upper layer callback function configuration
  **
  ** This type contains the function pointer of the API functions
@@ -234,29 +232,29 @@ typedef struct
  */
 typedef struct
 {
-[!IF "$ulRxIndicationSupport"!]
+#if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
   VAR(CanIf_UlRxIndFctPtrType, TYPEDEF)       UlRxIndFctPtr;         /**< <UL>_RxIndication */
-[!ENDIF!][!// UL RxIndication support
+#endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */
 
-[!IF "$cddRxIndicationSupport"!]
+#if (CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON)
   VAR(CanIf_CddRxIndFctPtrType, TYPEDEF)      CddRxIndFctPtr;        /**< <Cdd>_RxIndication */
-[!ENDIF!][!// Cdd RxIndication support
+#endif /* CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON */
 
-[!IF "$ulTxConfirmationSupport"!]
+#if (CANIF_TX_CONFIRMATION_SUPPORT == STD_ON)
   VAR(CanIf_TxConfFctPtrType, TYPEDEF)        TxConfFctPtr;          /**< <UL>_TxConfirmation */
-[!ENDIF!][!// TxConfirmation support
+#endif /* CANIF_TX_CONFIRMATION_SUPPORT == STD_ON */
 
-[!IF "$dlcErrorNotifSupport"!]
+#if (CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON)
   VAR(CanIf_DlcCheckNotifFctPtrType, TYPEDEF) DlcErrorNotifFctPtr;   /**< <UL>_DlcFailedNotif */
-[!ENDIF!]
+#endif /* CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON */
 
-[!IF "$dlcPassedNotifSupport"!]
+#if (CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON)
   VAR(CanIf_DlcCheckNotifFctPtrType, TYPEDEF) DlcPassedNotifFctPtr;  /**< <UL>_DlcPassedNotif */
-[!ENDIF!]
+#endif /* CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON */
 } CanIf_CbkFctPtrTblType;
-[!ENDIF!][!// Upper Layer callback support
+#endif /* CANIF_ANY_UL_CBK_SUPPORT == STD_ON */
 
-[!IF "$txDecoupledSupport"!]
+#if (CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON)
 /** \brief Tx decoupled main function transmission configuration
  **
  ** This type contains the function pointer of the SchM ActMainFunction API functions,
@@ -265,12 +263,16 @@ typedef struct
 typedef struct
 {
   VAR(CanIf_ActMainFctPtrType, TYPEDEF) ActMainTxFctPtr;  /**< SchM_ActMainFunctionTx */
-  VAR([!"$canifTxQOffsetType"!], TYPEDEF) TxQueueOffset;                      /**< Queue offset of the Main Function */
-  VAR([!"$canifTxQOffsetType"!], TYPEDEF) TxQueueSize;                        /**< Queue size of the Main Function */
+#if (CANIF_MAX_QUEUED_TXPDUS_SIZE > 0xFFU)
+  VAR(uint16, TYPEDEF) TxQueueOffset;                     /**< Queue offset of the Main Function */
+#else
+  VAR(uint8, TYPEDEF) TxQueueOffset;                      /**< Queue offset of the Main Function */
+#endif
+  VAR(uint8, TYPEDEF) TxQueueSize;                        /**< Queue size of the Main Function */
 } CanIf_MfTxPtrTblType;
-[!ENDIF!][!// Decoupled transmission support
+#endif /* CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON */
 
-[!IF "$decoupledRxSupported"!]
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
 /** \brief Rx decoupled main function reception configuration
  **
  ** This type contains the function pointer of the SchM ActMainFunction API functions,
@@ -279,12 +281,16 @@ typedef struct
 typedef struct
 {
   VAR(CanIf_ActMainFctPtrType, TYPEDEF) ActMainRxFctPtr;  /**< SchM_ActMainFunctionRx */
-  VAR([!"$canifMaxPayloadSizeType"!], TYPEDEF) PayloadQueueSize;                  /**< Queue payload data size of the Main Function */
-  VAR([!"$canifMaxPayloadSizeTotalType"!], TYPEDEF) PayloadQueueOffset;                /**< Queue payload data offset of the Main Function */
-  VAR([!"$canifRxQOffsetType"!], TYPEDEF) RxQueueOffset;                     /**< Queue offset of the Main Function */
-  VAR([!"$canifRxPduQueueSizeType"!], TYPEDEF) RxQueueSize;                        /**< Queue size of the Main Function */
+  VAR(uint16, TYPEDEF) PayloadQueueSize;                  /**< Queue payload data size of the Main Function */
+  VAR(uint16, TYPEDEF) PayloadQueueOffset;                /**< Queue payload data offset of the Main Function */
+#if (CANIF_MAX_QUEUED_RXPDUS_SIZE > 0xFFU)
+  VAR(uint16, TYPEDEF) RxQueueOffset;                     /**< Queue offset of the Main Function */
+#else
+  VAR(uint8, TYPEDEF) RxQueueOffset;                      /**< Queue offset of the Main Function */
+#endif
+  VAR(uint8, TYPEDEF) RxQueueSize;                        /**< Queue size of the Main Function */
 } CanIf_MfRxPtrTblType;
-[!ENDIF!][!// Decoupled reception support
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON */
 
 /* --- Tx buffering ---------------------------------------------------- */
 
@@ -294,14 +300,15 @@ typedef struct
  */
 typedef struct
 {
-[!IF "$canifSetDynTxIdSupported"!]
+#if CANIF_SETDYNAMICTXID_API == STD_ON
   Can_IdType id;                        /**< CAN ID */
-[!ENDIF!]
+#endif /* CANIF_SETDYNAMICTXID_API */
   uint8 length;                         /**< DLC */
 } CanIf_TxBufferType;
 
-[!IF "$txDecoupledSupport"!]
-  /* --- Tx Pdu control queueing  ---------------------------------------- */
+
+#if (CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON)
+/* --- Tx Pdu control queueing  ---------------------------------------- */
 
 /** \brief Type for Tx control queue
  **
@@ -312,10 +319,10 @@ typedef struct
   PduIdType PduId;                     /**< Pdu ID */
   uint8 MFIdx;                         /**< associated Main Function index */
 } CanIf_TxQueueType;
-[!ENDIF!][!// Decoupled transmission
+#endif /* CANIF_DECOUPLED_TXPROCESSING_SUPPORT */
 
 
-[!IF "$decoupledRxSupported"!]
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
 /* --- Rx Pdu control queueing  ---------------------------------------- */
 
 /** \brief Type for Rx control queue
@@ -329,9 +336,8 @@ typedef struct
   uint16 PreviousQueuePos;       /**< position of the previous entry in queue */
   uint8 ControllerId;            /**< Id of the associated Controller */
   uint8 MFIdx;                   /**< associated Main Function index */
-  uint8 PayloadLen;              /**< Length of payload */
 } CanIf_RxQueueType;
-[!ENDIF!][!// Decoupled reception
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT */
 
 /*==================[external function declarations]=========================*/
 

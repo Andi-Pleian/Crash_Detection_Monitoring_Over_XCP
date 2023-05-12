@@ -25,11 +25,7 @@
 #endif /* #if (defined CANSM_DEV_ERROR_DETECT) */
 
 /** \brief Switch for DET usage */
-[!IF "as:modconf('CanSM')[1]/CanSMGeneral/CanSMDevErrorDetect = 'true'"!][!//
 #define CANSM_DEV_ERROR_DETECT   STD_ON
-[!ELSE!][!//
-#define CANSM_DEV_ERROR_DETECT   STD_OFF
-[!ENDIF!][!//
 
 /*==================[type definitions]======================================*/
 

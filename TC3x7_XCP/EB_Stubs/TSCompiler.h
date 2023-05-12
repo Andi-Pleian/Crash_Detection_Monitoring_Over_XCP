@@ -8,7 +8,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2015 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2017 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */

@@ -20,39 +20,29 @@
 #include <ComStack_Types.h>  /* AUTOSAR Com Stack standard types */
 #include <TSAutosar.h>       /* TS_PROD_* symbols */
 
-[!IF "ComMGeneral/ComMRteUsage = 'true'"!]
-#include <ComM_Cfg.h>       /* included precompile time configuration */
-#include <Rte_ComM.h>       /* Include Symbols defined by RTE */
-[!ENDIF!]
+
 
 /*==================[macros]================================================*/
 
 /*==================[type definitions]======================================*/
 
 #if (COMM_INCLUDE_RTE == STD_ON)
-[!IF "ComMGeneral/ComMServiceAPI/ComMDefaultASRServiceAPI != 'NONE'"!]
+
 #if (COMM_NUM_USERS != 0U)
 /** \brief Type for Rte mode switch callback functions */
 typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_RteSwitchCbkType)(
   Rte_ModeType_ComMMode mode);
 #endif
 
-[!IF "ComMGeneral/ComMServiceAPI/ComMDefaultASRServiceAPI = 'AUTOSAR_40'"!]
+
 
 /** \brief Type for Rte data write callback functions */
 typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_RteWriteCbkType)(
   P2CONST(ComM_UserHandleArrayType, AUTOMATIC, RTE_APPL_CONST) data);
-[!ENDIF!]
-[!ENDIF!]
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR32ServiceAPI = 'true'"!]
 
-#if (COMM_NUM_USERS != 0U)
-/** \brief Type for ASR32 Rte mode switch callback functions */
-typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_ASR32_RteSwitchCbkType)(
-  Rte_ModeType_ComM_ASR32_Mode mode);
-#endif
-[!ENDIF!]
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR40ServiceAPI = 'true'"!]
+
+
+
 #if (COMM_NUM_USERS != 0U)
 /** \brief Type for ASR40 Rte mode switch callback functions */
 typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_ASR40_RteSwitchCbkType)(
@@ -61,7 +51,7 @@ typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_ASR40_RteSwitchCbkType)(
 /** \brief Type for ASR40 Rte data write callback functions */
 typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_ASR40_RteWriteCbkType)(
   P2CONST(ComM_ASR40_UserHandleArrayType, AUTOMATIC, RTE_APPL_CONST) data);
-[!ENDIF!]
+
 #endif
 /*==================[external function declarations]========================*/
 
@@ -73,27 +63,21 @@ typedef P2FUNC(Std_ReturnType, RTE_CODE, ComM_ASR40_RteWriteCbkType)(
 #include <MemMap.h>
 
 #if (COMM_INCLUDE_RTE == STD_ON)
-[!IF "ComMGeneral/ComMServiceAPI/ComMDefaultASRServiceAPI != 'NONE'"!]
+
 #if (COMM_NUM_USERS != 0U)
 /** \brief Rte switch mode callbacks for each user */
 extern CONST(ComM_RteSwitchCbkType, COMM_CONST)
   ComM_RteSwitchCbk[USER_ARRAY_SIZE];
 #endif
-[!IF "ComMGeneral/ComMServiceAPI/ComMDefaultASRServiceAPI = 'AUTOSAR_40'"!]
+
 
 /** \brief Rte data write callbacks for each user */
 extern CONST(ComM_RteWriteCbkType, COMM_CONST)
   ComM_RteWriteCbk[COMM_NUM_CHANNELS];
-[!ENDIF!]
-[!ENDIF!]
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR32ServiceAPI = 'true'"!]
-#if (COMM_NUM_USERS != 0U)
-/** \brief Rte switch mode callbacks for each user */
-extern CONST(ComM_ASR32_RteSwitchCbkType, COMM_CONST)
-  ComM_ASR32_RteSwitchCbk[USER_ARRAY_SIZE];
-#endif
-[!ENDIF!]
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR40ServiceAPI = 'true'"!]
+
+
+
+
 #if (COMM_NUM_USERS != 0U)
 /** \brief Rte switch mode callbacks for each user */
 extern CONST(ComM_ASR40_RteSwitchCbkType, COMM_CONST)
@@ -102,7 +86,7 @@ extern CONST(ComM_ASR40_RteSwitchCbkType, COMM_CONST)
 /** \brief Rte data write callbacks for each user */
 extern CONST(ComM_ASR40_RteWriteCbkType, COMM_CONST)
   ComM_ASR40_RteWriteCbk[COMM_NUM_CHANNELS];
-[!ENDIF!]
+
 #endif
 
 #define COMM_STOP_SEC_CONST_UNSPECIFIED
@@ -117,29 +101,23 @@ extern CONST(ComM_ASR40_RteWriteCbkType, COMM_CONST)
 #define COMM_START_SEC_VAR_NO_INIT_8
 #include <MemMap.h>
 
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR32ServiceAPI = 'true'"!]
-/**
- * \brief Communication mode, which was last succeessuflly reported to each user via the ASR32
- *        interface of the Rte.
- */
-extern VAR(ComM_ASR32_ModeType, COMM_VAR) ComM_ASR32_RteModeUser[USER_ARRAY_SIZE];
-[!ENDIF!]
 
-[!IF "ComMGeneral/ComMServiceAPI/ComMEnableASR40ServiceAPI = 'true'"!]
+
+
 /**
  * \brief Communication mode, which was last succeessuflly reported to each user via the ASR40
  *        interface of the Rte.
  */
 extern VAR(ComM_ASR40_ModeType, COMM_VAR) ComM_ASR40_RteModeUser[USER_ARRAY_SIZE];
-[!ENDIF!]
 
-[!IF "ComMGeneral/ComMServiceAPI/ComMDefaultASRServiceAPI != 'NONE'"!]
+
+
 /**
  * \brief Communication mode, which was last succeessuflly reported to each user via the default
  *        interface of the Rte.
  */
 extern VAR(ComM_ASR40_ModeType, COMM_VAR) ComM_RteModeUser[USER_ARRAY_SIZE];
-[!ENDIF!]
+
 
 #define COMM_STOP_SEC_VAR_NO_INIT_8
 #include <MemMap.h>

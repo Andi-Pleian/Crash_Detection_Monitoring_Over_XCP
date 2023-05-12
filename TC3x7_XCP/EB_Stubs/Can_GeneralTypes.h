@@ -12,7 +12,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2016 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2017 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -31,7 +31,8 @@
 /* !LINKSTO CAN436,1, CAN438,1 */
 
 /** \brief This type is used to provide ID, DLC and SDU from CAN interface to
- **        CAN driver. */
+ *         CAN driver.
+ */
 /* !LINKSTO CAN415,1 */
 typedef struct
 {
@@ -43,8 +44,9 @@ typedef struct
 
 
 /** \brief This type defines a data structure which clearly provides an Hardware Object
- **        Handle including its corresponding CAN Controller and therefore CanDrv as well
- **        as the specific CanId. */
+ *         Handle including its corresponding CAN Controller and therefore CanDrv as well
+ *         as the specific CanId.
+ */
 /* !LINKSTO CAN496,1 */
 typedef struct
 {
@@ -90,7 +92,8 @@ typedef enum
 
 
 /** \brief This type shall be used to control the CAN transceiver concerning
- **        wake up events and wake up notifications. */
+ *         wake up events and wake up notifications.
+ */
 typedef enum
 {
   CANTRCV_WUMODE_ENABLE = 0,    /**< The notification for wakeup events is enabled on the addressed
@@ -102,7 +105,8 @@ typedef enum
 
 
 /** \brief This type denotes the wake up reason detected by the CAN transceiver
- **        in detail. */
+ *         in detail.
+ */
 typedef enum
 {
   CANTRCV_WU_ERROR = 0,         /**< Due to an error wake up reason was not detected. This value may
@@ -117,7 +121,7 @@ typedef enum
                                      up reason. */
   CANTRCV_WU_POWER_ON,          /**< The transceiver has detected, that the "wake up" is due to an
                                      ECU reset after power on. */
-  CANTRCV_WU_RESET,              /**< The transceiver has detected, that the "wake up" is due to an
+  CANTRCV_WU_RESET,             /**< The transceiver has detected, that the "wake up" is due to an
                                      ECU reset. */
   CANTRCV_WU_BY_SYSERR          /**< The transceiver has detected, that the "wake up" is due to an
                                      HW related device failure. */
@@ -125,7 +129,8 @@ typedef enum
 
 
 /** \brief Datatype used for describing whether PN wakeup
- *         functionality in CanTrcv is enabled or disabled. */
+ *         functionality in CanTrcv is enabled or disabled.
+ */
 typedef enum
 {
   PN_ENABLED = 0,               /**< PN wakeup functionality in CanTrcv is enabled. */

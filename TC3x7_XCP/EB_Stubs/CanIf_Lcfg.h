@@ -8,14 +8,13 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2018 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2017 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
 #if (!defined CANIF_LCFG_H)
 #define CANIF_LCFG_H
 
-[!AUTOSPACING!]
 /*==================[includes]==============================================*/
 
 #include <TSAutosar.h>              /* global configuration */
@@ -38,14 +37,14 @@
 
 /* start data section declaration */
 #define CANIF_START_SEC_CONST_32
-#include <CanIf_MemMap.h>
+#include <MemMap.h>
 
 /* value used to validate post build configuration against link time configuration */
 extern CONST(uint32, CANIF_CONST) CanIf_LcfgSignature;
 
 /* stop data section declaration */
 #define CANIF_STOP_SEC_CONST_32
-#include <CanIf_MemMap.h>
+#include <MemMap.h>
 
 /*==================[external function definitions]=========================*/
 

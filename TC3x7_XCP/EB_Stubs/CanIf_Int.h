@@ -8,7 +8,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2018 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -129,6 +129,12 @@
 #error CANIF_E_NOT_SLEEP already defined!
 #endif /* #if( defined CANIF_E_NOT_SLEEP)*/
 #define CANIF_E_NOT_SLEEP                   71U
+
+#if (defined CANIF_E_FULL_QUEUE)
+#error CANIF_E_FULL_QUEUE already defined!
+#endif /* #if( defined CANIF_E_FULL_QUEUE)*/
+#define CANIF_E_FULL_QUEUE                  90U
+
   /* --- partial networking ---------------------------------------------- */
 
 /** \brief Block the Tx PDU by the partial networking filter */
@@ -263,6 +269,16 @@
 #error CANIF_INVALID_TRCV_INDEX already defined!
 #endif /* #if( defined CANIF_INVALID_TRCV_INDEX)*/
 #define CANIF_INVALID_TRCV_INDEX              0xFFU
+
+/** \brief Invalid MainFunction index constant
+ **
+ ** This constant defines an index value which is interpreted as "invalid
+ ** index".
+ */
+#if (defined CANIF_INVALID_MF_INDEX)
+#error CANIF_INVALID_MF_INDEX already defined!
+#endif /* #if( defined CANIF_INVALID_MF_INDEX)*/
+#define CANIF_INVALID_MF_INDEX              0xFFU
 
 /** \brief "No range configuration" index
  **
@@ -422,7 +438,7 @@
   ( ( ((uint32)(CanId) & 0x20000000UL) != 0U ) || \
     ( ( ((uint32)(CanId) & 0x80000000UL) == 0U ) && \
       ( ((uint32)(CanId) & 0x3FFFF800UL) != 0U ) ) )
-	  
+
 #else /* (CANIF_CANIDTYPE_UINT32 == STD_ON) */
 
 #if (defined CANIF_CHECK_FOR_INVALID_CAN_ID)
@@ -430,7 +446,7 @@
 #endif /* #if( defined CANIF_CHECK_FOR_INVALID_CAN_ID)*/
 #define CANIF_CHECK_FOR_INVALID_CAN_ID( CanId ) \
       (((uint16)((CanId) & 0xB800UL)) != 0U)
-	  
+
 #endif /* (CANIF_CANIDTYPE_UINT32 == STD_ON) */
 
 /** \brief Get number of CAN controllers
@@ -607,7 +623,7 @@
 /*==================[external function declarations]=========================*/
 
 #define CANIF_START_SEC_CODE
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #if( CANIF_PUBLIC_PN_SUPPORT == STD_ON )
 /** \brief Helper function for transceiver without partial network
@@ -642,7 +658,7 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_CheckWakeFlag_HlpNoPn
 #endif /* CANIF_PUBLIC_PN_SUPPORT == STD_ON */
 
 #define CANIF_STOP_SEC_CODE
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 /*==================[internal function declarations]=========================*/
 
@@ -653,7 +669,7 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_CheckWakeFlag_HlpNoPn
 /*==================[external data]==========================================*/
 
 #define CANIF_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #if (CANIF_ANY_UL_CBK_SUPPORT == STD_ON)
 /** \brief Configuration of upper layer callback functions
@@ -681,11 +697,24 @@ extern CONST( CanIf_CanTrcvChnlConfigType, CANIF_APPL_CONST )
 #endif /* CANIF_TRCV_SUPPORT == STD_ON */
 
 
+#if (CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON)
+/** \brief Configuration of Tx decoupled processing */
+extern CONST( CanIf_MfTxPtrTblType, CANIF_APPL_CONST )
+  CanIf_MfTxFctPtrTbl[];
+#endif /* CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON */
+
+
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
+/** \brief Configuration of Rx decoupled processing */
+extern CONST( CanIf_MfRxPtrTblType, CANIF_APPL_CONST )
+  CanIf_MfRxFctPtrTbl[];
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON */
+
 #define CANIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #if( CANIF_READTXPDU_NOTIF_STATUS_API == STD_ON )
 /** \brief Bit-array of Tx notification flags (if enabled)
@@ -746,11 +775,21 @@ extern VAR( uint8, CANIF_VAR )
 #endif /* ( CANIF_WAKEUP_VALIDATION_API == STD_ON ) || \
           ( CANIF_PUBLIC_TXCONFIRM_POLLING_SUPPORT == STD_ON ) */
 
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
+/** \brief Array of Rx queued data */
+extern VAR( uint8, CANIF_VAR ) CanIf_RxDataQueue[];
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT */
+
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #define CANIF_START_SEC_VAR_NO_INIT_16
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
+
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
+/** \brief Array of Rx queue Indexes */
+extern VAR( uint16, CANIF_VAR ) CanIf_MFRxQueueIdx[];
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT */
 
 #if CANIF_PUBLIC_TX_BUFFERING == STD_ON
 
@@ -768,11 +807,28 @@ extern VAR( CanIf_LPduIndexType, CANIF_VAR )
 
 #endif /* CANIF_PUBLIC_TX_BUFFERING */
 
+#if(CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
+/** \brief Total size of the queue
+ **
+ ** This variable shows the current value of the queue of the CAN interface.
+ */
+extern VAR( uint16, CANIF_VAR ) CanIf_TotalRxQueueSize[];
+#endif/* CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON */
+
+#if((CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON) && (CANIF_TX_CONFIRMATION_SUPPORT == STD_ON))
+/** \brief Total size of the queue
+ **
+ ** This variable shows the current value of the queue of the CAN interface.
+ */
+extern VAR( uint16, CANIF_VAR ) CanIf_TotalTxQueueSize[];
+#endif/* CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON && CANIF_TX_CONFIRMATION_SUPPORT == STD_ON */
+
+
 #define CANIF_STOP_SEC_VAR_NO_INIT_16
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 #define CANIF_START_SEC_VAR_NO_INIT_UNSPECIFIED
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 extern VAR( CanIf_ControllerModeType, CANIF_VAR )
   CanIf_CanControllerMode[];
@@ -819,8 +875,33 @@ extern VAR( CanIf_TxBufferType, CANIF_VAR )
 
 #endif /* CANIF_PUBLIC_TX_BUFFERING */
 
+#if (CANIF_DECOUPLED_TXPROCESSING_SUPPORT == STD_ON)
+
+/** \brief Array of Tx queue
+ **
+ ** This is the array of Tx queue used during message transmission
+ ** if Tx processing is enabled.
+ */
+extern VAR( CanIf_TxQueueType, CANIF_VAR )
+    CanIf_TxPduQueue[];
+
+#endif /* CANIF_DECOUPLED_TXPROCESSING_SUPPORT */
+
+#if (CANIF_DECOUPLED_RXPROCESSING_SUPPORT == STD_ON)
+
+/** \brief Array of Rx queue
+ **
+ ** This is the array of Rx queue used during message reception
+ ** if Rx processing is enabled.
+ */
+extern VAR( CanIf_RxQueueType, CANIF_VAR )
+  CanIf_RxPduQueue[];
+
+#endif /* CANIF_DECOUPLED_RXPROCESSING_SUPPORT */
+
+
 #define CANIF_STOP_SEC_VAR_NO_INIT_UNSPECIFIED
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 /*==================[internal data]==========================================*/
 

@@ -10,7 +10,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2018 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -73,7 +73,7 @@
 #error CANIF_SW_PATCH_VERSION already defined
 #endif
 /** \brief AUTOSAR module patch version */
-#define CANIF_SW_PATCH_VERSION             4U
+#define CANIF_SW_PATCH_VERSION             15U
 
 /*==================[type definitions]=======================================*/
 

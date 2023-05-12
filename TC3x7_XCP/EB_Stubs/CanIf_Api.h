@@ -8,7 +8,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2018 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -28,6 +28,10 @@
 
 #include <PbcfgM_Api.h>         /* Post build configuration manager */
 #endif /* CANIF_PBCFGM_SUPPORT_ENABLED */
+
+#if(CANIF_DECOUPLED_PROCESSING_SUPPORT == STD_ON)
+#include <CanIf_MultiMF.h>
+#endif /* CANIF_DECOUPLED_PROCESSING_SUPPORT */
 /*==================[macros]=================================================*/
 
 /*------------------[API service IDs]----------------------------------------*/
@@ -371,7 +375,7 @@ typedef enum
 #else
 #define CANIF_START_SEC_CODE
 #endif
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 /** \brief Validate configuration
  **
@@ -390,11 +394,13 @@ extern FUNC( Std_ReturnType, CANIF_CODE) CanIf_IsValidConfig
 
 #if CANIF_ISVALIDCONFIG_MMAP_ENABLED == STD_ON
 #define CANIF_STOP_SEC_CODE_CC_BLOCK
-#include <MemMap.h>
+#else
+#define CANIF_STOP_SEC_CODE
+#endif
+#include <CanIf_MemMap.h>
 
 #define CANIF_START_SEC_CODE
-#include <MemMap.h>
-#endif
+#include <CanIf_MemMap.h>
 
 /** \brief CAN interface initialization function
  **
@@ -794,7 +800,7 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_GetTrcvMode
     uint8 TransceiverId
   );
 
-
+#if (CANIF_CANTRCV_WAKEUP_SUPPORT == STD_ON)
 
 /** \brief Get transceiver wakeup reason
  **
@@ -820,7 +826,6 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_GetTrcvWakeupReason
   );
 
 
-
 /** \brief Set transceiver wakeup mode
  **
  ** This function is used to set the wakeup mode/event \a TrcvWakeupMode of
@@ -842,9 +847,8 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_SetTrcvWakeupMode
     uint8 TransceiverId,
     CanTrcv_TrcvWakeupModeType TrcvWakeupMode
   );
-
+#endif /* CANIF_CANTRCV_WAKEUP_SUPPORT == STD_ON */
 #endif /* CANIF_TRCV_SUPPORT == STD_ON */
-
 
 
 #if( CANIF_WAKEUP_SUPPORT_API == STD_ON )
@@ -869,7 +873,6 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_CheckWakeup
   );
 
 
-
 #if( CANIF_WAKEUP_VALIDATION_API == STD_ON )
 /** \brief Check for validated wakeup events
  **
@@ -891,7 +894,6 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_CheckValidation
   );
 #endif /* CANIF_WAKEUP_VALIDATION_API == STD_ON */
 #endif /* CANIF_WAKEUP_SUPPORT_API == STD_ON */
-
 
 
 #if( CANIF_PUBLIC_TXCONFIRM_POLLING_SUPPORT == STD_ON )
@@ -955,7 +957,7 @@ extern FUNC( Std_ReturnType, CANIF_CODE ) CanIf_CheckTrcvWakeFlag
 #endif /* #if (CANIF_PUBLIC_PN_SUPPORT == STD_ON) && (CANIF_TRCV_SUPPORT == STD_ON )) */
 
 #define CANIF_STOP_SEC_CODE
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 /*==================[internal function declarations]=========================*/
 

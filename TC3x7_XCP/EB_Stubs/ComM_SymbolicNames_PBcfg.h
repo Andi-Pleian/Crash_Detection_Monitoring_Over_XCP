@@ -12,7 +12,7 @@
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
-[!CODE!]
+
 #ifndef COMM_SYMBOLICNAMES_PBCFG_H
 #define COMM_SYMBOLICNAMES_PBCFG_H
 
@@ -21,4 +21,4 @@
 /*------------------[symbolic name definitions]------------------------------*/
 
 #endif /* COMM_SYMBOLICNAMES_PBCFG_H */
-[!ENDCODE!]
+

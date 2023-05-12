@@ -1,6 +1,5 @@
 #if (!defined CAN_GENERALTYPES_CFG_H)
 #define CAN_GENERALTYPES_CFG_H
-[!AUTOSPACING!][!//
 /**
  * \file
  *
@@ -30,12 +29,7 @@
  *  - uint8  (otherwise)
  */
 /* !LINKSTO CAN429,1 */
-[!IF "node:exists(as:modconf('CanIf')[1]/CanIfPublicCfg/CanIfPublicHandleTypeEnum) and
-      (as:modconf('CanIf')[1]/CanIfPublicCfg/CanIfPublicHandleTypeEnum = 'UINT16')"!]
-typedef uint16 Can_HwHandleType;
-[!ELSE!][!//
 typedef uint8 Can_HwHandleType;
-[!ENDIF!][!//
 
 /** \brief Represents the Identifier of an L-PDU. For extended IDs the most
  *        significant bit is set (generated).
@@ -45,12 +39,7 @@ typedef uint8 Can_HwHandleType;
  *  - uint32 (otherwise)
  */
 /* !LINKSTO CAN416,1 */
-[!IF "node:exists(as:modconf('CanIf')[1]/CanIfPublicCfg/CanIfPublicCanIdTypeEnum) and
-      (as:modconf('CanIf')[1]/CanIfPublicCfg/CanIfPublicCanIdTypeEnum = 'UINT16')"!]
-typedef uint16 Can_IdType;
-[!ELSE!][!//
 typedef uint32 Can_IdType;
-[!ENDIF!][!//
 
 #endif /* if !defined( CAN_GENERALTYPES_CFG_H ) */
 /*==================[end of file]============================================*/

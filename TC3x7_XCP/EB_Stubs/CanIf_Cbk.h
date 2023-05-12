@@ -8,7 +8,7 @@
  *
  * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
  *
- * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * Copyright 2005 - 2018 Elektrobit Automotive GmbH
  * All rights exclusively reserved for Elektrobit Automotive GmbH,
  * unless expressly agreed to otherwise.
  */
@@ -28,7 +28,7 @@
 /*==================[external function declarations]=========================*/
 
 #define CANIF_START_SEC_CODE
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 
 
@@ -136,7 +136,7 @@ extern FUNC( void, CANIF_CODE ) CanIf_RxIndication
 #if( CANIF_CAN_REV2_COMPATIBILITY == STD_OFF)
 extern FUNC( void, CANIF_CODE ) CanIf_CancelTxConfirmation
   (
-    VAR( PduIdType, AUTOMATIC ) CanTxPduId,
+    PduIdType CanTxPduId,
     P2CONST( PduInfoType, AUTOMATIC, CANIF_APPL_DATA ) PduInfoPtr
   );
 #else
@@ -257,7 +257,7 @@ extern FUNC( void, CANIF_CODE ) CanIf_CheckTrcvWakeFlagIndication
 #endif /* CANIF_TRCV_SUPPORT == STD_ON */
 
 #define CANIF_STOP_SEC_CODE
-#include <MemMap.h>
+#include <CanIf_MemMap.h>
 
 /*==================[internal function declarations]=========================*/
 

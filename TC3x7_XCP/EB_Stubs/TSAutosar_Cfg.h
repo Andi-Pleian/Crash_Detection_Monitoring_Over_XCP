@@ -1,6 +1,5 @@
 #if (!defined AUTOSAR_CFG_H)
 #define AUTOSAR_CFG_H
-[!AUTOSPACING!][!//
 
 /**
  * \file
@@ -20,223 +19,497 @@
 /*==================[macros]=================================================*/
 
 /*------------------[Macros for Atomic Assignment]---------------------------*/
-[!INCLUDE "TypeLists.m"!]
-[!/* MACRO GetCTypeAUTOSAR:
-     Get C type for a certain AUTOSAR type
-
-     Parameter:
-      - Type: the AUTOSAR type
-
-     OUT Variables:
-      - CType:  the C type corresponding to the AUTOSAR type
-*/!][!//
-[!MACRO "GetCTypeAUTOSAR","Type"!][!//
-  [!VAR "property"="concat('BaseType_',$Type)"!]
-  [!IF "node:exists(as:modconf('Base')[1]/BaseTypes/*[node:name(.)=$property])"!]
-    [!VAR "BaseType"="as:modconf('Base')[1]/BaseTypes/*[node:name(.)=$property]"!]
-    [!VAR "CType"="normalize-space(text:replace($BaseType,'(un)?signed',''))"!]
-  [!ELSE!]
-    [!ERROR!]
-      Base: No mapping to C type found for AUTOSAR type [!"$Type"!]
-    [!ENDERROR!]
-  [!ENDIF!]
-[!ENDMACRO!]
- [!/* MACRO GetCTypeDerived:
-      Get C type for a certain derived type
-
-      Parameter:
-       - Type: the derived type
-
-      OUT Variables:
-       - CType:  the C type corresponding to the derived type
- */!]
-[!MACRO "GetCTypeDerived","Type"!]
-  [!VAR "property"="concat('Derivedtypes.',$Type,'.Mapping')"!]
-  [!IF "ecu:has($property)"!]
-    [!VAR "CType"="normalize-space(text:replace(ecu:get($property),'(un)?signed',''))"!]
-  [!ELSE!]
-    [!ERROR!]
-      Base: No mapping to C type found for derived type [!"$Type"!]
-    [!ENDERROR!]
-  [!ENDIF!]
-[!ENDMACRO!]
-[!VAR "BitWidthListLength"="count(text:split($BitWidthList,','))"!]
-[!FOR "i"="1" TO "num:i($BitWidthListLength)"!]
-  [!VAR "BitWidth"="text:split($BitWidthList,',')[num:i($i)]"!]
-  [!VAR "Type"="concat('uint',$BitWidth)"!]
-  [!CALL "GetCTypeAUTOSAR","Type"="$Type"!]
-  [!VAR "property"="concat('Basetypes.',$CType,'.AtomicAccess')"!]
-  [!IF "ecu:has($property) and (ecu:get($property) = 'true')"!]
-#if (defined TS_AtomicAssign[!"$BitWidth"!])
-#error TS_AtomicAssign[!"$BitWidth"!] already defined
+ 
+#if (defined TS_AtomicAssign8)
+#error TS_AtomicAssign8 already defined
 #endif
-/** \brief Assigns the [!"$BitWidth"!] bit entity \p from to \p to in an atomic fashion
+/** \brief Assigns the 8 bit entity \p from to \p to in an atomic fashion
  *
- * This macro assigns the [!"$BitWidth"!] bit entity \p from to \p to in an atomic fashion
+ * This macro assigns the 8 bit entity \p from to \p to in an atomic fashion
  *
  * The parameters \p from and \p to thus have to be of type \p uint8 or \p sint8.
  *
  * Platforms Setting:
  * It is derived from the parameters in the Platforms plugin by
- * '[Basetypes|Derivedtypes].[!"$CType"!].AtomicAccess'
+ * '[Basetypes|Derivedtypes].char.AtomicAccess'
  *
- * \param[out] to    [!"$BitWidth"!] bit entity which is the destination of the assignment
- * \param[in]  from  [!"$BitWidth"!] bit entity which is the source of the assignment
+ * \param[out] to    8 bit entity which is the destination of the assignment
+ * \param[in]  from  8 bit entity which is the source of the assignment
  *
  * \remarks The parameters of this macro may be used in any way, especially
  *   they can be used more than once. They shall not contain side effects.
  */
-#define TS_AtomicAssign[!"$BitWidth"!](to, from) ((to) = (from))
+#define TS_AtomicAssign8(to, from) ((to) = (from))
 
-  [!ENDIF!]
-[!ENDFOR!]
+#if (defined TS_AtomicAssign16)
+#error TS_AtomicAssign16 already defined
+#endif
+/** \brief Assigns the 16 bit entity \p from to \p to in an atomic fashion
+ *
+ * This macro assigns the 16 bit entity \p from to \p to in an atomic fashion
+ *
+ * The parameters \p from and \p to thus have to be of type \p uint8 or \p sint8.
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].short.AtomicAccess'
+ *
+ * \param[out] to    16 bit entity which is the destination of the assignment
+ * \param[in]  from  16 bit entity which is the source of the assignment
+ *
+ * \remarks The parameters of this macro may be used in any way, especially
+ *   they can be used more than once. They shall not contain side effects.
+ */
+#define TS_AtomicAssign16(to, from) ((to) = (from))
+
+#if (defined TS_AtomicAssign32)
+#error TS_AtomicAssign32 already defined
+#endif
+/** \brief Assigns the 32 bit entity \p from to \p to in an atomic fashion
+ *
+ * This macro assigns the 32 bit entity \p from to \p to in an atomic fashion
+ *
+ * The parameters \p from and \p to thus have to be of type \p uint8 or \p sint8.
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.AtomicAccess'
+ *
+ * \param[out] to    32 bit entity which is the destination of the assignment
+ * \param[in]  from  32 bit entity which is the source of the assignment
+ *
+ * \remarks The parameters of this macro may be used in any way, especially
+ *   they can be used more than once. They shall not contain side effects.
+ */
+#define TS_AtomicAssign32(to, from) ((to) = (from))
+
 /*------------------[Macros for Litte / Big Endian]--------------------------*/
 
-[!/* import GuardedDefine macro
-*/!][!INCLUDE "CommonMacros.m"!][!/*
-
-*/!][!CALL "GuardedDefine", "Comment"="'Selector for Big Endian / Little Endian expression variants'",
- "Name"="'TS_IF_BE_LE'", "Params"="'(BE,LE)'"!][!//
-[!IF "ecu:get('Cpu.Byteorder') = 'LE'"!]LE[!ELSE!]BE[!ENDIF!]
-
+#ifdef TS_IF_BE_LE
+  #error already defined: TS_IF_BE_LE
+#endif
+/** \brief Selector for Big Endian / Little Endian expression variants */
+#define TS_IF_BE_LE(BE,LE) LE
 
 /*------------------[Size of Autosar Standard Types]-------------------------*/
-[!/* MACRO CreateSizeMacros:
-     Create marcos for accessing the size for all types passed.
 
-     Parameter:
-      - List: list of types to create the macros
-      - IsDerivedType: flag (true|false) if derived type or base type is processed
-*/!]
-[!MACRO "CreateSizeMacros","List","IsDerivedType"!]
-  [!VAR "ListLength"="count(text:split($List,','))"!]
-  [!FOR "i"="1" TO "num:i($ListLength)"!]
-    [!VAR "Type"="text:split($List,',')[num:i($i)]"!]
-    [!IF "$IsDerivedType"!]
-      [!CALL "GetCTypeDerived","Type"="$Type"!]
-    [!ELSE!]
-      [!CALL "GetCTypeAUTOSAR","Type"="$Type"!]
-    [!ENDIF!]
-    [!VAR "property"="concat('Basetypes.',$CType,'.Size')"!]
-    [!IF "ecu:has($property)"!]
-#if (defined TS_SIZE_[!"$Type"!])
-#error TS_SIZE_[!"$Type"!] already defined
+#if (defined TS_SIZE_boolean)
+#error TS_SIZE_boolean already defined
 #endif
-/** \brief Size of derived type [!"$Type"!]
+/** \brief Size of derived type boolean
  *
  * Platforms Setting:
  * It is derived from the parameters in the Platforms plugin by
- * '[Basetypes|Derivedtypes].[!"$CType"!].Size'
+ * '[Basetypes|Derivedtypes].char.Size'
  */
-#define TS_SIZE_[!"$Type"!] [!WS!][!"ecu:get($property)"!]U
+#define TS_SIZE_boolean  1U
 
-    [!ENDIF!]
-  [!ENDFOR!]
-[!ENDMACRO!]
-[!CALL "CreateSizeMacros", "List"="$AutosarTypeList", "IsDerivedType"="'false'"!]
-[!CALL "CreateSizeMacros", "List"="$DerivedTypeList", "IsDerivedType"="'true'"!]
+#if (defined TS_SIZE_sint8)
+#error TS_SIZE_sint8 already defined
+#endif
+/** \brief Size of derived type sint8
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].char.Size'
+ */
+#define TS_SIZE_sint8  1U
+
+#if (defined TS_SIZE_sint16)
+#error TS_SIZE_sint16 already defined
+#endif
+/** \brief Size of derived type sint16
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].short.Size'
+ */
+#define TS_SIZE_sint16  2U
+
+#if (defined TS_SIZE_sint32)
+#error TS_SIZE_sint32 already defined
+#endif
+/** \brief Size of derived type sint32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_sint32  4U
+
+#if (defined TS_SIZE_uint8)
+#error TS_SIZE_uint8 already defined
+#endif
+/** \brief Size of derived type uint8
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].char.Size'
+ */
+#define TS_SIZE_uint8  1U
+
+#if (defined TS_SIZE_uint16)
+#error TS_SIZE_uint16 already defined
+#endif
+/** \brief Size of derived type uint16
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].short.Size'
+ */
+#define TS_SIZE_uint16  2U
+
+#if (defined TS_SIZE_uint32)
+#error TS_SIZE_uint32 already defined
+#endif
+/** \brief Size of derived type uint32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_uint32  4U
+
+#if (defined TS_SIZE_sint8_least)
+#error TS_SIZE_sint8_least already defined
+#endif
+/** \brief Size of derived type sint8_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_sint8_least  4U
+
+#if (defined TS_SIZE_sint16_least)
+#error TS_SIZE_sint16_least already defined
+#endif
+/** \brief Size of derived type sint16_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_sint16_least  4U
+
+#if (defined TS_SIZE_sint32_least)
+#error TS_SIZE_sint32_least already defined
+#endif
+/** \brief Size of derived type sint32_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_sint32_least  4U
+
+#if (defined TS_SIZE_uint8_least)
+#error TS_SIZE_uint8_least already defined
+#endif
+/** \brief Size of derived type uint8_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_uint8_least  4U
+
+#if (defined TS_SIZE_uint16_least)
+#error TS_SIZE_uint16_least already defined
+#endif
+/** \brief Size of derived type uint16_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_uint16_least  4U
+
+#if (defined TS_SIZE_uint32_least)
+#error TS_SIZE_uint32_least already defined
+#endif
+/** \brief Size of derived type uint32_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Size'
+ */
+#define TS_SIZE_uint32_least  4U
+
+#if (defined TS_SIZE_float32)
+#error TS_SIZE_float32 already defined
+#endif
+/** \brief Size of derived type float32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].float.Size'
+ */
+#define TS_SIZE_float32  4U
+
+#if (defined TS_SIZE_float64)
+#error TS_SIZE_float64 already defined
+#endif
+/** \brief Size of derived type float64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].float.Size'
+ */
+#define TS_SIZE_float64  4U
+
+#if (defined TS_SIZE_sint64)
+#error TS_SIZE_sint64 already defined
+#endif
+/** \brief Size of derived type sint64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long long.Size'
+ */
+#define TS_SIZE_sint64  8U
+
+#if (defined TS_SIZE_uint64)
+#error TS_SIZE_uint64 already defined
+#endif
+/** \brief Size of derived type uint64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long long.Size'
+ */
+#define TS_SIZE_uint64  8U
+
+#if (defined TS_SIZE_TS_MaxAlignedType)
+#error TS_SIZE_TS_MaxAlignedType already defined
+#endif
+/** \brief Size of derived type TS_MaxAlignedType
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].double.Size'
+ */
+#define TS_SIZE_TS_MaxAlignedType  8U
+
 /*------------------[Alignment Autosar Standard Types]-----------------------*/
-[!/* MACRO CreateAlignmentMacros:
-     Create marcos for accessing the alignment for all types passed.
 
-     Parameter:
-      - List: list of types to create the macros
-      - IsDerivedType: flag (true|false) if derived type or base type is processed
-*/!][!//
-[!MACRO "CreateAlignmentMacros","List","IsDerivedType"!][!//
-  [!VAR "ListLength"="count(text:split($List,','))"!]
-  [!FOR "i"="1" TO  "num:i($ListLength)"!]
-    [!VAR "Type"="text:split($List,',')[num:i($i)]"!]
-    [!IF "$IsDerivedType"!]
-      [!CALL "GetCTypeDerived","Type"="$Type"!]
-    [!ELSE!]
-      [!CALL "GetCTypeAUTOSAR","Type"="$Type"!]
-    [!ENDIF!]
-    [!VAR "property"="concat('Basetypes.',$CType,'.Alignment')"!]
-    [!IF "ecu:has($property)"!]
-#if (defined TS_ALIGNMENT_[!"$Type"!])
-#error TS_ALIGNMENT_[!"$Type"!] already defined
+#if (defined TS_ALIGNMENT_boolean)
+#error TS_ALIGNMENT_boolean already defined
 #endif
-/** \brief Alignment constraints for derived type [!"$Type"!]
+/** \brief Alignment constraints for derived type boolean
  *
  * Platforms Setting:
  * It is derived from the parameters in the Platforms plugin by
- * '[Basetypes|Derivedtypes].[!"$CType"!].Alignment'
+ * '[Basetypes|Derivedtypes].char.Alignment'
  */
-#define TS_ALIGNMENT_[!"$Type"!] [!WS!][!"ecu:get($property)"!]U
+#define TS_ALIGNMENT_boolean  1U
 
-    [!ENDIF!]
-  [!ENDFOR!]
-[!ENDMACRO!]
-[!/* MACRO CreateComplexAlignmentMacros:
-      Create marcos for accessing the alignment of complex types.
-
-      Parameter:
-       - Type: type to create alignment macros for (either 'array' or 'struct')
-       - ListThresholds: list of thresholds of alignments of complex type
-       - ListAlignments: list of alignments of complex type
-       - DefaultAlignment: default alignment of complex type
- */!]
-[!MACRO "CreateComplexAlignmentMacros","Type","ListThresholds","ListAlignments","DefaultAlignment"!]
-  [!VAR "Thresholds"="text:replaceAll(substring($ListThresholds,2,string-length($ListThresholds)-2),',','')"!]
-  [!VAR "Alignments"="text:replaceAll(substring($ListAlignments,2,string-length($ListAlignments)-2),',','')"!]
-  [!VAR "Length"="num:i(count(text:split($Alignments)))"!]
-  [!IF "$Length > 1"!]
-#if (defined TS_ALIGNMENT_[!"$Type"!]_NUM_THRESHOLDS)
-#error TS_ALIGNMENT_[!"$Type"!]_NUM_THRESHOLDS already defined
+#if (defined TS_ALIGNMENT_sint8)
+#error TS_ALIGNMENT_sint8 already defined
 #endif
-/** \brief Number of alignment constraints for [!"$Type"!]s
+/** \brief Alignment constraints for derived type sint8
  *
  * Platforms Setting:
- * It is set in the Platforms plugin by
- * setting the parameter 'Complextypes.[!"$Type"!].Alignment'.
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].char.Alignment'
  */
-#define TS_ALIGNMENT_[!"$Type"!]_NUM_THRESHOLDS [!WS!][!"$Length"!]U
-    [!FOR "i"="1" TO "$Length"!]
-      [!VAR "Threshold"="text:split($Thresholds)[num:i($i)]"!]
-      [!VAR "Alignment"="text:split($Alignments)[num:i($i)]"!]
-      [!VAR "Index"="num:i($i - 1)"!]
-      [!IF "string-length($Threshold) > 0"!]
-#if (defined TS_ALIGNMENT_[!"$Type"!]_THRESHOLD_[!"$Index"!])
-#error TS_ALIGNMENT_[!"$Type"!]_THRESHOLD_[!"$Index"!][!WS!]already defined
-#endif
-/** \brief Threshold of [!"$i"!]. alignment constraint for [!"$Type"!]s */
-#define TS_ALIGNMENT_[!"$Type"!]_THRESHOLD_[!"$Index"!][!WS!][!"$Threshold"!]U
+#define TS_ALIGNMENT_sint8  1U
 
-      [!ENDIF!]
-#if (defined TS_ALIGNMENT_[!"$Type"!]_[!"$Index"!])
-#error TS_ALIGNMENT_[!"$Type"!]_[!"$Index"!][!WS!]already defined
+#if (defined TS_ALIGNMENT_sint16)
+#error TS_ALIGNMENT_sint16 already defined
 #endif
-/** \brief [!"$i"!]. alignment constraint for [!"$Type"!]s */
-#define TS_ALIGNMENT_[!"$Type"!]_[!"$Index"!] [!WS!][!"$Alignment"!]U
+/** \brief Alignment constraints for derived type sint16
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].short.Alignment'
+ */
+#define TS_ALIGNMENT_sint16  2U
 
-    [!ENDFOR!]
-  [!ENDIF!]
-#if (defined TS_ALIGNMENT_[!"$Type"!])
-#error TS_ALIGNMENT_[!"$Type"!] already defined
+#if (defined TS_ALIGNMENT_sint32)
+#error TS_ALIGNMENT_sint32 already defined
 #endif
-/** \brief Default alignment constraint for [!"$Type"!]s */
-#define TS_ALIGNMENT_[!"$Type"!] [!WS!][!"$DefaultAlignment"!]U
+/** \brief Alignment constraints for derived type sint32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_sint32  4U
 
-[!ENDMACRO!]
-[!CALL "CreateAlignmentMacros", "List"="$AutosarTypeList", "IsDerivedType"="'false'"!]
-[!CALL "CreateComplexAlignmentMacros", "Type"="'array'", "ListThresholds"="asc:getArrayAlignmentThresholds()", "ListAlignments"="asc:getArrayAlignments()", "DefaultAlignment"="asc:getArrayAlignment()"!]
-[!CALL "CreateComplexAlignmentMacros", "Type"="'struct'", "ListThresholds"="asc:getStructAlignmentThresholds()", "ListAlignments"="asc:getStructAlignments()", "DefaultAlignment"="asc:getStructAlignment()"!]
-[!CALL "CreateAlignmentMacros", "List"="$DerivedTypeList", "IsDerivedType"="'true'"!]
+#if (defined TS_ALIGNMENT_uint8)
+#error TS_ALIGNMENT_uint8 already defined
+#endif
+/** \brief Alignment constraints for derived type uint8
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].char.Alignment'
+ */
+#define TS_ALIGNMENT_uint8  1U
+
+#if (defined TS_ALIGNMENT_uint16)
+#error TS_ALIGNMENT_uint16 already defined
+#endif
+/** \brief Alignment constraints for derived type uint16
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].short.Alignment'
+ */
+#define TS_ALIGNMENT_uint16  2U
+
+#if (defined TS_ALIGNMENT_uint32)
+#error TS_ALIGNMENT_uint32 already defined
+#endif
+/** \brief Alignment constraints for derived type uint32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_uint32  4U
+
+#if (defined TS_ALIGNMENT_sint8_least)
+#error TS_ALIGNMENT_sint8_least already defined
+#endif
+/** \brief Alignment constraints for derived type sint8_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_sint8_least  4U
+
+#if (defined TS_ALIGNMENT_sint16_least)
+#error TS_ALIGNMENT_sint16_least already defined
+#endif
+/** \brief Alignment constraints for derived type sint16_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_sint16_least  4U
+
+#if (defined TS_ALIGNMENT_sint32_least)
+#error TS_ALIGNMENT_sint32_least already defined
+#endif
+/** \brief Alignment constraints for derived type sint32_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_sint32_least  4U
+
+#if (defined TS_ALIGNMENT_uint8_least)
+#error TS_ALIGNMENT_uint8_least already defined
+#endif
+/** \brief Alignment constraints for derived type uint8_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_uint8_least  4U
+
+#if (defined TS_ALIGNMENT_uint16_least)
+#error TS_ALIGNMENT_uint16_least already defined
+#endif
+/** \brief Alignment constraints for derived type uint16_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_uint16_least  4U
+
+#if (defined TS_ALIGNMENT_uint32_least)
+#error TS_ALIGNMENT_uint32_least already defined
+#endif
+/** \brief Alignment constraints for derived type uint32_least
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long.Alignment'
+ */
+#define TS_ALIGNMENT_uint32_least  4U
+
+#if (defined TS_ALIGNMENT_float32)
+#error TS_ALIGNMENT_float32 already defined
+#endif
+/** \brief Alignment constraints for derived type float32
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].float.Alignment'
+ */
+#define TS_ALIGNMENT_float32  4U
+
+#if (defined TS_ALIGNMENT_float64)
+#error TS_ALIGNMENT_float64 already defined
+#endif
+/** \brief Alignment constraints for derived type float64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].float.Alignment'
+ */
+#define TS_ALIGNMENT_float64  4U
+
+#if (defined TS_ALIGNMENT_sint64)
+#error TS_ALIGNMENT_sint64 already defined
+#endif
+/** \brief Alignment constraints for derived type sint64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long long.Alignment'
+ */
+#define TS_ALIGNMENT_sint64  8U
+
+#if (defined TS_ALIGNMENT_uint64)
+#error TS_ALIGNMENT_uint64 already defined
+#endif
+/** \brief Alignment constraints for derived type uint64
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].long long.Alignment'
+ */
+#define TS_ALIGNMENT_uint64  8U
+
+#if (defined TS_ALIGNMENT_array)
+#error TS_ALIGNMENT_array already defined
+#endif
+/** \brief Default alignment constraint for arrays */
+#define TS_ALIGNMENT_array  1U
+
+#if (defined TS_ALIGNMENT_struct)
+#error TS_ALIGNMENT_struct already defined
+#endif
+/** \brief Default alignment constraint for structs */
+#define TS_ALIGNMENT_struct  1U
+
+#if (defined TS_ALIGNMENT_TS_MaxAlignedType)
+#error TS_ALIGNMENT_TS_MaxAlignedType already defined
+#endif
+/** \brief Alignment constraints for derived type TS_MaxAlignedType
+ *
+ * Platforms Setting:
+ * It is derived from the parameters in the Platforms plugin by
+ * '[Basetypes|Derivedtypes].double.Alignment'
+ */
+#define TS_ALIGNMENT_TS_MaxAlignedType  4U
+
 /*==================[type definitions]======================================*/
 
-[!VAR "ListLength"="count(text:split($DerivedTypeList,','))"!]
-[!FOR "i"="1" TO  "num:i($ListLength)"!]
-  [!VAR "DerivedType"="text:split($DerivedTypeList,',')[num:i($i)]"!]
-  [!VAR "property"="concat('Derivedtypes.',$DerivedType,'.Mapping')"!]
-  [!IF "ecu:has($property)"!]
-/** \brief Type definition of derived type [!"$DerivedType"!]
+/** \brief Type definition of derived type TS_MaxAlignedType
  *
  * Platforms Setting:
- * It is set in Platforms plugin by setting the parameter 'Derivedtypes.[!"$DerivedType"!].Mapping'.
+ * It is set in Platforms plugin by setting the parameter 'Derivedtypes.TS_MaxAlignedType.Mapping'.
  */
-typedef[!WS!][!"ecu:get($property)"!][!WS!][!"$DerivedType"!];
+typedef double TS_MaxAlignedType;
 
-  [!ENDIF!]
-[!ENDFOR!]
 #endif /*(!defined AUTOSAR_CFG_H)*/
