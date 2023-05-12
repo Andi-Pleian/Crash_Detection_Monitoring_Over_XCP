@@ -1,9 +1,89 @@
-Aurix Flasher 2.5.3.0, built on 3/17/2022 3:12:47 PM
-Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
-::Loading HEX file .......... 
- ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
-::Erasing Flash memory .......... (Pass)
-::Programming Flash memory .......... (Pass)
-Overall time: 1129 ms
-AurixFlasher Exit Status: Pass
-Flashing was successfull
+14:18:15 **** Build of configuration Debug for project TC3x7_XCP ****
+make --output-sync -j16 all 
+Building file: ../Task_Scheduler/Task_Scheduler.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 3/1] syntax error - token "[" deleted
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Task_Scheduler/Task_Scheduler.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Task_Scheduler/Task_Scheduler.src" "../Task_Scheduler/Task_Scheduler.c" && \
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 3/2] syntax error - token "!" deleted
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 3/14] syntax error - token "!" deleted
+if [ -f "Task_Scheduler/Task_Scheduler.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Task_Scheduler\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Task_Scheduler/Task_Scheduler.d" > "Task_Scheduler/Task_Scheduler.d_sed" && cp "Task_Scheduler/Task_Scheduler.d_sed" "Task_Scheduler/Task_Scheduler.d" && rm -f "Task_Scheduler/Task_Scheduler.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 3/15] syntax error - token "]" deleted
+ctc E208: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 30/1] syntax error - token "<identifier>" inserted before "["
+ctc I805: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 3/3] start of current external declaration
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 30/6] syntax error - token "<string>" deleted
+ctc E207: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 30/88] syntax error - token "!" deleted
+ctc F109: ["C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\\EB_Stubs\Platform_Types.h" 34/52] opening "C:\\Users\\uif47623\\AURIX-v1.9.0-workspace\\TC3x7_XCP\[!"ecu:get('Custom.Platform.Include')"!]" failed: Invalid argument
+make: *** [Task_Scheduler/subdir.mk:23: Task_Scheduler/Task_Scheduler.src] Error 1
+make: *** Waiting for unfinished jobs....
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.c" && \
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.c
+ 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.c" && \
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.c
+ 
+Building file: ../Timer_Interrupt/GPT12_Timer_Interrupt.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Timer_Interrupt/GPT12_Timer_Interrupt.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Timer_Interrupt/GPT12_Timer_Interrupt.src" "../Timer_Interrupt/GPT12_Timer_Interrupt.c" && \
+if [ -f "Timer_Interrupt/GPT12_Timer_Interrupt.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Timer_Interrupt\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Timer_Interrupt/GPT12_Timer_Interrupt.d" > "Timer_Interrupt/GPT12_Timer_Interrupt.d_sed" && cp "Timer_Interrupt/GPT12_Timer_Interrupt.d_sed" "Timer_Interrupt/GPT12_Timer_Interrupt.d" && rm -f "Timer_Interrupt/GPT12_Timer_Interrupt.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Timer_Interrupt/GPT12_Timer_Interrupt.c
+ 
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.c
+Invoking: TASKING C/C++ Compiler
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.c" && \
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.c
+ 
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.c" && \
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.c
+ 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+ctc W505: ["../MCMCAN/MCMCAN.c" 69/9] implicit declaration of function "wait_ms"
+ctc W577: ["../MCMCAN/MCMCAN.c" 69/16] calling a function without a prototype
+0 errors, 2 warnings
+Building file: ../MCMCAN/MCMCAN.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="MCMCAN/MCMCAN.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "MCMCAN/MCMCAN.src" "../MCMCAN/MCMCAN.c" && \
+if [ -f "MCMCAN/MCMCAN.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/MCMCAN\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "MCMCAN/MCMCAN.d" > "MCMCAN/MCMCAN.d_sed" && cp "MCMCAN/MCMCAN.d_sed" "MCMCAN/MCMCAN.d" && rm -f "MCMCAN/MCMCAN.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../MCMCAN/MCMCAN.c
+ 
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.c
+Invoking: TASKING C/C++ Compiler
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.c" && \
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.c
+ 
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.c
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.c" && \
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.c
+ 
+Building file: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.c
+TASKING VX-toolset for AURIX Development Studio (non-commercial): control program v1.1r8 Build 22011964
+Invoking: TASKING C/C++ Compiler
+cctc -cs --dep-file="Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d" --misrac-version=2004 -D__CPU__=tc36x "-fC:/Users/uif47623/AURIX-v1.9.0-workspace/TC3x7_XCP/Debug/TASKING_C_C___Compiler-Include_paths.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=3 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc36x -Y0 -N0 -Z0 -o "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.src" "../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.c" && \
+if [ -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d" ]; then sed.exe -r  -e 's/\b(.+\.o)\b/Libraries\/iLLD\/TC36A\/Tricore\/_PinMap\/\1/g' -e 's/\\/\//g' -e 's/\/\//\//g' -e 's/"//g' -e 's/([a-zA-Z]:\/)/\L\1/g' -e 's/\d32:/@TARGET_DELIMITER@/g; s/\\\d32/@ESCAPED_SPACE@/g; s/\d32/\\\d32/g; s/@ESCAPED_SPACE@/\\\d32/g; s/@TARGET_DELIMITER@/\d32:/g' "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d" > "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d_sed" && cp "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d_sed" "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d" && rm -f "Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.d_sed" 2>/dev/null; else echo 'No dependency file to process';fi
+Finished building: ../Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.c
+ 
+rm Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCcu6_PinMap.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxDmu_PinMap.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxCan_PinMap.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEray_PinMap.src MCMCAN/MCMCAN.src Timer_Interrupt/GPT12_Timer_Interrupt.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEdsadc_PinMap.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxEvadc_PinMap.src Libraries/iLLD/TC36A/Tricore/_PinMap/IfxAsclin_PinMap.src
+"make --output-sync -j16 all" terminated with exit code 2. Build might be incomplete.
+
+14:18:17 Build Failed. 10 errors, 2 warnings. (took 1s.596ms)
+

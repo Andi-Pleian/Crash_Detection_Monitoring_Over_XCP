@@ -1,0 +1,153 @@
+/**
+ * \file
+ *
+ * \brief AUTOSAR FrIf
+ *
+ * This file contains the implementation of the AUTOSAR
+ * module FrIf.
+ *
+ * \author Elektrobit Automotive GmbH, 91058 Erlangen, Germany
+ *
+ * Copyright 2005 - 2017 Elektrobit Automotive GmbH
+ * All rights exclusively reserved for Elektrobit Automotive GmbH,
+ * unless expressly agreed to otherwise.
+ */
+
+#ifndef FRIF_CFG_H
+#define FRIF_CFG_H
+
+/*
+ * Include Section
+ */
+
+#include <Std_Types.h>      /* definitions of STD_ON and STD_OFF */
+#include <TSAutosar.h>      /* definitions of TS_PROD_ERR_* */
+/*
+ * Global Macros
+ */
+
+
+/* standard SWS pre-compile time configuration parameters */
+#define FRIF_DEV_ERROR_DETECT STD_ON
+#define FRIF_VERSION_INFO_API STD_OFF
+
+#define FRIF_GETNMVECTOR_API_ENABLE STD_OFF
+#define FRIF_GETCHANNELSTATUS_API_ENABLE STD_ON
+#define FRIF_GETCLOCKCORRECTION_API_ENABLE STD_OFF
+#define FRIF_GETSYNCFRAMELIST_API_ENABLE STD_OFF
+#define FRIF_RECONFIGLPDU_API_ENABLE STD_ON
+#define FRIF_DISABLELPDU_API_ENABLE STD_OFF
+#define FRIF_GETWAKEUPRXSTATUS_API_ENABLE STD_ON
+#define FRIF_ALLSLOTS_API_ENABLE STD_OFF
+
+#define FRIF_CANCELTRANSMIT_API_ENABLE STD_OFF
+#define FRIF_ENABLETRANSCEIVERBRANCH_API_ENABLE STD_OFF
+#define FRIF_DISABLETRANSCEIVERBRANCH_API_ENABLE STD_OFF
+#define FRIF_GETNUMOFSTARTUPFRAMES_API_ENABLE STD_OFF
+#define FRIF_GETTRANSCEIVERERROR_API_ENABLE STD_ON
+#define FRIF_READCCCONFIG_API_ENABLE STD_OFF
+#define FRIF_GLOBALRXMAXLOOP 1U
+
+
+#define FRIF_TX_FRAME_DEFAULT_VALUE_ENABLE STD_OFF
+#define FRIF_TX_FRAME_DEFAULT_VALUE 0x0U
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_JLE_SYNC */
+#define FRIF_PROD_ERR_HANDLING_JLE_SYNC   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_NIT_CH_A */
+#define FRIF_PROD_ERR_HANDLING_NIT_CH_A   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_NIT_CH_B */
+#define FRIF_PROD_ERR_HANDLING_NIT_CH_B   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_SW_CH_A */
+#define FRIF_PROD_ERR_HANDLING_SW_CH_A   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_SW_CH_B */
+#define FRIF_PROD_ERR_HANDLING_SW_CH_B   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_ACS_CH_A */
+#define FRIF_PROD_ERR_HANDLING_ACS_CH_A   TS_PROD_ERR_DISABLE
+
+
+/** \brief Switch for DEM to DET reporting for production error FRIF_PROD_ERR_HANDLING_ACS_CH_B */
+#define FRIF_PROD_ERR_HANDLING_ACS_CH_B   TS_PROD_ERR_DISABLE
+
+
+
+
+#define FRIF_RELATIVETIMER_API_ENABLE STD_OFF
+#define FRIF_SETEXTSYNC_API_ENABLE STD_OFF
+#define FRIF_MTS_API_ENABLE STD_OFF
+#define FRIF_WAKEUP_API_ENABLE STD_ON
+#define FRIF_GETIRQSTATUS_API_ENABLE STD_OFF
+#define FRIF_DISABLEIRQ_API_ENABLE STD_OFF
+#define FRIF_ALLOWCOLDSTART_API_ENABLE STD_ON
+#define FRIF_GETCONTROLLERERRORSTATUS_API_ENABLE STD_OFF
+#define FRIF_EXT_IRQ_SERVICES_API_ENABLE STD_OFF
+#define FRIF_GETSYNCSTATE_API_ENABLE STD_OFF
+
+#define FRIF_GETTRANSCEIVERMODE_API_ENABLE STD_OFF
+#define FRIF_GETTRANSCEIVERWUREASON_API_ENABLE STD_OFF
+#define FRIF_WAKEUPCONTROL_API_ENABLE STD_ON
+#define FRIF_CHECKWAKEUPBYTRANSCEIVER_API_ENABLE STD_OFF
+
+#define FRIF_REPORT_TO_DET_ENABLE STD_ON
+#define FRIF_SINGLE_CLST_OPT_ENABLE STD_ON
+#define FRIF_SINGLE_CTRL_OPT_ENABLE STD_ON
+
+#define FRIF_FR_INTEGRATION_ENABLE STD_OFF
+#define FRIF_SINGLE_FR_OPT_ENABLE STD_ON
+
+
+
+
+
+
+
+#define FRIF_SINGLE_FR_PREFIX Fr_17_Eray
+#include <Fr_17_Eray.h>
+
+
+
+
+#define FRIF_SINGLE_FRTRCV_OPT_ENABLE STD_OFF
+
+
+#define FRIF_JOBLIST_IRQMUX_ENABLE STD_OFF
+#define FRIF_JOBLIST_IRQDELAYCHECK_ENABLE STD_ON
+#define FRIF_JOBLIST_PREPARE_LPDU_ENABLE STD_ON
+
+#define FRIF_DYNAMIC_PAYLOAD_LENGTH_ENABLE STD_OFF
+#define FRIF_IMMEDIATE_TX_ENABLE STD_OFF
+#define FRIF_TRANSMIT_QUEUE_ENABLE STD_OFF
+#define FRIF_DECOUPLED_RX_ENABLE STD_OFF
+
+#define FRIF_EXTENDED_RXFIFO_ENABLE STD_OFF
+
+#define FRIF_PBCFGM_SUPPORT_ENABLED STD_OFF
+
+#define FRIF_RELOCATABLE_CFG_ENABLE STD_ON
+
+
+/** \brief Link time verification value */
+#define FRIF_PUBLIC_INFO_SIGNATURE 1609337295U
+
+/** \brief Compile time verification value */
+#define FRIF_CFG_SIGNATURE 1941794634U
+
+/** \brief Link time verification value */
+#define FRIF_LCFG_SIGNATURE 1140865080U
+
+#endif /* FRIF_CFG_H */
+
+/*==================[end of file]============================================*/
+
+

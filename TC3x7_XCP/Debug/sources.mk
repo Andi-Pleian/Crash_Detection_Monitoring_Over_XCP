@@ -24,9 +24,21 @@ SECONDARY_SIZE :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Autosar/Base/static \
+Autosar/Can/gen \
+Autosar/Can/static \
+Autosar/CanIf/gen \
+Autosar/CanIf/static \
+Autosar/CanSM/gen \
+Autosar/CanSM/static \
+Autosar/ComM/gen \
+Autosar/ComM/static \
+Autosar/Xcp/gen \
+Autosar/Xcp/static \
 . \
 Configurations/Debug \
 Configurations \
+EB_Stubs \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Infra/Ssw/TC36A/Tricore \
 Libraries/Service/CpuGeneric/SysSe/Bsp \
