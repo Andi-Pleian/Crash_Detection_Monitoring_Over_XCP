@@ -80,16 +80,6 @@
 #include <MemMap.h>
 
 
-CONST(NetworkHandleType, COMM_CONST)
-  ComM_NmChannelOfChannel[COMM_NUM_CHANNELS] =
-{
-  0U,
-  /* ComM channel ComMChannel_CAN, ID=1
-   * not associated with NM channel, NM never used */
-  0xFFU,
-};
-
-
 
 
 #define COMM_STOP_SEC_CONST_8
@@ -101,7 +91,6 @@ CONST(NetworkHandleType, COMM_CONST)
 /* Main function period in ms for each channel */
 CONST(uint16, COMM_CONST) ComM_MainFunctionPeriodMs[COMM_NUM_CHANNELS] =
 {
-  10U, /* for channel ComMChannel_FR */
   10U, /* for channel ComMChannel_CAN */
 };
 
@@ -111,8 +100,6 @@ CONST(uint16, COMM_CONST) ComM_MainFunctionPeriodMs[COMM_NUM_CHANNELS] =
  * 'NONE' */
 CONST(uint16, COMM_CONST) ComM_NetReqNoNmTimeoutMs[COMM_NUM_CHANNELS] =
 {
-  /* for channel ComMChannel_FR */
-  0xFFU, /* channel with real bus NM support, value never used */
   /* for channel ComMChannel_CAN */
   500U, /* Nm variant 'LIGHT' or 'NONE' */
 };
@@ -122,8 +109,6 @@ CONST(uint16, COMM_CONST) ComM_NetReqNoNmTimeoutMs[COMM_NUM_CHANNELS] =
 /* Timeout after which state "ready sleep" is left in ComMNmVariant=LIGHT */
 CONST(uint16, COMM_CONST) ComM_ReadySleepNoNmTimeoutMs[COMM_NUM_CHANNELS] =
 {
-  /* for channel ComMChannel_FR */
-  0xFFU, /* channel with real bus NM support, value never used */
   /* for channel ComMChannel_CAN */
   0U,    /* Nm variant NONE, "ready sleep" state is instantly left */
 };

@@ -71,33 +71,28 @@ ComM_ConstConfigLayoutType ComM_Configuration = {
     { /* RootCfg */
         UINT32_C( 2147485970 ), /* PlatformSignature */
         UINT32_C( 3958107115 ), /* LcfgSignature */
-        UINT32_C( 3737603451 ), /* CfgSignature */
+        UINT32_C( 2018520538 ), /* CfgSignature */
         UINT32_C( 1761272751 ), /* PublicInfoSignature */
         TS_MAKEREF2CFG( aUsersOfAllChannel[0] ), /* pUsersOfAllChannel */
         { /* NumUsersOfAllChannel */
             UINT16_C( 0 ), /* NumUsersOfAllChannel[0] */
-            UINT16_C( 1 ), /* NumUsersOfAllChannel[1] */
-            UINT16_C( 2 ) /* NumUsersOfAllChannel[2] */
+            UINT16_C( 1 ) /* NumUsersOfAllChannel[1] */
         },
         TS_MAKEREF2CFG( aChannelsOfAllUser[0] ), /* pChannelsOfAllUser */
         { /* NumChannelsOfAllUser */
             UINT16_C( 0 ), /* NumChannelsOfAllUser[0] */
-            UINT16_C( 1 ), /* NumChannelsOfAllUser[1] */
-            UINT16_C( 2 ) /* NumChannelsOfAllUser[2] */
+            UINT16_C( 1 ) /* NumChannelsOfAllUser[1] */
         },
         { /* DirectNumChannelsOfAllUser */
             UINT16_C( 0 ), /* DirectNumChannelsOfAllUser[0] */
-            UINT16_C( 1 ), /* DirectNumChannelsOfAllUser[1] */
-            UINT16_C( 2 ) /* DirectNumChannelsOfAllUser[2] */
+            UINT16_C( 1 ) /* DirectNumChannelsOfAllUser[1] */
         }
     },
     { /* aUsersOfAllChannel */
-        UINT8_C( 0 ), /* aUsersOfAllChannel[0] */
-        UINT8_C( 1 ) /* aUsersOfAllChannel[1] */
+        UINT8_C( 0 ) /* aUsersOfAllChannel[0] */
     },
     { /* aChannelsOfAllUser */
-        UINT8_C( 0 ), /* aChannelsOfAllUser[0] */
-        UINT8_C( 1 ) /* aChannelsOfAllUser[1] */
+        UINT8_C( 0 ) /* aChannelsOfAllUser[0] */
     }
 };
 

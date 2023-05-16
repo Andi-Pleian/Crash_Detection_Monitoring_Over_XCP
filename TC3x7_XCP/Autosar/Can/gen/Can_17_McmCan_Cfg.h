@@ -15,7 +15,7 @@
 **                                                                            **
 **  VERSION   : 3.0.0                                                         **
 **                                                                            **
-**  DATE, TIME: 2017-11-23, 10:49:31                                      **
+**  DATE, TIME: 2023-03-31, 15:32:49                                      **
 **                                                                            **
 **  GENERATOR : Build b171004-0528                                          **
 **                                                                            **
@@ -67,10 +67,10 @@
 #define CAN_NOOF_BAUDRATE_CONFIG                        (1U)
 
 /* Maximum number of transmit hardware objects configured in a ConfigSet */
-#define CAN_NOOF_TX_HARDWARE_OBJECTS                   (Can_HwHandleType) (2U)
+#define CAN_NOOF_TX_HARDWARE_OBJECTS                   (Can_HwHandleType) (1U)
 
 /* Maximum number of transmit hardware objects configured in a ConfigSet */
-#define CAN_NOOF_RX_HARDWARE_OBJECTS                   (Can_HwHandleType) (6U)
+#define CAN_NOOF_RX_HARDWARE_OBJECTS                   (Can_HwHandleType) (1U)
 
 /* Maximum number of Icom configurations with in the ConfigSet */
 #define CAN_NOOF_ICOM_CONFIGURATIONS                   (IcomConfigIdType) (0U)
@@ -85,13 +85,13 @@
 /* CAN_ID_MIXED  : Standard and Extended Message Identifiers are configured */
 /* CAN_ID_EXTENDED : Extended Message Identifier is only configured */
 /* CAN_ID_STANDARD : Standard Message Identifier is only configured */
-#define CAN_ID_CONFIG_TYPE                              (CAN_ID_MIXED)
+#define CAN_ID_CONFIG_TYPE                              (CAN_ID_STANDARD)
 
 /* Maximum number of Standard Id filter elements configured in a ConfigSet */
-#define CAN_NOOF_SID_FILTER_CONFIG                              (6U)
+#define CAN_NOOF_SID_FILTER_CONFIG                              (1U)
 
 /* Maximum number of Extended Id filter elements configured in a ConfigSet */
-#define CAN_NOOF_XID_FILTER_CONFIG                              (1U)
+#define CAN_NOOF_XID_FILTER_CONFIG                              (0U)
 
 /* Configuration: CAN_WAKEUP_CONFIGURED
  - STD_ON  - At least one of the CAN controllers supports wakeup
@@ -331,61 +331,7 @@
   in generated code due to Autosar Naming constraints.*/
 /* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
   in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Rx1_contr_ACSM5_PS_CAN         1
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Rx2_contr_ACSM5_PS_CAN         2
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Rx3_contr_ACSM5_PS_CAN         3
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Rx4_contr_ACSM5_PS_CAN         4
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Rx5_contr_ACSM5_PS_CAN         5
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Tx0_contr_ACSM5_PS_CAN         6
-/* MISRA2012_RULE_5_1_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_2_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_4_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-/* MISRA2012_RULE_5_5_JUSTIFICATION: External identifiers going beyond 32 chars.
-  in generated code due to Autosar Naming constraints.*/
-#define Can_17_McmCanConf_CanHardwareObject_HOH_Tx1_contr_ACSM5_PS_CAN         7
+#define Can_17_McmCanConf_CanHardwareObject_HOH_Tx1_contr_ACSM5_PS_CAN         1
 /*******************************************************************************
 **                      Global Type Definitions                               **
 *******************************************************************************/

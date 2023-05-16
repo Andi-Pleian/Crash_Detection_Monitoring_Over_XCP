@@ -564,7 +564,7 @@
 #if (defined CANIF_CFG_SIGNATURE)
 #error CANIF_CFG_SIGNATURE already defined!
 #endif /* #if( defined CANIF_CFG_SIGNATURE)*/
-#define CANIF_CFG_SIGNATURE 1323124628U
+#define CANIF_CFG_SIGNATURE 1432847315U
 
 /** \brief Compile time Published information verfication value */
 #if (defined CANIF_PUBLIC_INFO_SIGNATURE)

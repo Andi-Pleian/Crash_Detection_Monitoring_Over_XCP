@@ -24,7 +24,8 @@
 #elif (OS_ARCH==OS_RH850)
 #include <RH850/Os_api_RH850.h>
 #elif (OS_ARCH==OS_NEWARCH)
-#include <NEWARCH/Os_api_NEWARCH.h>
+//TODO ANDI
+//#include <NEWARCH/Os_api_NEWARCH.h>
 #elif (OS_ARCH==OS_PIKEOS)
 #include <PIKEOS/Os_api_PIKEOS.h>
 #elif (OS_ARCH==OS_WINDOWS)

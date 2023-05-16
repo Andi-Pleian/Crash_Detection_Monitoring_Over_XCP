@@ -71,75 +71,35 @@ CanIf_ConstConfigLayoutType CanIf_ConfigLayout = {
     { /* RootCfg */
         UINT32_C( 2147485970 ), /* PlatformSignature */
         UINT32_C( 2416897657 ), /* LcfgSignature */
-        UINT32_C( 1323124628 ), /* CfgSignature */
+        UINT32_C( 1432847315 ), /* CfgSignature */
         UINT32_C( 3410186675 ), /* PublicInfoSignature */
         TS_MAKEREF2CFG( txLPduConfig[0] ), /* txLPduConfigPtr */
         TS_MAKEREF2CFG( rxLPduConfig[0] ), /* rxLPduConfigPtr */
         TS_MAKEREF2CFG( sortedRxLPduConfig[0] ), /* sortedRxLPduConfigPtr */
         TS_MAKEREF2CFG( canDriverConfig[0] ), /* driverConfigPtr */
-        UINT16_C( 2 ), /* nrOfStaticTxLPdus */
-        UINT16_C( 2 ), /* nrOfTxLPdus */
-        UINT16_C( 6 ), /* nrOfRxLPdus */
+        UINT16_C( 1 ), /* nrOfStaticTxLPdus */
+        UINT16_C( 1 ), /* nrOfTxLPdus */
+        UINT16_C( 1 ), /* nrOfRxLPdus */
         UINT8_C( 0 ) /* maxCanControllerId */
     },
     { /* txLPduConfig */
         { /* txLPduConfig[0] */
-            UINT32_C( 1792 ), /* canId */
-            UINT8_C( 6 ), /* hth */
+            UINT32_C( 2034 ), /* canId */
+            UINT8_C( 1 ), /* hth */
             UINT16_C( 0 ), /* sourcePduId_UL */
-            UINT8_C( 0 ) /* userType */
-        },
-        { /* txLPduConfig[1] */
-            UINT32_C( 1816 ), /* canId */
-            UINT8_C( 7 ), /* hth */
-            UINT16_C( 1 ), /* sourcePduId_UL */
-            UINT8_C( 0 ) /* userType */
+            UINT8_C( 1 ) /* userType */
         }
     },
     { /* rxLPduConfig */
         { /* rxLPduConfig[0] */
-            UINT16_C( 2 ), /* targetPduId */
-            UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
-            UINT8_C( 8 ) /* dlc */
-        },
-        { /* rxLPduConfig[1] */
-            UINT16_C( 5 ), /* targetPduId */
-            UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
-            UINT8_C( 8 ) /* dlc */
-        },
-        { /* rxLPduConfig[2] */
             UINT16_C( 0 ), /* targetPduId */
             UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
-            UINT8_C( 8 ) /* dlc */
-        },
-        { /* rxLPduConfig[3] */
-            UINT16_C( 3 ), /* targetPduId */
-            UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
-            UINT8_C( 8 ) /* dlc */
-        },
-        { /* rxLPduConfig[4] */
-            UINT16_C( 1 ), /* targetPduId */
-            UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
-            UINT8_C( 8 ) /* dlc */
-        },
-        { /* rxLPduConfig[5] */
-            UINT16_C( 4 ), /* targetPduId */
-            UINT8_C( 8 ), /* limitedPduLength */
-            UINT8_C( 0 ), /* userType */
+            UINT8_C( 1 ), /* userType */
             UINT8_C( 8 ) /* dlc */
         }
     },
     { /* driverHthConfig */
         { /* driverHthConfig[0] */
-            UINT16_C( 0 ), /* firstIndex */
-            UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHthConfig[1] */
             UINT16_C( 0 ), /* firstIndex */
             UINT8_C( 0 ) /* intCtrlIdx */
         }
@@ -150,47 +110,11 @@ CanIf_ConstConfigLayoutType CanIf_ConfigLayout = {
             UINT16_C( 0 ), /* lastIndex */
             UINT8_C( 0 ), /* swFiltering */
             UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHrhConfig[1] */
-            UINT16_C( 1 ), /* firstIndex */
-            UINT16_C( 1 ), /* lastIndex */
-            UINT8_C( 0 ), /* swFiltering */
-            UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHrhConfig[2] */
-            UINT16_C( 2 ), /* firstIndex */
-            UINT16_C( 2 ), /* lastIndex */
-            UINT8_C( 0 ), /* swFiltering */
-            UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHrhConfig[3] */
-            UINT16_C( 3 ), /* firstIndex */
-            UINT16_C( 3 ), /* lastIndex */
-            UINT8_C( 0 ), /* swFiltering */
-            UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHrhConfig[4] */
-            UINT16_C( 4 ), /* firstIndex */
-            UINT16_C( 4 ), /* lastIndex */
-            UINT8_C( 0 ), /* swFiltering */
-            UINT8_C( 0 ) /* intCtrlIdx */
-        },
-        { /* driverHrhConfig[5] */
-            UINT16_C( 5 ), /* firstIndex */
-            UINT16_C( 5 ), /* lastIndex */
-            UINT8_C( 0 ), /* swFiltering */
-            UINT8_C( 0 ) /* intCtrlIdx */
         }
     },
     { /* hohIdToCanIfIdx */
         UINT16_C( 0 ), /* hohIdToCanIfIdx[0] */
-        UINT16_C( 1 ), /* hohIdToCanIfIdx[1] */
-        UINT16_C( 2 ), /* hohIdToCanIfIdx[2] */
-        UINT16_C( 3 ), /* hohIdToCanIfIdx[3] */
-        UINT16_C( 4 ), /* hohIdToCanIfIdx[4] */
-        UINT16_C( 5 ), /* hohIdToCanIfIdx[5] */
-        UINT16_C( 32768 ), /* hohIdToCanIfIdx[6] */
-        UINT16_C( 32769 ) /* hohIdToCanIfIdx[7] */
+        UINT16_C( 32768 ) /* hohIdToCanIfIdx[1] */
     },
     { /* canControllerConfig */
         { /* canControllerConfig[0] */
@@ -203,40 +127,15 @@ CanIf_ConstConfigLayoutType CanIf_ConfigLayout = {
             TS_MAKEREF2CFG( hohIdToCanIfIdx[0] ), /* hohIdToCanIfIdxPtr */
             TS_MAKEREF2CFG( driverHthConfig[0] ), /* hthConfigPtr */
             TS_MAKEREF2CFG( driverHrhConfig[0] ), /* hrhConfigPtr */
-            UINT8_C( 8 ), /* upperHohIdLimit */
+            UINT8_C( 2 ), /* upperHohIdLimit */
             UINT8_C( 1 ) /* nrOfControllers */
         }
     },
     { /* sortedRxLPduConfig */
         { /* sortedRxLPduConfig[0] */
             UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1810 ), /* canId */
+            UINT32_C( 2033 ), /* canId */
             UINT16_C( 0 ) /* rxLPduIndex */
-        },
-        { /* sortedRxLPduConfig[1] */
-            UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1815 ), /* canId */
-            UINT16_C( 1 ) /* rxLPduIndex */
-        },
-        { /* sortedRxLPduConfig[2] */
-            UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1808 ), /* canId */
-            UINT16_C( 2 ) /* rxLPduIndex */
-        },
-        { /* sortedRxLPduConfig[3] */
-            UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1813 ), /* canId */
-            UINT16_C( 3 ) /* rxLPduIndex */
-        },
-        { /* sortedRxLPduConfig[4] */
-            UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1809 ), /* canId */
-            UINT16_C( 4 ) /* rxLPduIndex */
-        },
-        { /* sortedRxLPduConfig[5] */
-            UINT32_C( 4294967295 ), /* upperRangeCanId */
-            UINT32_C( 1814 ), /* canId */
-            UINT16_C( 5 ) /* rxLPduIndex */
         }
     }
 };

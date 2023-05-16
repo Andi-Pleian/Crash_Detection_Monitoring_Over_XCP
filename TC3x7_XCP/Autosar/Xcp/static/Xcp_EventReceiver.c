@@ -21,6 +21,8 @@
 #include <Xcp_Trace.h>
 
 #include <Xcp_Int.h>           /* Internal defines and declarations */
+//TODO ANDI
+#include <Xcp_Int_Stc.h>
 
 /*==================[macros]================================================*/
 

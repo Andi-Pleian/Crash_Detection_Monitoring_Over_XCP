@@ -27,6 +27,8 @@
 #include <Xcp.h>               /* Module public API */
 #if ( (XCP_DEFAULT_XCP_MODULE_STATE == STD_ON) || (XCP_ENABLE_XCP_CONTROL_API == STD_ON) )
 #include <Xcp_Int.h>           /* Module internal interface */
+//TODO ANDI
+#include <Xcp_Cfg.h>
 
 
 /*==================[macros]================================================*/
@@ -65,14 +67,6 @@ STATIC CONST(PduIdType, XCP_CONST) Xcp_TxPduIdCfgList[XCP_NO_OF_TX_PDU_IDS] =
 {
   /* Tx Pdu configuration for the XcpConnectionCfg_0 connection */
   0U,
-  1U,
-  2U,
-  3U,
-  4U,
-  5U,
-  6U,
-  7U,
-  8U,
 };
 
 #define XCP_STOP_SEC_CONST_UNSPECIFIED
@@ -98,76 +92,13 @@ CONST( Xcp_ConfigType, XCP_CONST ) XcpConfig = { 0U };
  ** * supported Xcp communication transfer object types. */
 CONST(Xcp_TxLPduIdConfType, XCP_CONST )  Xcp_TxLPduIdConf[XCP_NO_OF_TX_PDU_IDS] =
 {
-  { /* Mapping information for XcpTxPdu_dummy32bslave_T Pdu. */
+  { /* Mapping information for XcpTxPdu_xcpresponse_T Pdu. */
+    2034U,  /* CAN/CANFD ID of the package */
     0U,  /* LPdu data start position into Tx buffer data */
-    8U,  /* FrIf destination PDU id */
+    0U,  /* CanIf destination PDU id */
     0U,  /* associated internal buffer Id */
     0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_RESERR_CTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_1_T Pdu. */
-    20U,  /* LPdu data start position into Tx buffer data */
-    19U,  /* FrIf destination PDU id */
-    1U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_2_T Pdu. */
-    40U,  /* LPdu data start position into Tx buffer data */
-    20U,  /* FrIf destination PDU id */
-    2U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_3_T Pdu. */
-    60U,  /* LPdu data start position into Tx buffer data */
-    21U,  /* FrIf destination PDU id */
-    3U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_4_T Pdu. */
-    80U,  /* LPdu data start position into Tx buffer data */
-    22U,  /* FrIf destination PDU id */
-    4U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_5_T Pdu. */
-    100U,  /* LPdu data start position into Tx buffer data */
-    23U,  /* FrIf destination PDU id */
-    5U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_6_T Pdu. */
-    120U,  /* LPdu data start position into Tx buffer data */
-    24U,  /* FrIf destination PDU id */
-    6U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_7_T Pdu. */
-    140U,  /* LPdu data start position into Tx buffer data */
-    25U,  /* FrIf destination PDU id */
-    7U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
-     XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
-  },
-  { /* Mapping information for XcpTxPdu_xcpdynamic254_8_T Pdu. */
-    160U,  /* LPdu data start position into Tx buffer data */
-    26U,  /* FrIf destination PDU id */
-    8U,  /* associated internal buffer Id */
-    0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
-    (XCP_SUPPORT_FOR_TRIGGER_TRANSMIT |
+    (XCP_SUPPORT_FOR_RESERR_CTO_PDU |
      XCP_SUPPORT_FOR_DAQ_DTO_PDU), /* Properties and supported types for this PDU */
   },
 };
@@ -182,7 +113,8 @@ CONST(Xcp_TxLPduIdConfType, XCP_CONST )  Xcp_TxLPduIdConf[XCP_NO_OF_TX_PDU_IDS] 
  ** * supported Xcp communication transfer object types. */
 CONST(Xcp_RxLPduIdConfType, XCP_CONST )  Xcp_RxLPduIdConf[XCP_NO_OF_RX_PDU_IDS] =
 {
-  { /* Mapping information for XcpRxPdu_dummy32bmaster_R Pdu. */
+  { /* Mapping information for XcpRxPdu_xcp_request_R Pdu. */
+    2033U,  /* CAN ID of the package */
     0U,  /* LPdu data start position into Rx buffer data */
     0U,  /* associated internal buffer Id */
     0U,  /* Xcp connection Id(XcpConnectionCfg_0) */
@@ -196,19 +128,18 @@ CONST(Xcp_RxLPduIdConfType, XCP_CONST )  Xcp_RxLPduIdConf[XCP_NO_OF_RX_PDU_IDS] 
 /** \brief Connection configuration info */
 CONST(Xcp_ConnectionCfgType, XCP_CONST) Xcp_ConnectionCfg[XCP_NO_OF_CONNECTIONS] =
 {
-  /* configuration information for XcpConnectionCfg_0 connection(Xcp over FLEXRAY). */
+  /* configuration information for XcpConnectionCfg_0 connection(Xcp over CAN). */
   {
     &Xcp_TxPduIdCfgList[0U], /* start position for the mapped Tx Pdu list */
-    20U, /* PDU maximum length */
-    3U, /* PDU header size */
-    9U, /* number of mapped Tx PDUs towards connection */
+    8U, /* PDU maximum length */
+    0U, /* PDU header size */
+    1U, /* number of mapped Tx PDUs towards connection */
     1U, /* number of mapped Rx PDUs towards connection */
-    0U, /* Id of the packet counter */
-    0U, /* configured NAX address for the slave */
-    1U,  /* Package Alignment */
-    (XCP_MULTI_PDUS_IN_FRAME_FLAG |
-     XCP_SEQUENCE_CORRECTION_FLAG), /* connection flags */
-    XCP_CONNECTION_OVER_FLEXRAY, /* connection type */
+    0U, /* Xcp PDU channel, used to receive all CMD's but GET_SLAVE_ID. */
+    0U, /* Xcp PDU channel, used to receive the broadcasted GET_SLAVE_ID CMD. */
+    XCP_IGNORED_CNT_ID,  
+    0U, /* connection flags */
+    XCP_CONNECTION_OVER_CAN, /* connection type */
   },
 };
 
@@ -331,212 +262,6 @@ CONST(uint16, XCP_CONST) Xcp_MFCyclicEventCfg[XCP_MAX_CYCLIC_EVENT_CHANNEL] =
 
 
 
-
-/** \brief Configured Flexray Buffers */
-CONST(Xcp_FlxBufType, XCP_CONST) Xcp_FlxBufConfig[XCP_NO_OF_FLX_BUF_CONFIGURED] =
-{
-  {
-    0, /* ID of the FLX_BUF */
-    36, /* LPDU_ID of the FLX_BUF */
-    0, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    32, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    219, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    1, /* ID of the FLX_BUF */
-    80, /* LPDU_ID of the FLX_BUF */
-    1, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    294, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    2, /* ID of the FLX_BUF */
-    81, /* LPDU_ID of the FLX_BUF */
-    2, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    295, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    3, /* ID of the FLX_BUF */
-    82, /* LPDU_ID of the FLX_BUF */
-    3, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    296, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    4, /* ID of the FLX_BUF */
-    83, /* LPDU_ID of the FLX_BUF */
-    4, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    297, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    5, /* ID of the FLX_BUF */
-    84, /* LPDU_ID of the FLX_BUF */
-    5, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    298, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    6, /* ID of the FLX_BUF */
-    85, /* LPDU_ID of the FLX_BUF */
-    6, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    299, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    7, /* ID of the FLX_BUF */
-    86, /* LPDU_ID of the FLX_BUF */
-    7, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    300, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    8, /* ID of the FLX_BUF */
-    87, /* LPDU_ID of the FLX_BUF */
-    8, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    254, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    201, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-  {
-    9, /* ID of the FLX_BUF */
-    37, /* LPDU_ID of the FLX_BUF */
-    0, /* index in either Xcp_TxLPduIdConf or Xcp_RxLPduIdConf */
-    0, /* Controller ID corresponding LPDU_ID */
-    XCP_FLX_BUF_VALUE_FIXED, /* MAX_FLX_LEN_BUF properties */
-    32, /* MAX_FLX_LEN_BUF initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* SLOT_ID properties */
-    220, /* SLOT_ID initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* OFFSET properties */
-    0, /* OFFSET initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CYCLE_REPETITION properties */
-    1, /* CYCLE_REPETITION initial value */
-    XCP_FLX_BUF_VALUE_FIXED, /* CHANNEL properties */
-    XCP_FLX_BUF_VALUE_CHANNEL_A, /* CHANNEL initial value */
-    (XCP_BUFFER_DIRECTION_TX_MASK |
-     XCP_BUFFER_PRECONFIGURED_MASK |
-     XCP_BUFFER_FIXED_MASK), /* Buffer flags */
-  },
-
-};
-
-
 /* Deviation MISRAC2012-1 <START> */
 /** \brief Array holding the configured memory areas */
 CONST(Xcp_MemoryAreaType, XCP_CONST) Xcp_MemoryAreas[XCP_NUMBER_OF_MEMORY_AREAS] =
@@ -592,6 +317,7 @@ STATIC VAR(Xcp_DaqIdType, XCP_VAR) Xcp_DaqIdList[XCP_EVENT_CHANNEL_TOTAL_DAQ] =
 #include <MemMap.h>
 
 /** \brief All runtime DAQ lists together with ODTs and ODT entries and admin data*/
+//TODO ANDI
 VAR(Xcp_AllDaqListsType, XCP_VAR_NOINIT) Xcp_DaqLists;
 
 #define XCP_STOP_SEC_VAR_SAVED_ZONE_UNSPECIFIED

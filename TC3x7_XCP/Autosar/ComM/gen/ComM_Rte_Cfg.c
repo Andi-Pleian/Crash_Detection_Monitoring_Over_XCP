@@ -51,9 +51,7 @@
 #if (COMM_NUM_USERS != 0U)
 CONST(ComM_RteSwitchCbkType, COMM_CONST) ComM_RteSwitchCbk[USER_ARRAY_SIZE] =
 {
-  /* user ComMUser_FrUser, ID=0 */
-  &Rte_Switch_UM_ComMUser_FrUser_currentMode,
-  /* user ComMUser_CanUser, ID=1 */
+  /* user ComMUser_CanUser, ID=0 */
   &Rte_Switch_UM_ComMUser_CanUser_currentMode,
 };
 #endif
@@ -62,9 +60,7 @@ CONST(ComM_RteSwitchCbkType, COMM_CONST) ComM_RteSwitchCbk[USER_ARRAY_SIZE] =
 #if (COMM_CURRENTCHANNELREQUEST_ENABLED == STD_ON)
 CONST(ComM_RteWriteCbkType, COMM_CONST) ComM_RteWriteCbk[COMM_NUM_CHANNELS] =
 {
-  /* channel ComMChannel_FR, ID=0 */
-  NULL_PTR, /* ComM_CurrentChannelRequest not used for this channel */
-  /* channel ComMChannel_CAN, ID=1 */
+  /* channel ComMChannel_CAN, ID=0 */
   NULL_PTR, /* ComM_CurrentChannelRequest not used for this channel */
 };
 #endif /* COMM_CURRENTCHANNELREQUEST_ENABLED */
@@ -73,9 +69,7 @@ CONST(ComM_RteWriteCbkType, COMM_CONST) ComM_RteWriteCbk[COMM_NUM_CHANNELS] =
 #if (COMM_NUM_USERS != 0U)
 CONST(ComM_ASR40_RteSwitchCbkType, COMM_CONST) ComM_ASR40_RteSwitchCbk[USER_ARRAY_SIZE] =
 {
-  /* user ComMUser_FrUser, ID=0 */
-  &Rte_Switch_UM_ASR40_ComMUser_FrUser_currentMode,
-  /* user ComMUser_CanUser, ID=1 */
+  /* user ComMUser_CanUser, ID=0 */
   &Rte_Switch_UM_ASR40_ComMUser_CanUser_currentMode,
 };
 #endif
@@ -83,9 +77,7 @@ CONST(ComM_ASR40_RteSwitchCbkType, COMM_CONST) ComM_ASR40_RteSwitchCbk[USER_ARRA
 #if (COMM_CURRENTCHANNELREQUEST_ENABLED == STD_ON)
 CONST(ComM_ASR40_RteWriteCbkType, COMM_CONST) ComM_ASR40_RteWriteCbk[COMM_NUM_CHANNELS] =
 {
-  /* channel ComMChannel_FR, ID=0 */
-  NULL_PTR, /* ComM_CurrentChannelRequest not used for this channel */
-  /* channel ComMChannel_CAN, ID=1 */
+  /* channel ComMChannel_CAN, ID=0 */
   NULL_PTR, /* ComM_CurrentChannelRequest not used for this channel */
 };
 #endif /* COMM_CURRENTCHANNELREQUEST_ENABLED */

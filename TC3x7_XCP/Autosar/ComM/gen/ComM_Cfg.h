@@ -40,7 +40,7 @@
 #if (defined COMM_CFG_SIGNATURE)
 #error COMM_CFG_SIGNATURE already defined
 #endif
-#define COMM_CFG_SIGNATURE 3737603451U /* Compile time verification value */
+#define COMM_CFG_SIGNATURE 2018520538U /* Compile time verification value */
 
 #if (defined COMM_PUBLIC_INFO_SIGNATURE)
 #error COMM_PUBLIC_INFO_SIGNATURE already defined
@@ -101,42 +101,19 @@
 
 
 
-#if (defined ComMConf_ComMChannel_ComMChannel_FR)
-#error ComMConf_ComMChannel_ComMChannel_FR already defined
-#endif
-/** \brief Symbolic name for the ComM channel "ComMChannel_FR" */
-#define ComMConf_ComMChannel_ComMChannel_FR   0U
-
-#if (!defined COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined ComMChannel_FR)
-#error ComMChannel_FR already defined
-#endif
-
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 0 */
-#define ComMChannel_FR                     0U
-
-#if (defined ComM_ComMChannel_FR)
-#error ComM_ComMChannel_FR already defined
-#endif
-
-/** \brief Export symbolic name value with module abbreviation as prefix
- ** only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define ComM_ComMChannel_FR   0U
-#endif /* COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-
 #if (defined ComMConf_ComMChannel_ComMChannel_CAN)
 #error ComMConf_ComMChannel_ComMChannel_CAN already defined
 #endif
 /** \brief Symbolic name for the ComM channel "ComMChannel_CAN" */
-#define ComMConf_ComMChannel_ComMChannel_CAN   1U
+#define ComMConf_ComMChannel_ComMChannel_CAN   0U
 
 #if (!defined COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
 #if (defined ComMChannel_CAN)
 #error ComMChannel_CAN already defined
 #endif
 
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 1 */
-#define ComMChannel_CAN                     1U
+/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 0 */
+#define ComMChannel_CAN                     0U
 
 #if (defined ComM_ComMChannel_CAN)
 #error ComM_ComMChannel_CAN already defined
@@ -144,35 +121,10 @@
 
 /** \brief Export symbolic name value with module abbreviation as prefix
  ** only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define ComM_ComMChannel_CAN   1U
+#define ComM_ComMChannel_CAN   0U
 #endif /* COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
 
 
-
-
-#if (defined ComMConf_ComMUser_ComMUser_FrUser)
-#error ComMConf_ComMUser_ComMUser_FrUser already defined
-#endif
-
-/** \brief Symbolic name for the ComM user "ComMUser_FrUser" */
-#define ComMConf_ComMUser_ComMUser_FrUser   0U
-
-#if (!defined COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined ComMUser_FrUser)
-#error ComMUser_FrUser already defined
-#endif
-
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 0 */
-#define ComMUser_FrUser                     0U
-
-#if (defined ComM_ComMUser_FrUser)
-#error ComM_ComMUser_FrUser already defined
-#endif
-
-/** \brief Export symbolic name value with module abbreviation as prefix
- ** only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define ComM_ComMUser_FrUser   0U
-#endif /* COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
 
 
 #if (defined ComMConf_ComMUser_ComMUser_CanUser)
@@ -180,15 +132,15 @@
 #endif
 
 /** \brief Symbolic name for the ComM user "ComMUser_CanUser" */
-#define ComMConf_ComMUser_ComMUser_CanUser   1U
+#define ComMConf_ComMUser_ComMUser_CanUser   0U
 
 #if (!defined COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
 #if (defined ComMUser_CanUser)
 #error ComMUser_CanUser already defined
 #endif
 
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 1 */
-#define ComMUser_CanUser                     1U
+/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) 0 */
+#define ComMUser_CanUser                     0U
 
 #if (defined ComM_ComMUser_CanUser)
 #error ComM_ComMUser_CanUser already defined
@@ -196,7 +148,7 @@
 
 /** \brief Export symbolic name value with module abbreviation as prefix
  ** only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define ComM_ComMUser_CanUser   1U
+#define ComM_ComMUser_CanUser   0U
 #endif /* COMM_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
 
 
@@ -279,13 +231,13 @@
 #if (defined COMM_NUM_CHANNELS)
 #error COMM_NUM_CHANNELS already defined
 #endif
-#define COMM_NUM_CHANNELS                 2U
+#define COMM_NUM_CHANNELS                 1U
 
 /** \brief Number of ComM users */
 #if (defined COMM_NUM_USERS)
 #error COMM_NUM_USERS already defined
 #endif
-#define COMM_NUM_USERS                    2U
+#define COMM_NUM_USERS                    1U
 
 #if (defined USER_ARRAY_SIZE)
 #error USER_ARRAY_SIZE already defined
@@ -303,7 +255,7 @@
 #if (defined COMM_NM_ACCESS_NEEDED)
 #error COMM_NM_ACCESS_NEEDED already defined
 #endif
-#define COMM_NM_ACCESS_NEEDED             STD_ON
+#define COMM_NM_ACCESS_NEEDED             STD_OFF
 
 /** \brief Flag indicating if CanSm access is needed at all. */
 #if (defined COMM_CANSM_ACCESS_NEEDED)
@@ -315,7 +267,7 @@
 #if (defined COMM_FRSM_ACCESS_NEEDED)
 #error COMM_FRSM_ACCESS_NEEDED already defined
 #endif
-#define COMM_FRSM_ACCESS_NEEDED           STD_ON
+#define COMM_FRSM_ACCESS_NEEDED           STD_OFF
 
 /** \brief Flag indicating if LinSm access is needed at all. */
 #if (defined COMM_LINSM_ACCESS_NEEDED)
@@ -334,7 +286,7 @@
 #if (defined COMM_NM_VARIANT_FULL_NEEDED)
 #error COMM_NM_VARIANT_FULL_NEEDED already defined
 #endif
-#define COMM_NM_VARIANT_FULL_NEEDED       STD_ON
+#define COMM_NM_VARIANT_FULL_NEEDED       STD_OFF
 
 /** \brief Flag indicating if there is at least one channel of variant
  * "passive" */
@@ -369,7 +321,7 @@
 #if (defined COMM_NM_VARIANT_LIGHT_NONE_ONLY)
 #error COMM_NM_VARIANT_LIGHT_NONE_ONLY already defined
 #endif
-#define COMM_NM_VARIANT_LIGHT_NONE_ONLY   STD_OFF
+#define COMM_NM_VARIANT_LIGHT_NONE_ONLY   STD_ON
 
 /** \brief Flag indicating if there is at least one channel of bustype
  * "internal" */
@@ -388,48 +340,30 @@
 #if (defined COMM_NM_CHANNEL_OF_CHANNEL)
 #error COMM_NM_CHANNEL_OF_CHANNEL already defined
 #endif
-#define COMM_NM_CHANNEL_OF_CHANNEL(idx)   (ComM_NmChannelOfChannel[(idx)])
-/* Dynamic mapping of channel specific attributes */
+#define COMM_NM_CHANNEL_OF_CHANNEL(idx)   0xFFU /* no NM channel associated */
 
-/** \brief Bus type of ComM channel */
 /* !LINKSTO HisComM0001_Refine1,1, HisComM0002_Refine1,1, HisComM0003_Refine1,1 */
+/** \brief Bus type of ComM channel */
 #if (defined COMM_BUSTYPE_OF_CHANNEL)
 #error COMM_BUSTYPE_OF_CHANNEL already defined
 #endif
-#define COMM_BUSTYPE_OF_CHANNEL(idx)      (ComM_BusTypeOfChannel[(idx)])
+#define COMM_BUSTYPE_OF_CHANNEL(idx)      COMM_BUS_TYPE_CAN
 
 #if (defined COMM_BUSTYPE_OF_CHANNEL_DYNAMIC)
 #error COMM_BUSTYPE_OF_CHANNEL_DYNAMIC already defined
 #endif
-#define COMM_BUSTYPE_OF_CHANNEL_DYNAMIC   STD_ON
+#define COMM_BUSTYPE_OF_CHANNEL_DYNAMIC   STD_OFF
 
-#if (defined COMM_BUSTYPE_OF_CHANNEL_INIT)
-#error COMM_BUSTYPE_OF_CHANNEL_INIT already defined
-#endif
-#define COMM_BUSTYPE_OF_CHANNEL_INIT \
-{ \
-  COMM_BUS_TYPE_FR, /* for channel ComMChannel_FR */ \
-  COMM_BUS_TYPE_CAN, /* for channel ComMChannel_CAN */ \
-}
-
+/** \brief Nm variant of ComM channel */
+/* !LINKSTO HisComM0001_Refine1,1, HisComM0002_Refine1,1, HisComM0003_Refine1,1 */
 #if (defined COMM_NM_VARIANT_OF_CHANNEL)
 #error COMM_NM_VARIANT_OF_CHANNEL already defined
 #endif
-#define COMM_NM_VARIANT_OF_CHANNEL(idx)    (ComM_NmVariantOfChannel[(idx)])
-
+#define COMM_NM_VARIANT_OF_CHANNEL(idx)    COMM_NM_NONE_VARIANT
 #if (defined COMM_NM_VARIANT_OF_CHANNEL_DYNAMIC)
 #error COMM_NM_VARIANT_OF_CHANNEL_DYNAMIC already defined
 #endif
-#define COMM_NM_VARIANT_OF_CHANNEL_DYNAMIC STD_ON
-
-#if (defined COMM_NM_VARIANT_OF_CHANNEL_INIT)
-#error COMM_NM_VARIANT_OF_CHANNEL_INIT already defined
-#endif
-#define COMM_NM_VARIANT_OF_CHANNEL_INIT \
-{ \
-  COMM_NM_FULL_VARIANT, /* for channel ComMChannel_FR */ \
-  COMM_NM_NONE_VARIANT, /* for channel ComMChannel_CAN */ \
-}
+#define COMM_NM_VARIANT_OF_CHANNEL_DYNAMIC STD_OFF
 
 
 #if (defined COMM_PNC_RELEASE_CHANNEL)
@@ -500,9 +434,6 @@
 /** \brief Main function for channel 0 */
 /* Deviation MISRAC2012-1 */
 extern FUNC(void, COMM_CODE) ComM_MainFunction_0(void);
-/** \brief Main function for channel 1 */
-/* Deviation MISRAC2012-1 */
-extern FUNC(void, COMM_CODE) ComM_MainFunction_1(void);
 
 #define COMM_STOP_SEC_CODE
 #include <MemMap.h>

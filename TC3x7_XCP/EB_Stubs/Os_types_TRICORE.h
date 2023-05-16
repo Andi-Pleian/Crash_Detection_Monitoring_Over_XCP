@@ -17,7 +17,8 @@
 #define OS_TYPES_TRICORE_H
 
 #if (OS_CPU == OS_TC1791)
-#include <TRICORE/TC1791/Os_types_TC1791.h>
+//TODO ANDI
+//#include <TRICORE/TC1791/Os_types_TC1791.h>
 #elif (OS_CPU == OS_TC1793)
 #include <TRICORE/TC1793/Os_types_TC1793.h>
 #elif (OS_CPU == OS_TC1798)

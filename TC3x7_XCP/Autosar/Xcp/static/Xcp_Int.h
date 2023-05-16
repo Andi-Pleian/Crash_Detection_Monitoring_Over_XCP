@@ -1,7 +1,7 @@
 #if (!defined XCP_INT_H)
 #define XCP_INT_H
-
-#error "XCP_INT.h error"
+//TODO ANDI
+//#error "XCP_INT.h error"
 /* --------{ EB Automotive Header Source File }-------- */
 /*
  *  MISRA-C:2012 Deviation List
@@ -17,6 +17,8 @@
 #include <Xcp_Int_Cfg.h>        /* Internal configuration defines and declarations */
 #include <Xcp_DefProg_Cfg.h>    /* Configuration defines related to defensive programming */
 #include <Xcp_Cbk.h>            /* Callback function */
+//TODO ANDI
+#include <Compiler.h>
 #if (XCP_SOAD_PROTOCOL_TCP_SUPPORT == STD_ON)
 #include <TcpIp.h>        /* TcpIp types */
 #endif

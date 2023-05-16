@@ -39,10 +39,10 @@ typedef struct /* ComM_ConfigType */ {
     VAR( uint32, TYPEDEF ) CfgSignature; /* Used to validate the post build configuration against the precompile time configuration */
     VAR( uint32, TYPEDEF ) PublicInfoSignature; /* Used to validate Public information */
     TS_REF2CFG( uint8 )  pUsersOfAllChannel; /* Reference to COMM_ConfigLayoutType.aUsersOfAllChannel */
-    VAR( uint16, TYPEDEF ) NumUsersOfAllChannel[3]; /* Index of first user of a channel in COMM_ConfigLayoutType.aUsersOfAllChannel */
+    VAR( uint16, TYPEDEF ) NumUsersOfAllChannel[2]; /* Index of first user of a channel in COMM_ConfigLayoutType.aUsersOfAllChannel */
     TS_REF2CFG( uint8 )  pChannelsOfAllUser; /* Reference to COMM_ConfigLayoutType.aChannelsOfAllUser */
-    VAR( uint16, TYPEDEF ) NumChannelsOfAllUser[3]; /* Index of first channel of a user in COMM_ConfigLayoutType.aChannelsOfAllUser */
-    VAR( uint16, TYPEDEF ) DirectNumChannelsOfAllUser[3]; /* Index of first channel of a user in COMM_ConfigLayoutType.aChannelsOfAllUser */
+    VAR( uint16, TYPEDEF ) NumChannelsOfAllUser[2]; /* Index of first channel of a user in COMM_ConfigLayoutType.aChannelsOfAllUser */
+    VAR( uint16, TYPEDEF ) DirectNumChannelsOfAllUser[2]; /* Index of first channel of a user in COMM_ConfigLayoutType.aChannelsOfAllUser */
 } ComM_ConfigType;
 
 

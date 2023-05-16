@@ -13,18 +13,6 @@
  * unless expressly agreed to otherwise.
  */
 
-/*
- *  MISRA-C:2012 Deviations:
- *
- *  MISRAC2012-1) Deviated Rule: 9.5 (Required)
- *    Where designated initializers are used to initialize an array object the
- *    size of the array shall be specified explicitly.
- *
- *    Reason:
- *    Array size and initialization are depending on configuration whereas the
- *    array declaration is used by configuration-independent library code.
- */
-
 /*==================[inclusions]=============================================*/
 
 #define CANIF_NO_CFGCLASSMIX_REQUIRED
@@ -59,7 +47,6 @@
 
 #if (CANIF_ANY_UL_CBK_SUPPORT == STD_ON)
 /** \brief Configuration of upper layer callback function pointers */
-/* Deviation MISRAC2012-1 <START> */
 CONST( CanIf_CbkFctPtrTblType, CANIF_APPL_CONST ) CanIf_CbkFctPtrTbl[] =
 {
   {
@@ -80,8 +67,25 @@ CONST( CanIf_CbkFctPtrTblType, CANIF_APPL_CONST ) CanIf_CbkFctPtrTbl[] =
     NULL_PTR,
 #endif  /* CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON */
   },
+  {
+     /* XCP */
+#if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
+    &Xcp_CanIfRxIndication,
+#endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */
+#if (CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif /* CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON */
+#if (CANIF_TX_CONFIRMATION_SUPPORT == STD_ON)
+    &Xcp_CanIfTxConfirmation,
+#endif /* CANIF_TX_CONFIRMATION_SUPPORT == STD_ON */
+#if (CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif /* CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON */
+#if (CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif  /* CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON */
+  },
 };
-/* Deviation MISRAC2012-1 <STOP> */
 #endif /* CANIF_ANY_UL_CBK_SUPPORT == STD_ON */
 
 #define CANIF_STOP_SEC_CONFIG_DATA_UNSPECIFIED

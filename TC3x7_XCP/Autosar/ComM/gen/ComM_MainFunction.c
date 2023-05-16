@@ -85,32 +85,6 @@ FUNC(void, COMM_CODE) ComM_MainFunction_0
   }
 }
 
-/** \brief Main function for channelid 1 **/
-FUNC(void, COMM_CODE) ComM_MainFunction_1
-(
-  void
-)
-{
-  if (ComM_InitStatus != COMM_UNINIT)
-  {
-/* !LINKSTO ComM979,1 */
-#if (COMM_PNC_SUPPORT == STD_ON)
-    if( COMM_PNC_ENABLED )
-    {
-      
-      ComM_PncMainFunction();
-    }
-#endif
-
-    ComM_ProcessTimers(1U);
-
-    /* ComM channels are independent of each other and do not send events to
-     * each other. Hence the return value is ignored */
-    (void) COMM_HSMMAININST(
-      &ComM_HsmScComM, 1U);
-  }
-}
-
 
 
 

@@ -23,7 +23,7 @@
 #include <TSAutosar.h>    /* EB specific standard types */
 #include <ComStack_Types.h> /* Comstack types */
 //TODO ANDI
-#include "Ifx_Types.h"
+#include <Platform_Types.h>
 
 /*==================[macros]=================================================*/
 
@@ -56,7 +56,7 @@
 #error XCP_ON_CAN_ENABLED already defined
 #endif
 /** \brief Switch, indicating whether XCPonCAN functionality is available */
-#define XCP_ON_CAN_ENABLED           STD_OFF
+#define XCP_ON_CAN_ENABLED           STD_ON
 
 #if (defined XCP_ON_CANFD_ENABLED)
 #error XCP_ON_CANFD_ENABLED already defined
@@ -131,7 +131,7 @@
 #endif
 /** \brief Value indicating the Maximum ODT Entry Size.
  **/
-#define XCP_MAX_ODTENTRY_SIZE                8U
+#define XCP_MAX_ODTENTRY_SIZE                7U
 
 #if (defined XCP_ENABLE_XCP_CONTROL_API)
 #error XCP_ENABLE_XCP_CONTROL_API already defined
@@ -179,14 +179,14 @@
 #endif
 /** \brief Number of user defined commands.
  **/
-#define XCP_FLEXRAY_TP_COMMANDS_SUPPORTED            STD_ON
+#define XCP_FLEXRAY_TP_COMMANDS_SUPPORTED            STD_OFF
 
 #if (defined XCP_NO_OF_FLX_BUF_CONFIGURED)
 #error XCP_NO_OF_FLX_BUF_CONFIGURED already defined
 #endif
 /** \brief Number of Flexray hardware buffers configured.
  **/
-#define XCP_NO_OF_FLX_BUF_CONFIGURED                                10U
+#define XCP_NO_OF_FLX_BUF_CONFIGURED                                0U
 
 #if (defined XCP_SUPPRESS_TX_SUPPORT)
 #error XCP_SUPPRESS_TX_SUPPORT already defined
@@ -195,232 +195,48 @@
 #define XCP_SUPPRESS_TX_SUPPORT      STD_OFF
 /*------------------[symbolic name values]----------------------------------*/
 
-#if (defined XcpConf_XcpPdu_XcpTxPdu_dummy32bslave_T)
-#error XcpConf_XcpPdu_XcpTxPdu_dummy32bslave_T already defined
+#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpresponse_T)
+#error XcpConf_XcpPdu_XcpTxPdu_xcpresponse_T already defined
 #endif
 /** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
  **
  ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
  ** transmission.
  **/
-#define XcpConf_XcpPdu_XcpTxPdu_dummy32bslave_T        0U
+#define XcpConf_XcpPdu_XcpTxPdu_xcpresponse_T        0U
 
 #if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_dummy32bslave_T)
-#error XcpTxPdu_dummy32bslave_T is already defined
+#if (defined XcpTxPdu_xcpresponse_T)
+#error XcpTxPdu_xcpresponse_T is already defined
 #endif
 /** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_dummy32bslave_T        0U
+#define XcpTxPdu_xcpresponse_T        0U
 
-#if (defined Xcp_XcpTxPdu_dummy32bslave_T)
-#error Xcp_XcpTxPdu_dummy32bslave_T is already defined
+#if (defined Xcp_XcpTxPdu_xcpresponse_T)
+#error Xcp_XcpTxPdu_xcpresponse_T is already defined
 #endif
 /** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_dummy32bslave_T        0U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_1_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_1_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_1_T        1U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_1_T)
-#error XcpTxPdu_xcpdynamic254_1_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_1_T        1U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_1_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_1_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_1_T        1U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_2_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_2_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_2_T        2U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_2_T)
-#error XcpTxPdu_xcpdynamic254_2_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_2_T        2U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_2_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_2_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_2_T        2U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_3_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_3_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_3_T        3U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_3_T)
-#error XcpTxPdu_xcpdynamic254_3_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_3_T        3U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_3_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_3_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_3_T        3U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_4_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_4_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_4_T        4U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_4_T)
-#error XcpTxPdu_xcpdynamic254_4_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_4_T        4U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_4_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_4_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_4_T        4U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_5_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_5_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_5_T        5U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_5_T)
-#error XcpTxPdu_xcpdynamic254_5_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_5_T        5U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_5_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_5_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_5_T        5U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_6_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_6_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_6_T        6U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_6_T)
-#error XcpTxPdu_xcpdynamic254_6_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_6_T        6U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_6_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_6_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_6_T        6U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_7_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_7_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_7_T        7U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_7_T)
-#error XcpTxPdu_xcpdynamic254_7_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_7_T        7U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_7_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_7_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_7_T        7U
-#endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
-#if (defined XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_8_T)
-#error XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_8_T already defined
-#endif
-/** \brief Symbolic name value of the Handle ID for receiving a TxConfirmation or a TriggerTransmit
- **
- ** This Handle ID must be used by the underlying communication layer after the Xcp requested a
- ** transmission.
- **/
-#define XcpConf_XcpPdu_XcpTxPdu_xcpdynamic254_8_T        8U
-
-#if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpTxPdu_xcpdynamic254_8_T)
-#error XcpTxPdu_xcpdynamic254_8_T is already defined
-#endif
-/** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpTxPdu_xcpdynamic254_8_T        8U
-
-#if (defined Xcp_XcpTxPdu_xcpdynamic254_8_T)
-#error Xcp_XcpTxPdu_xcpdynamic254_8_T is already defined
-#endif
-/** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpTxPdu_xcpdynamic254_8_T        8U
+#define Xcp_XcpTxPdu_xcpresponse_T        0U
 #endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
 
-#if (defined XcpConf_XcpPdu_XcpRxPdu_dummy32bmaster_R)
-#error XcpConf_XcpPdu_XcpRxPdu_dummy32bmaster_R already defined
+#if (defined XcpConf_XcpPdu_XcpRxPdu_xcp_request_R)
+#error XcpConf_XcpPdu_XcpRxPdu_xcp_request_R already defined
 #endif
 /** \brief Symbolic name value for the Handle IDs used to receive packets from the master. */
-#define XcpConf_XcpPdu_XcpRxPdu_dummy32bmaster_R        0U
+#define XcpConf_XcpPdu_XcpRxPdu_xcp_request_R        0U
 
 #if (!defined XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES)
-#if (defined XcpRxPdu_dummy32bmaster_R)
-#error XcpRxPdu_dummy32bmaster_R is already defined
+#if (defined XcpRxPdu_xcp_request_R)
+#error XcpRxPdu_xcp_request_R is already defined
 #endif
 /** \brief Export symbolic name value without prefix (AUTOSAR version <= 3.1 rev4) */
-#define XcpRxPdu_dummy32bmaster_R        0U
+#define XcpRxPdu_xcp_request_R        0U
 
-#if (defined Xcp_XcpRxPdu_dummy32bmaster_R)
-#error Xcp_XcpRxPdu_dummy32bmaster_R is already defined
+#if (defined Xcp_XcpRxPdu_xcp_request_R)
+#error Xcp_XcpRxPdu_xcp_request_R is already defined
 #endif
 /** \brief Export symbolic name value with module abbreviation as prefix only (3.1 rev4 < AUTOSAR version <= AUTOSAR 4.0 rev2) */
-#define Xcp_XcpRxPdu_dummy32bmaster_R        0U
+#define Xcp_XcpRxPdu_xcp_request_R        0U
 #endif /* XCP_DONT_PROVIDE_LEGACY_SYMBOLIC_NAMES */
 
 
@@ -607,7 +423,7 @@
 #endif
 /** \brief Switch, indicating whether Xcp_TriggerTransmit API is supported.
  **/
-#define XCP_TRIGGER_TX_API_ENABLED        STD_ON
+#define XCP_TRIGGER_TX_API_ENABLED        STD_OFF
 
 #if (defined XCP_NUMBER_OF_MEMORY_AREAS)
 #error XCP_NUMBER_OF_MEMORY_AREAS already defined
@@ -722,12 +538,12 @@ typedef struct
 
 
 /** \brief Definition for Xcp LPdu lenght type. */
-
-typedef uint16 Xcp_LPduLengthType;
+typedef uint8 Xcp_LPduLengthType;
 
 /** \brief Data structure storing property information regarding transmit PDU. */
 typedef struct
 {
+  uint32 PduCanId;                  /* CAN/CANFD Id for the selected PDU */
   Xcp_LPduLengthType LPduStartPos;  /* the start position of the PDU data inside LPDU buffer 
                                        when FLX_ASSIGN is not used on that connection */
   PduIdType DestPduId;              /* store the transport layer ID for the referenced PDU. */
@@ -747,6 +563,7 @@ typedef struct
 /** \brief Data structure storing property information regarding receive PDU. */
 typedef struct
 {
+  uint32 PduCanId;                 /* CAN Id for the selected PDU */
   Xcp_LPduLengthType LPduStartPos; /* the start position of the PDU data inside LPDU buffer
                                       when FLX_ASSIGN is not used on that connection */
   PduIdType IntPduBufId;           /* map PDU to internal buffer Id */
@@ -772,9 +589,9 @@ typedef struct
   PduLengthType PduHeaderLength; /* Pdu header size */
   PduIdType TxPduMax;            /* number of mapped Tx PDUs to connection */
   PduIdType RxPduMax;            /* number of mapped Rx PDUs to connection */
+  PduIdType CtoSlavePduId;       /* PDU channel, used to receive CMD data GET_SLAVE_ID. */
+  PduIdType BroadcastPduId;      /* PDU channel, used to receive bradcasted GET_SLAVE_ID. */
   uint8 IntCounterId;            /* Id of internal package counter */
-  uint8 FlexRayNax;              /* FlexRay network address */
-  PduLengthType FlexRayPackageAlignment; /* FlexRay package alignment */     
   uint8 Properties;              /* Additional connection configuration properties:
                                     Bit7: RESERVED,
                                     Bit6: RESERVED
@@ -824,6 +641,7 @@ extern CONST( Xcp_ConfigType, XCP_CONST ) XcpConfig;
 #include <MemMap.h>
 
 /** \brief All DAQ list related information grouped together. */
+//TODO ANDI
 extern VAR(Xcp_AllDaqListsType, XCP_VAR_NOINIT) Xcp_DaqLists;
 
 #define XCP_STOP_SEC_VAR_SAVED_ZONE_UNSPECIFIED

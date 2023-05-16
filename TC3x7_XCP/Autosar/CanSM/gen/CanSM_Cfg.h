@@ -92,7 +92,7 @@
 #endif /* #if (defined CanSM_CanNetwork_0 ) */
 
 /** \brief Export symbolic name value */
-#define CanSM_CanNetwork_0 1U
+#define CanSM_CanNetwork_0 0U
 
 #endif /* #if (defined CANSM_PROVIDE_LEGACY_SYMBOLIC_NAMES) */
 
@@ -308,14 +308,14 @@
 #endif /* #if (defined CANSM_NW_HANDLE_IS_VALID) */
 
 /** \brief check if network handle is valid */
-#define CANSM_NW_HANDLE_IS_VALID(nw) ((nw) == 1U)
+#define CANSM_NW_HANDLE_IS_VALID(nw) ((nw) == 0U)
 
 #if (defined CANSM_NW_HANDLE_FROM_IDX)
 #error CANSM_NW_HANDLE_FROM_IDX is already defined
 #endif /* #if (defined CANSM_NW_HANDLE_FROM_IDX) */
 
 /** \brief convert network array index to handle */
-#define CANSM_NW_HANDLE_FROM_IDX(nw) ((NetworkHandleType)1U)
+#define CANSM_NW_HANDLE_FROM_IDX(nw) ((NetworkHandleType)0U)
 
 
 

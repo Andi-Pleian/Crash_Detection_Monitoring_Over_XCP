@@ -15,7 +15,7 @@
 **                                                                            **
 **  VERSION   : 3.0.0                                                         **
 **                                                                            **
-**  DATE, TIME: 2017-11-23, 14:57:33                                      **
+**  DATE, TIME: 2023-03-31, 15:32:49                                      **
 **                                                                            **
 **  GENERATOR : Build b171004-0528                                          **
 **                                                                            **
@@ -113,7 +113,7 @@ static const Can_ControllerConfigType
   integer type. Permitted for special function registers.*/
   (volatile Ifx_CAN_N*)0xf0208100U,
   0x1U,
-  {0x0U, 0x2U, 0x0U, 0x6U}, 0x0U,0x0U, 0x0U, 0x1U, 0x0U, 0x00U ,0x1U
+  {0x0U, 0x1U, 0x0U, 0x1U}, 0x0U, 0x0U, 0x1U, 0x0U, 0x00U 
   }
 };
 /*******************************************************************************
@@ -135,14 +135,14 @@ static const Can_ControllerMsgRAMConfigType
   /* Start Address of each section within the Message RAM */
   {
   0xf0200000UL,
-  0xf0200018UL,
   0x00000000UL,
   0x00000000UL,
-  0xf0200020UL,
-  0xf0200080UL,
-  0xf0200090UL
+  0x00000000UL,
+  0xf0200004UL,
+  0xf0200014UL,
+  0xf020001cUL
   },
-  0x2U, 0x2U }
+  0x1U, 0x1U }
 };
 
 /*******************************************************************************
@@ -203,30 +203,9 @@ static const Can_EventHandlingType
 static const Can_SIDFilterConfigType
                       Can_kSIDFilterConfig[CAN_NOOF_SID_FILTER_CONFIG] =
 {
- {0xbf120000U, 0U, 0U, CAN_RX_DED_BUFFER },
- {0xbf170001U, 1U, 0U, CAN_RX_DED_BUFFER },
- {0xbf100002U, 2U, 0U, CAN_RX_DED_BUFFER },
- {0xbf150003U, 3U, 0U, CAN_RX_DED_BUFFER },
- {0xbf110004U, 4U, 0U, CAN_RX_DED_BUFFER },
- {0xbf160005U, 5U, 0U, CAN_RX_DED_BUFFER }
+ {0xbff10000U, 0U, 0U, CAN_RX_DED_BUFFER }
 };
 
-/*******************************************************************************
-      This is the combination of XID filer elements
-      Rx Object -> { Combination of Mask and filter valueF0,Combination of
-      Mask and filter valueF1, HRH HwObject Id, Hw Controller Id, Rx BufferType,
-            [Pretended Support Status]  }
-********************************************************************************
-       Note: [1] If the associated CAN Controller is not activated then,
-                   this shall not be generated
-             [2] If CanFilterMaskRef is not configured then,
-                   Mask -> 0x1fffffff - for EXTENDED/MIXED Msg Id Type
-*******************************************************************************/
-static const Can_XIDFilterConfigType
-                      Can_kXIDFilterConfig[CAN_NOOF_XID_FILTER_CONFIG] =
-{
- {0xfc480000U, 0x80000000U, 0U, 0U, CAN_RX_DED_BUFFER}
-};
 /*******************************************************************************
                Transmit Hardware Object Configurations
 ********************************************************************************
@@ -239,8 +218,7 @@ static const Can_XIDFilterConfigType
 static const Can_TxHwObjectConfigType
                         Can_kTxHwObjectConfig[CAN_NOOF_TX_HARDWARE_OBJECTS] =
 {
- {6U, 0U, 0U, CAN_ID_STANDARD, CAN_TX_DED_BUFFER, CAN_FALSE},
- {7U, 1U, 0U, CAN_ID_STANDARD, CAN_TX_DED_BUFFER, CAN_FALSE}
+ {1U, 0U, 0U, CAN_ID_STANDARD, CAN_TX_DED_BUFFER, CAN_FALSE}
 };
 
 
@@ -271,10 +249,7 @@ const Can_17_McmCan_ConfigType Can_17_McmCan_Config =
     &Can_kTxHwObjectConfig[0],
     /* Pointer to CAN Controller <-> Rx Hardware Objects Mapping for Standard
        messages */
-    &Can_kSIDFilterConfig[0],
-    /* Pointer to CAN Controller <-> Rx Hardware Objects Mapping for Extended
-       messages */
-    &Can_kXIDFilterConfig[0]};
+    &Can_kSIDFilterConfig[0]};
 #define CAN_17_MCMCAN_STOP_SEC_CONFIG_DATA_QM_UNSPECIFIED
 /* MISRA2012_RULE_20_1_JUSTIFICATION: Memmap header usage as per Autosar
    guideline. */

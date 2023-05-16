@@ -109,7 +109,7 @@
 #error XCP_MAX_CTO already defined
 #endif
 /** \brief The maximum length of XCP command transfer objects (CTO) packet in bytes.*/
-#define XCP_MAX_CTO                  16U
+#define XCP_MAX_CTO                  8U
 
 #if (defined XCP_MAX_CTO_PGM)
 #error XCP_MAX_CTO_PGM already defined
@@ -131,7 +131,7 @@
 #error XCP_MAX_DTO already defined
 #endif
 /** \brief The maximum length of XCP data transfer objects (DTO) packet in bytes. */
-#define XCP_MAX_DTO                  16U
+#define XCP_MAX_DTO                  8U
 
 #if (defined XCP_MIN_DAQ)
 #error XCP_MIN_DAQ already defined
@@ -257,7 +257,7 @@
 /** \brief Definition of the maximum number of consecutive command packets in a block sequence.
 **  The value represents the initial DOWNLOAD command plus the consecutive DOWNLOAD_NEXT commands.
 **/
-#define XCP_MAX_BS                   19U
+#define XCP_MAX_BS                   43U
 #if (defined XCP_MIN_ST)
 #error XCP_MIN_ST already defined
 #endif
@@ -305,7 +305,7 @@
 #error XCP_MAX_ODT_ENTRY_SIZE_DAQ already defined
 #endif
 /** \brief Definition of value indicating the maximum size of ODT entry (DIRECTION = DAQ). */
-#define XCP_MAX_ODT_ENTRY_SIZE_DAQ   8U
+#define XCP_MAX_ODT_ENTRY_SIZE_DAQ   7U
 
 #if (defined XCP_GRANULARITY_ODT_ENTRY_SIZE_STIM)
 #error XCP_GRANULARITY_ODT_ENTRY_SIZE_STIM already defined
@@ -325,7 +325,7 @@
 #endif
 /** \brief The absolute maximum number of ODT Entries in an ODT
 **/
-#define XCP_MAX_ENTRIES_PER_ODT   8U
+#define XCP_MAX_ENTRIES_PER_ODT   7U
 
 
 #if (defined XCP_MAX_ENTRIES_PER_ODT_DYN)
@@ -335,7 +335,7 @@
 ** The ODT does not carry the timestamp (i.e. timestamp is disabled or not the first ODT in the
 ** DAQ list).
 **/
-#define XCP_MAX_ENTRIES_PER_ODT_DYN     8U
+#define XCP_MAX_ENTRIES_PER_ODT_DYN     7U
 
 #if (defined XCP_MAX_ENTRIES_PER_ODT_DYN_TS)
 #error XCP_MAX_ENTRIES_PER_ODT_DYN_TS already defined
@@ -343,7 +343,7 @@
 /** \brief The maximum number of ODT Entries in an ODT belonging to a dynamic DAQ list which carries
 ** the timestamp (i.e. timestamp is enabled and the first ODT in the DAQ list).
 **/
-#define XCP_MAX_ENTRIES_PER_ODT_DYN_TS  8U
+#define XCP_MAX_ENTRIES_PER_ODT_DYN_TS  7U
 
 #if (defined XCP_OVERLOAD_INDICATION_TYPE)
 #error XCP_OVERLOAD_INDICATION_TYPE already defined
@@ -441,25 +441,14 @@
 #error XCP_NO_OF_CANIF_RX_PDU_IDS already defined
 #endif
 /** \brief Macro defining the maximum number of configured CanIf Rx Pdus **/
-#define XCP_NO_OF_CANIF_RX_PDU_IDS                         0U
+#define XCP_NO_OF_CANIF_RX_PDU_IDS                         1U
 
 #if (defined XCP_NO_OF_CANIF_TX_PDU_IDS)
 #error XCP_NO_OF_CANIF_TX_PDU_IDS already defined
 #endif
 /** \brief Macro defining the maximum number of configured CanIf Tx Pdus **/
-#define XCP_NO_OF_CANIF_TX_PDU_IDS                         0U
+#define XCP_NO_OF_CANIF_TX_PDU_IDS                         1U
 
-#if (defined XCP_NO_OF_FRIF_RX_PDU_IDS)
-#error XCP_NO_OF_FRIF_RX_PDU_IDS already defined
-#endif
-/** \brief Macro defining the maximum number of configured FrIf Rx Pdus **/
-#define XCP_NO_OF_FRIF_RX_PDU_IDS                          1U
-
-#if (defined XCP_NO_OF_FRIF_TX_PDU_IDS)
-#error XCP_NO_OF_FRIF_TX_PDU_IDS already defined
-#endif
-/** \brief Macro defining the maximum number of configured FrIf Tx Pdus **/
-#define XCP_NO_OF_FRIF_TX_PDU_IDS                          9U
 
 
 #if (defined XCP_NO_OF_RX_PDU_IDS)
@@ -472,25 +461,25 @@
 #error XCP_NO_OF_TX_PDU_IDS already defined
 #endif
 /** \brief Macro defining the maximum number of configured Tx Pdus **/
-#define XCP_NO_OF_TX_PDU_IDS                               9U
+#define XCP_NO_OF_TX_PDU_IDS                               1U
 
 #if (defined XCP_TX_BUFFER_SIZE)
 #error XCP_TX_BUFFER_SIZE already defined
 #endif
 /** \brief Macro defining the size of transmit buffer */
-#define XCP_TX_BUFFER_SIZE                                 2064U
+#define XCP_TX_BUFFER_SIZE                                 8U
 
 #if (defined XCP_RX_BUFFER_SIZE)
 #error XCP_RX_BUFFER_SIZE already defined
 #endif
 /** \brief Macro defining the size of receive buffer */
-#define XCP_RX_BUFFER_SIZE                                 32U
+#define XCP_RX_BUFFER_SIZE                                 8U
 
 #if (defined XCP_MAX_TX_PDU_PER_CON)
 #error XCP_MAX_TX_PDU_PER_CON already defined
 #endif
 /** \brief Macro defining the maximum tx pdus per Xcp connection */
-#define XCP_MAX_TX_PDU_PER_CON                             9U
+#define XCP_MAX_TX_PDU_PER_CON                             1U
 
 #if (defined XCP_MAX_RX_PDU_PER_CON)
 #error XCP_MAX_RX_PDU_PER_CON already defined
@@ -510,7 +499,7 @@
 #endif
 /** \brief Macro defining the number of configured Xcp connections over the FlexRay that have
 ** Sequence correction enabled. */
-#define XCP_NO_OF_FLEXRAY_CONN_WITH_SEQ_CORR               1U
+#define XCP_NO_OF_FLEXRAY_CONN_WITH_SEQ_CORR               0U
 
 
 #if (defined XCP_NO_OF_ETHERNET_CONN)
@@ -592,12 +581,12 @@
 #error XCP_MULTI_PDUS_IN_FRAME_SUPPORT already defined
 #endif
 /** \brief Switch for enabling support of multiple XCP messages in one frame */
-#define XCP_MULTI_PDUS_IN_FRAME_SUPPORT  STD_ON
+#define XCP_MULTI_PDUS_IN_FRAME_SUPPORT  STD_OFF
 #if (defined XCP_FLEXRAY_SEQUENCE_CORRECTION_SUPPORT)
 #error XCP_FLEXRAY_SEQUENCE_CORRECTION_SUPPORT already defined
 #endif
 /** \brief Switch for enabling support of multiple XCP messages in one frame */
-#define XCP_FLEXRAY_SEQUENCE_CORRECTION_SUPPORT  STD_ON
+#define XCP_FLEXRAY_SEQUENCE_CORRECTION_SUPPORT  STD_OFF
 #if (defined XCP_TRANSMIT_FROM_CONFIRMATION)
 #error XCP_TRANSMIT_FROM_CONFIRMATION already defined
 #endif

@@ -99,7 +99,8 @@
 #define OS_AR_RELEASE_REVISION_VERSION	3
 
 #else
-#error "Unsupported OS_RELEASE_SUFFIX defined. Check your Makefiles!"
+//TODO ANDI
+//#error "Unsupported OS_RELEASE_SUFFIX defined. Check your Makefiles!"
 #endif
 
 #endif /* OS_VERSION_H */

@@ -45,8 +45,8 @@
 
 typedef struct /* ComM_ConfigLayoutType */ {
     VAR( ComM_ConfigType, TYPEDEF ) RootCfg;
-    VAR( uint8, TYPEDEF ) aUsersOfAllChannel[2]; /* User Ids referenced by channel or PNCs of channel */
-    VAR( uint8, TYPEDEF ) aChannelsOfAllUser[2]; /* Channel Ids or PNC ids referenced by user of channel */
+    VAR( uint8, TYPEDEF ) aUsersOfAllChannel[1]; /* User Ids referenced by channel or PNCs of channel */
+    VAR( uint8, TYPEDEF ) aChannelsOfAllUser[1]; /* Channel Ids or PNC ids referenced by user of channel */
 } ComM_ConfigLayoutType;
 
 typedef CONST( ComM_ConfigLayoutType, COMM_APPL_CONST ) ComM_ConstConfigLayoutType;

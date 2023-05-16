@@ -52,14 +52,14 @@
 
 typedef struct /* CanIf_ConfigLayoutType */ {
     VAR( CanIf_ConfigType, TYPEDEF ) RootCfg;
-    VAR( CanIf_TxLPduConfigType, TYPEDEF ) txLPduConfig[2];
-    VAR( CanIf_RxLPduConfigType, TYPEDEF ) rxLPduConfig[6];
-    VAR( CanIf_HthConfigType, TYPEDEF ) driverHthConfig[2];
-    VAR( CanIf_HrhConfigType, TYPEDEF ) driverHrhConfig[6];
-    VAR( uint16, TYPEDEF ) hohIdToCanIfIdx[8];
+    VAR( CanIf_TxLPduConfigType, TYPEDEF ) txLPduConfig[1];
+    VAR( CanIf_RxLPduConfigType, TYPEDEF ) rxLPduConfig[1];
+    VAR( CanIf_HthConfigType, TYPEDEF ) driverHthConfig[1];
+    VAR( CanIf_HrhConfigType, TYPEDEF ) driverHrhConfig[1];
+    VAR( uint16, TYPEDEF ) hohIdToCanIfIdx[2];
     VAR( CanIf_CanControllerConfigType, TYPEDEF ) canControllerConfig[1];
     VAR( CanIf_CanDriverConfigType, TYPEDEF ) canDriverConfig[1];
-    VAR( CanIf_SortedRxLPduConfigType, TYPEDEF ) sortedRxLPduConfig[6];
+    VAR( CanIf_SortedRxLPduConfigType, TYPEDEF ) sortedRxLPduConfig[1];
 } CanIf_ConfigLayoutType;
 
 typedef CONST( CanIf_ConfigLayoutType, CANIF_APPL_CONST ) CanIf_ConstConfigLayoutType;

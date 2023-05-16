@@ -30,7 +30,8 @@
  */
 
 /*==================[inclusions]============================================*/
-#error "XCP_c"
+//TODO ANDI
+//#error "XCP_c"
 #include <Xcp.h>              /* Module public API */
 #if ( (XCP_DEFAULT_XCP_MODULE_STATE == STD_ON) || (XCP_ENABLE_XCP_CONTROL_API == STD_ON) )
 
@@ -48,6 +49,9 @@
 #define STATIC static
 
 #include <SchM_Xcp.h>           /* Needed for exclusive area definition */
+//TODO ANDI
+#include <Xcp_Int_Stc.h>
+#include <Xcp_Cfg.h>
 
 /*==================[macros]================================================*/
 
@@ -301,13 +305,14 @@ VAR(uint8, XCP_VAR) Xcp_TransmissionDisabled[XCP_CONNECTION_FLAG_SIZE] = {FALSE}
 #define XCP_START_SEC_VAR_UNSPECIFIED
 #include <MemMap.h>
 
+//TODO ANDI
 /* Connection status of XCP module */
-VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
-{
-  XCP_STATE_DISCONNECTED,
-  XCP_INIT_CONNECTION_ID,
-  0U
-};
+//VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
+//{
+//  XCP_STATE_DISCONNECTED,
+//  XCP_INIT_CONNECTION_ID,
+//  0U
+//};
 
 #define XCP_STOP_SEC_VAR_UNSPECIFIED
 #include <MemMap.h>
