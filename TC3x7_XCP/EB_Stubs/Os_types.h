@@ -75,11 +75,12 @@ typedef unsigned long	os_ulong_t;
  * attribute because hardware registers have a habit of changing all
  * by themselves.
 */
-#ifndef OS_ASM
+//TODO ANDI
+//#ifndef OS_ASM
 typedef volatile os_uint8_t os_reg8_t;
 typedef volatile os_uint16_t os_reg16_t;
 typedef volatile os_uint32_t os_reg32_t;
-#endif
+//#endif
 
 /*!
  * OS_REG8(), OS_REG16(), OS_REG32()

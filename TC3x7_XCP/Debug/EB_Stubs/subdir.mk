@@ -5,27 +5,19 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../EB_Stubs/CanSM.c \
-../EB_Stubs/CanSM_Merged.c \
-../EB_Stubs/TSMem.c \
-../EB_Stubs/TSPBConfig.c 
+../EB_Stubs/CanSM_Merged.c 
 
 COMPILED_SRCS += \
 ./EB_Stubs/CanSM.src \
-./EB_Stubs/CanSM_Merged.src \
-./EB_Stubs/TSMem.src \
-./EB_Stubs/TSPBConfig.src 
+./EB_Stubs/CanSM_Merged.src 
 
 C_DEPS += \
 ./EB_Stubs/CanSM.d \
-./EB_Stubs/CanSM_Merged.d \
-./EB_Stubs/TSMem.d \
-./EB_Stubs/TSPBConfig.d 
+./EB_Stubs/CanSM_Merged.d 
 
 OBJS += \
 ./EB_Stubs/CanSM.o \
-./EB_Stubs/CanSM_Merged.o \
-./EB_Stubs/TSMem.o \
-./EB_Stubs/TSPBConfig.o 
+./EB_Stubs/CanSM_Merged.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -48,7 +40,7 @@ EB_Stubs/%.o: ./EB_Stubs/%.src EB_Stubs/subdir.mk
 clean: clean-EB_Stubs
 
 clean-EB_Stubs:
-	-$(RM) ./EB_Stubs/CanSM.d ./EB_Stubs/CanSM.o ./EB_Stubs/CanSM.src ./EB_Stubs/CanSM_Merged.d ./EB_Stubs/CanSM_Merged.o ./EB_Stubs/CanSM_Merged.src ./EB_Stubs/TSMem.d ./EB_Stubs/TSMem.o ./EB_Stubs/TSMem.src ./EB_Stubs/TSPBConfig.d ./EB_Stubs/TSPBConfig.o ./EB_Stubs/TSPBConfig.src
+	-$(RM) ./EB_Stubs/CanSM.d ./EB_Stubs/CanSM.o ./EB_Stubs/CanSM.src ./EB_Stubs/CanSM_Merged.d ./EB_Stubs/CanSM_Merged.o ./EB_Stubs/CanSM_Merged.src
 
 .PHONY: clean-EB_Stubs
 

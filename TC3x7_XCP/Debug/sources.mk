@@ -38,7 +38,6 @@ Autosar/Xcp/static \
 . \
 Configurations/Debug \
 Configurations \
-EB_Stubs \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Infra/Ssw/TC36A/Tricore \
 Libraries/Service/CpuGeneric/SysSe/Bsp \

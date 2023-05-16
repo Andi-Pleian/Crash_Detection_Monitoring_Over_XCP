@@ -30,7 +30,7 @@
  */
 
 /*==================[inclusions]============================================*/
-
+#error "XCP_c"
 #include <Xcp.h>              /* Module public API */
 #if ( (XCP_DEFAULT_XCP_MODULE_STATE == STD_ON) || (XCP_ENABLE_XCP_CONTROL_API == STD_ON) )
 
@@ -43,6 +43,9 @@
 #if (XCP_RESOURCE_CAL_PAG == XCP_RESOURCE_CAL_PAG_MASK)
 #include <Xcp_UserCallouts.h> /* User Callout Function declarations */
 #endif
+
+//TODO ANDI
+#define STATIC static
 
 #include <SchM_Xcp.h>           /* Needed for exclusive area definition */
 

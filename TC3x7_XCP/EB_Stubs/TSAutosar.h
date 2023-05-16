@@ -53,18 +53,19 @@
  * in Platforms, then the macros provided in the header file TSAutosar.h will be used.
  * A description of these macros is provided in TSAutosar.h.
  */
-#include <TSPlatforms.h>
+//TODO ANDI
+//#include <TSPlatforms.h>
 
 /*==================[macros]=================================================*/
 
 /*------------------[macros set on the command line]-------------------------*/
-
+//TODO ANDI
 #if (!defined TS_ARCH_FAMILY)
-#error TS_ARCH_FAMILY must be defined on the commandline
+//#error TS_ARCH_FAMILY must be defined on the commandline
 #endif
-
+//TODO ANDI
 #if (!defined TS_ARCH_DERIVATE)
-#error TS_ARCH_DERIVATE must be defined on the commandline
+//#error TS_ARCH_DERIVATE must be defined on the commandline
 #endif
 
 /*------------------[architecture names]-------------------------------------*/
@@ -158,7 +159,8 @@
 
 /* Sanity checks for Atomic macros */
 #if !( defined(TS_IntDisable) && defined(TS_IntRestore) )
-#error "TSPlatforms.h is not correctly implemented"
+//TODO ANDI
+//#error "TSPlatforms.h is not correctly implemented"
 #endif
 
 #if (defined TS_PARAM_UNUSED)

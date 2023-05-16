@@ -43,6 +43,7 @@
 #error "Unsupported OS_ARCH defined. Check your Makefiles!"
 #endif
 
+#define OS_ASM  1
 /* Os types (non-microkernel variant) */
 
 /*!

@@ -10,9 +10,10 @@
 #define BOARD_H
 
 #include <Os_timeconversion.h>
-#include <TRICORE/Os_TRICORE_cpu.h>
-#include <TRICORE/Os_TRICORE_stm.h>
-#include <TRICORE/Os_tool_TRICORE.h>
+//TODO ANDI
+//#include <TRICORE/Os_TRICORE_cpu.h>
+//#include <TRICORE/Os_TRICORE_stm.h>
+//#include <TRICORE/Os_tool_TRICORE.h>
 
 
 /*AlPo stub*/
@@ -279,7 +280,8 @@
 #define BOARD_CPU2_DIV 0u
 #endif
 
-#include <TRICORE/Os_TRICORE_stmconfig.h>
+//TODO ANDI
+//#include <TRICORE/Os_TRICORE_stmconfig.h>
 
 #if (BOARD_SYS_FREQ) > 300000000u
 #error "Maximum fPLL is 300 MHz"

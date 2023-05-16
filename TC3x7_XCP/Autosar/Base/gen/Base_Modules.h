@@ -104,16 +104,9 @@
 #endif
 
 #ifndef BASE_COM_ENABLED
-/** \brief Enable status of the module Com (/Com/Com) (VariantPostBuild) */
-#define BASE_COM_ENABLED STD_ON
+/** \brief Enable status of the module Com (/Com/Com) (VariantPreCompile) */
+#define BASE_COM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_COM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for Com (/Com/Com) */
-#define BASE_COM_CONFIG_PTR (&ComConfig)
-#endif
-
 
 #ifndef BASE_COM_HEADER
 /** \brief Name of the Com (/Com/Com) module's main header file */
@@ -139,7 +132,7 @@
 
 #ifndef BASE_CRC_ENABLED
 /** \brief Enable status of the module Crc (/Crc/Crc) (VariantPreCompile) */
-#define BASE_CRC_ENABLED STD_ON
+#define BASE_CRC_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_CRC_HEADER
@@ -149,15 +142,8 @@
 
 #ifndef BASE_DCM_ENABLED
 /** \brief Enable status of the module Dcm (/Dcm/Dcm) (VariantPreCompile) */
-#define BASE_DCM_ENABLED STD_ON
+#define BASE_DCM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_DCM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for Dcm (/Dcm/Dcm) */
-#define BASE_DCM_CONFIG_PTR (&DcmConfigSet_0)
-#endif
-
 
 #ifndef BASE_DCM_HEADER
 /** \brief Name of the Dcm (/Dcm/Dcm) module's main header file */
@@ -166,15 +152,8 @@
 
 #ifndef BASE_DEM_ENABLED
 /** \brief Enable status of the module Dem (/Dem/Dem) (VariantPreCompile) */
-#define BASE_DEM_ENABLED STD_ON
+#define BASE_DEM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_DEM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for Dem (/Dem/Dem) */
-#define BASE_DEM_CONFIG_PTR (&DemConfigSet)
-#endif
-
 
 #ifndef BASE_DEM_HEADER
 /** \brief Name of the Dem (/Dem/Dem) module's main header file */
@@ -202,8 +181,8 @@
 #endif
 
 #ifndef BASE_DMA_ENABLED
-/** \brief Enable status of the module Dma (/Dma/Dma) (VariantPostBuild) */
-#define BASE_DMA_ENABLED STD_ON
+/** \brief Enable status of the module Dma (/Dma/Dma) (VariantPreCompile) */
+#define BASE_DMA_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_DMA_HEADER
@@ -213,7 +192,7 @@
 
 #ifndef BASE_EA_ENABLED
 /** \brief Enable status of the module Ea (/Ea/Ea) (VariantPreCompile) */
-#define BASE_EA_ENABLED STD_ON
+#define BASE_EA_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_EA_HEADER
@@ -250,7 +229,7 @@
 
 #ifndef BASE_EEP_ENABLED
 /** \brief Enable status of the module Eep (/Eep/Eep) (VariantPreCompile) */
-#define BASE_EEP_ENABLED STD_ON
+#define BASE_EEP_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_EEP_HEADER
@@ -259,8 +238,8 @@
 #endif
 
 #ifndef BASE_FEE_ENABLED
-/** \brief Enable status of the module Fee (/Fee/Fee) (VariantPostBuild) */
-#define BASE_FEE_ENABLED STD_ON
+/** \brief Enable status of the module Fee (/Fee/Fee) (VariantPreCompile) */
+#define BASE_FEE_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_FEE_HEADER
@@ -269,56 +248,29 @@
 #endif
 
 #ifndef BASE_FLS_ENABLED
-/** \brief Enable status of the module Fls (/Fls/Fls) (VariantPostBuild) */
-#define BASE_FLS_ENABLED STD_ON
-#endif
-
-#ifndef BASE_FLS_17_PMU_ENABLED
-/** \brief Enable status of the module Fls (/Fls/Fls) (VariantPostBuild) */
-#define BASE_FLS_17_PMU_ENABLED STD_ON
+/** \brief Enable status of the module Fls (/Fls/Fls) (VariantPreCompile) */
+#define BASE_FLS_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_FLS_HEADER
 /** \brief Name of the Fls (/Fls/Fls) module's main header file */
-#define BASE_FLS_HEADER <Fls_17_Pmu.h>
-#endif
-
-#ifndef BASE_FLS_17_PMU_HEADER
-/** \brief Name of the Fls (/Fls/Fls) module's main header file */
-#define BASE_FLS_17_PMU_HEADER <Fls_17_Pmu.h>
+#define BASE_FLS_HEADER <Fls.h>
 #endif
 
 #ifndef BASE_FR_ENABLED
-/** \brief Enable status of the module Fr (/Fr/Fr) (VariantPostBuild) */
-#define BASE_FR_ENABLED STD_ON
-#endif
-
-#ifndef BASE_FR_17_ERAY_ENABLED
-/** \brief Enable status of the module Fr (/Fr/Fr) (VariantPostBuild) */
-#define BASE_FR_17_ERAY_ENABLED STD_ON
+/** \brief Enable status of the module Fr (/Fr/Fr) (VariantPreCompile) */
+#define BASE_FR_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_FR_HEADER
 /** \brief Name of the Fr (/Fr/Fr) module's main header file */
-#define BASE_FR_HEADER <Fr_17_Eray.h>
-#endif
-
-#ifndef BASE_FR_17_ERAY_HEADER
-/** \brief Name of the Fr (/Fr/Fr) module's main header file */
-#define BASE_FR_17_ERAY_HEADER <Fr_17_Eray.h>
+#define BASE_FR_HEADER <Fr.h>
 #endif
 
 #ifndef BASE_FRIF_ENABLED
-/** \brief Enable status of the module FrIf (/FrIf/FrIf) (VariantPostBuild) */
-#define BASE_FRIF_ENABLED STD_ON
+/** \brief Enable status of the module FrIf (/FrIf/FrIf) (VariantPreCompile) */
+#define BASE_FRIF_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_FRIF_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for FrIf (/FrIf/FrIf) */
-#define BASE_FRIF_CONFIG_PTR (&FrIfConfig)
-#endif
-
 
 #ifndef BASE_FRIF_HEADER
 /** \brief Name of the FrIf (/FrIf/FrIf) module's main header file */
@@ -326,16 +278,9 @@
 #endif
 
 #ifndef BASE_FRNM_ENABLED
-/** \brief Enable status of the module FrNm (/FrNm/FrNm) (VariantPostBuild) */
-#define BASE_FRNM_ENABLED STD_ON
+/** \brief Enable status of the module FrNm (/FrNm/FrNm) (VariantPreCompile) */
+#define BASE_FRNM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_FRNM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for FrNm (/FrNm/FrNm) */
-#define BASE_FRNM_CONFIG_PTR (&FrNmChannelConfig)
-#endif
-
 
 #ifndef BASE_FRNM_HEADER
 /** \brief Name of the FrNm (/FrNm/FrNm) module's main header file */
@@ -343,16 +288,9 @@
 #endif
 
 #ifndef BASE_FRSM_ENABLED
-/** \brief Enable status of the module FrSM (/FrSM/FrSM) (VariantPostBuild) */
-#define BASE_FRSM_ENABLED STD_ON
+/** \brief Enable status of the module FrSM (/FrSM/FrSM) (VariantPreCompile) */
+#define BASE_FRSM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_FRSM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for FrSM (/FrSM/FrSM) */
-#define BASE_FRSM_CONFIG_PTR (&FrSMConfig_0)
-#endif
-
 
 #ifndef BASE_FRSM_HEADER
 /** \brief Name of the FrSM (/FrSM/FrSM) module's main header file */
@@ -360,16 +298,9 @@
 #endif
 
 #ifndef BASE_FRTP_ENABLED
-/** \brief Enable status of the module FrTp (/FrTp/FrTp) (VariantPostBuild) */
-#define BASE_FRTP_ENABLED STD_ON
+/** \brief Enable status of the module FrTp (/FrTp/FrTp) (VariantPreCompile) */
+#define BASE_FRTP_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_FRTP_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for FrTp (/FrTp/FrTp) */
-#define BASE_FRTP_CONFIG_PTR (&FrTpMultipleConfig)
-#endif
-
 
 #ifndef BASE_FRTP_HEADER
 /** \brief Name of the FrTp (/FrTp/FrTp) module's main header file */
@@ -378,27 +309,17 @@
 
 #ifndef BASE_FRTRCV_ENABLED
 /** \brief Enable status of the module FrTrcv (/FrTrcv/FrTrcv) (VariantPreCompile) */
-#define BASE_FRTRCV_ENABLED STD_ON
-#endif
-
-#ifndef BASE_FRTRCV_1_T01_ENABLED
-/** \brief Enable status of the module FrTrcv (/FrTrcv/FrTrcv) (VariantPreCompile) */
-#define BASE_FRTRCV_1_T01_ENABLED STD_ON
+#define BASE_FRTRCV_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_FRTRCV_HEADER
 /** \brief Name of the FrTrcv (/FrTrcv/FrTrcv) module's main header file */
-#define BASE_FRTRCV_HEADER <FrTrcv_1_T01.h>
-#endif
-
-#ifndef BASE_FRTRCV_1_T01_HEADER
-/** \brief Name of the FrTrcv (/FrTrcv/FrTrcv) module's main header file */
-#define BASE_FRTRCV_1_T01_HEADER <FrTrcv_1_T01.h>
+#define BASE_FRTRCV_HEADER <FrTrcv.h>
 #endif
 
 #ifndef BASE_GPT_ENABLED
-/** \brief Enable status of the module Gpt (/Gpt/Gpt) (VariantPostBuild) */
-#define BASE_GPT_ENABLED STD_ON
+/** \brief Enable status of the module Gpt (/Gpt/Gpt) (VariantPreCompile) */
+#define BASE_GPT_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_GPT_HEADER
@@ -407,16 +328,9 @@
 #endif
 
 #ifndef BASE_IPDUM_ENABLED
-/** \brief Enable status of the module IpduM (/IpduM/IpduM) (VariantPostBuild) */
-#define BASE_IPDUM_ENABLED STD_ON
+/** \brief Enable status of the module IpduM (/IpduM/IpduM) (VariantPreCompile) */
+#define BASE_IPDUM_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_IPDUM_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for IpduM (/IpduM/IpduM) */
-#define BASE_IPDUM_CONFIG_PTR (&IpduMConfig)
-#endif
-
 
 #ifndef BASE_IPDUM_HEADER
 /** \brief Name of the IpduM (/IpduM/IpduM) module's main header file */
@@ -435,7 +349,7 @@
 
 #ifndef BASE_MEMIF_ENABLED
 /** \brief Enable status of the module MemIf (/MemIf/MemIf) (VariantPreCompile) */
-#define BASE_MEMIF_ENABLED STD_ON
+#define BASE_MEMIF_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_MEMIF_HEADER
@@ -445,7 +359,7 @@
 
 #ifndef BASE_NM_ENABLED
 /** \brief Enable status of the module Nm (/Nm/Nm) (VariantPreCompile) */
-#define BASE_NM_ENABLED STD_ON
+#define BASE_NM_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_NM_HEADER
@@ -455,7 +369,7 @@
 
 #ifndef BASE_NVM_ENABLED
 /** \brief Enable status of the module NvM (/NvM/NvM) (VariantPreCompile) */
-#define BASE_NVM_ENABLED STD_ON
+#define BASE_NVM_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_NVM_HEADER
@@ -474,16 +388,9 @@
 #endif
 
 #ifndef BASE_PDUR_ENABLED
-/** \brief Enable status of the module PduR (/PduR/PduR) (VariantPostBuild) */
-#define BASE_PDUR_ENABLED STD_ON
+/** \brief Enable status of the module PduR (/PduR/PduR) (VariantPreCompile) */
+#define BASE_PDUR_ENABLED STD_OFF
 #endif
-
-
-#ifndef BASE_PDUR_CONFIG_PTR
-/** \brief Address of the first multiple configuration container for PduR (/PduR/PduR) */
-#define BASE_PDUR_CONFIG_PTR (&PduRRoutingTables)
-#endif
-
 
 #ifndef BASE_PDUR_HEADER
 /** \brief Name of the PduR (/PduR/PduR) module's main header file */
@@ -501,23 +408,13 @@
 #endif
 
 #ifndef BASE_PWM_ENABLED
-/** \brief Enable status of the module Pwm (/Pwm/Pwm) (VariantPostBuild) */
-#define BASE_PWM_ENABLED STD_ON
-#endif
-
-#ifndef BASE_PWM_17_GTM_ENABLED
-/** \brief Enable status of the module Pwm (/Pwm/Pwm) (VariantPostBuild) */
-#define BASE_PWM_17_GTM_ENABLED STD_ON
+/** \brief Enable status of the module Pwm (/Pwm/Pwm) (VariantPreCompile) */
+#define BASE_PWM_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_PWM_HEADER
 /** \brief Name of the Pwm (/Pwm/Pwm) module's main header file */
-#define BASE_PWM_HEADER <Pwm_17_Gtm.h>
-#endif
-
-#ifndef BASE_PWM_17_GTM_HEADER
-/** \brief Name of the Pwm (/Pwm/Pwm) module's main header file */
-#define BASE_PWM_17_GTM_HEADER <Pwm_17_Gtm.h>
+#define BASE_PWM_HEADER <Pwm.h>
 #endif
 
 #ifndef BASE_RESOURCE_ENABLED
@@ -531,8 +428,8 @@
 #endif
 
 #ifndef BASE_SPI_ENABLED
-/** \brief Enable status of the module Spi (/Spi/Spi) (VariantPostBuild) */
-#define BASE_SPI_ENABLED STD_ON
+/** \brief Enable status of the module Spi (/Spi/Spi) (VariantPreCompile) */
+#define BASE_SPI_ENABLED STD_OFF
 #endif
 
 #ifndef BASE_SPI_HEADER

@@ -68,7 +68,7 @@
 #error XCP_ON_FLEXRAY_ENABLED already defined
 #endif
 /** \brief Switch, indicating whether XCPonFlexRay functionality is available */
-#define XCP_ON_FLEXRAY_ENABLED       STD_ON
+#define XCP_ON_FLEXRAY_ENABLED       STD_OFF
 
 #if (defined XCP_ON_ETHERNET_ENABLED)
 #error XCP_ON_ETHERNET_ENABLED already defined

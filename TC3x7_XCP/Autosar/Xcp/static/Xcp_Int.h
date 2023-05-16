@@ -1,6 +1,7 @@
 #if (!defined XCP_INT_H)
 #define XCP_INT_H
 
+#error "XCP_INT.h error"
 /* --------{ EB Automotive Header Source File }-------- */
 /*
  *  MISRA-C:2012 Deviation List
