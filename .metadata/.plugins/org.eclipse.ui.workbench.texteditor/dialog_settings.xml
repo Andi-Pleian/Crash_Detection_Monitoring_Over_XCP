@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="TS_AtomicClearBitSave"/>
+			<item value="XCP_CLEAR_FLAG_U8_ATOMIC"/>
 			<item value="led"/>
 		</list>
 		<list key="replacehistory">

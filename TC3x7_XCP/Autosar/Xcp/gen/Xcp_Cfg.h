@@ -24,6 +24,7 @@
 #include <ComStack_Types.h> /* Comstack types */
 //TODO ANDI
 #include <Platform_Types.h>
+#include <Compiler.h>
 
 /*==================[macros]=================================================*/
 

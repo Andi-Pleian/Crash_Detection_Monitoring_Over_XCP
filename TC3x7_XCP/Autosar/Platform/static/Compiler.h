@@ -49,6 +49,8 @@
 /* COMPILER052 */
 #include <Compiler_Cfg.h> /* module specific memory and pointer classes */
 #include <Compiler_Common.h> /* common parts of Compiler.h files */
+//TODO ANDI
+#include <Compiler.h>
  
 /*==================[macros]=================================================*/
 
