@@ -19,6 +19,7 @@
 #define CANIF_NO_PBCFG_REQUIRED
 #include <CanIf.h>                /* CanIf Types */
 #include <CanIf_Int.h>
+#include <Xcp_Cbk.h>
 
 
 

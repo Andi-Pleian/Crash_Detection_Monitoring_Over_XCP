@@ -17,7 +17,7 @@
 
 #include <Xcp_Wrapper_Trace.h>
 #include <Std_Types.h>        /* AUTOSAR standard types */
-#include <TSAutosar.h>        /* EB specific standard types */
+//#include <TSAutosar.h>        /* EB specific standard types */
 
 
 /* include service wrapper header file */

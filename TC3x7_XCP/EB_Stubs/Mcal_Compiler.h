@@ -503,6 +503,7 @@ intrinsic function*/
 #if (_DIABDATA_C_TRICORE_ == 1U)
 /*IFX_MISRA_RULE_19_07_STATUS=Function like macro used to call the Tricore
 intrinsic function*/
+#if 0
 asm volatile unsigned int IFX_INLINE Mcal_CmpAndSwap(
    unsigned int *ResourceStatusPtr, unsigned long RetVal, unsigned long CmpVal)
 {
@@ -525,7 +526,7 @@ asm volatile unsigned IFX_INLINE __crc32( unsigned  b, unsigned  a)
   mov %d3,a
   crc32 %d2,%d2,%d3
 }
-
+#endif
 
 #endif /* #if (_DIABDATA_C_TRICORE_ == 1U) */
 #endif /* MCAL_COMPILER_H  */

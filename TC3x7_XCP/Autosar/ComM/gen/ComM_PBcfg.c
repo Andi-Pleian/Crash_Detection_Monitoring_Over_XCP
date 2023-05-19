@@ -42,7 +42,7 @@
 /*==================[inclusions]=============================================*/
 
 #include <ComM_PBcfg.h>
-#include <TSAutosar.h>
+//#include <TSAutosar.h>
 #include <Compiler.h>
 #define TS_RELOCATABLE_CFG_ENABLE STD_ON
 #define TS_PB_CFG_NAME ComM_Configuration

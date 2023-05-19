@@ -185,7 +185,7 @@
 /*------------------[null pointer constant]----------------------------------*/
 
 #if (defined NULL_PTR)
-#error NULL_PTR already defined
+//#error NULL_PTR already defined
 #endif
 
 /* COMPILER051 */

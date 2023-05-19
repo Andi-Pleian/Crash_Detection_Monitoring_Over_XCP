@@ -25,7 +25,7 @@
 #endif /* #if (defined CANSM_DEV_ERROR_DETECT) */
 
 /** \brief Switch for DET usage */
-#define CANSM_DEV_ERROR_DETECT   STD_ON
+#define CANSM_DEV_ERROR_DETECT   STD_OFF
 
 /*==================[type definitions]======================================*/
 

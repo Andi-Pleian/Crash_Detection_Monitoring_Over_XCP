@@ -50,7 +50,7 @@
 #include <Compiler_Cfg.h> /* module specific memory and pointer classes */
 #include <Compiler_Common.h> /* common parts of Compiler.h files */
 //TODO ANDI
-#include <Compiler.h>
+//#include <Compiler.h>
  
 /*==================[macros]=================================================*/
 
@@ -66,7 +66,7 @@
  ** To be used for inlining functions */
 /* EB changed adding inline keywors cause for Infineon MCAL at TC29XT it is mandatory *
  * Tracked in ticket: ASCINFINEON-507 */
-#define INLINE __inline__
+#define INLINE //__inline__
 
 #if (defined LOCAL_INLINE)
 #error LOCAL_INLINE is already defined
@@ -76,6 +76,7 @@
 /** \brief definition of a keyword for 'static inline' functions
  **
  ** To be used for 'static inline' functions. */
+//#error "LOCAL_INLINE"
 #define LOCAL_INLINE static INLINE
  
 /*------------------[macros for functions]-----------------------------------*/

@@ -157,7 +157,7 @@ typedef uint32 TS_IntStatusType;
 	do { \
 		(out) = TS_MFCR_ ##sysreg(); \
 	} while (0)
-
+#if 0
 __asm volatile uint32 TS_MFCR_TS_PSW(void)
 {
 ! "%d2"
@@ -187,7 +187,7 @@ __asm volatile void TS_ENABLE(void)
 !
 	enable
 }
-
+#endif
 #if TS_TC_CORE_ARCHITECTURE >= 160u
 __asm volatile void TS_RESTORE(uint32 prevstat)
 {
@@ -298,7 +298,7 @@ static TS_TOOL_INLINE void TS_AtomicSetBit_32_Asm(uint32 *addr, uint32 bitidx)
   __putbit(1u, ((int*)(Address)), (Bit)) /* maps to imask + ldmst */
 
 #elif defined(_DIABDATA_C_TRICORE_)
-
+#if 0
 __asm volatile void TS_ArchAtomicModifyFlagImpl(volatile void *address, uint32 value, uint32 mask)
 {
 %reg address, value, mask;
@@ -317,6 +317,7 @@ static TS_TOOL_INLINE void TS_AtomicSetBit_32_Asm(volatile uint32 *addr, uint32 
 	uint32 bitset = 1u << bitidx;
 	TS_ArchAtomicModifyFlagImpl(addr, bitset, bitset);
 }
+#endif
 #endif
 
 /*------------------[TS_AtomicClearBit_8]-----------------------------------*/
@@ -406,13 +407,14 @@ static TS_TOOL_INLINE void TS_AtomicClearBit_32_Asm(uint32 *addr, uint32 bitidx)
 
 #define TS_AtomicClearBit_32_Asm(Address, Bit)                        \
   TS_AtomicClearBit_32_Asm(Address, Bit)
-
+#if 0
 static TS_TOOL_INLINE void TS_AtomicClearBit_32_Asm(volatile uint32 *addr, uint32 bitidx) TS_TOOL_INLINE_ATTR;
 static TS_TOOL_INLINE void TS_AtomicClearBit_32_Asm(volatile uint32 *addr, uint32 bitidx)
 {
 	uint32 bitclear = 1u << bitidx;
 	TS_ArchAtomicModifyFlagImpl(addr, 0, bitclear);
 }
+#endif
 #endif
 
 #endif /* (defined EB_STATIC_CHECK) */
@@ -437,6 +439,8 @@ static TS_TOOL_INLINE void TS_AtomicClearBit_32_Asm(volatile uint32 *addr, uint3
  ** The previous contents of the ICR are returned. */
 
 #define TS_IntDisable() TS_IntDisableInline()
+static TS_IntStatusType TS_IntDisableInline(void){return 0;}
+#if 0
 static TS_TOOL_INLINE TS_IntStatusType TS_IntDisableInline(void) TS_TOOL_INLINE_ATTR;
 
 static TS_TOOL_INLINE TS_IntStatusType TS_IntDisableInline(void)
@@ -474,7 +478,7 @@ static TS_TOOL_INLINE TS_IntStatusType TS_IntDisableInline(void)
 
   return ret;
 }
-
+#endif
 #endif /* !defined (EB_STATIC_CHECK) */
 
 /*------------------[TS_IntRestore]-----------------------------------------*/
@@ -493,6 +497,8 @@ static TS_TOOL_INLINE TS_IntStatusType TS_IntDisableInline(void)
  ** returned by a previous call to TS_IntDisable().
  **/
 #define TS_IntRestore(s) TS_IntRestoreInline(s)
+static void TS_IntRestoreInline(TS_IntStatusType s){}
+#if 0
 static TS_TOOL_INLINE void TS_IntRestoreInline(TS_IntStatusType s) TS_TOOL_INLINE_ATTR;
 static TS_TOOL_INLINE void TS_IntRestoreInline(TS_IntStatusType s)
 {
@@ -526,6 +532,7 @@ static TS_TOOL_INLINE void TS_IntRestoreInline(TS_IntStatusType s)
 #endif
   }
 }
+#endif
 
 #endif /* !defined (EB_STATIC_CHECK) */
 

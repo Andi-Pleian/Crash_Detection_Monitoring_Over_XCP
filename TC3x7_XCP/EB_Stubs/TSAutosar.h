@@ -54,7 +54,7 @@
  * A description of these macros is provided in TSAutosar.h.
  */
 //TODO ANDI
-//#include <TSPlatforms.h>
+#include <TSPlatforms.h>
 
 /*==================[macros]=================================================*/
 

@@ -52,7 +52,7 @@
 #if (defined CANIF_DEV_ERROR_DETECT)
 #error CANIF_DEV_ERROR_DETECT already defined!
 #endif /* #if( defined CANIF_DEV_ERROR_DETECT)*/
-#define CANIF_DEV_ERROR_DETECT   STD_ON
+#define CANIF_DEV_ERROR_DETECT   STD_OFF
 
 /** \brief Support of CanIf_GetVersionInfo()
  **
@@ -302,7 +302,7 @@
 #if (defined CANIF_UL_RX_INDICATION_SUPPORT)
 #error CANIF_UL_RX_INDICATION_SUPPORT already defined!
 #endif /* #if( defined CANIF_UL_RX_INDICATION_SUPPORT)*/
-#define CANIF_UL_RX_INDICATION_SUPPORT   STD_ON
+#define CANIF_UL_RX_INDICATION_SUPPORT   STD_OFF
 
 /** \brief Switch for <Cdd>_RxIndication support
  **
@@ -320,7 +320,7 @@
 #if (defined CANIF_TX_CONFIRMATION_SUPPORT)
 #error CANIF_TX_CONFIRMATION_SUPPORT already defined!
 #endif /* #if( defined CANIF_TX_CONFIRMATION_SUPPORT)*/
-#define CANIF_TX_CONFIRMATION_SUPPORT   STD_ON
+#define CANIF_TX_CONFIRMATION_SUPPORT   STD_OFF
 
 /** \brief Switch for DLC error notification support
  **

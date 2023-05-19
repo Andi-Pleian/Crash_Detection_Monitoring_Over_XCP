@@ -1408,6 +1408,7 @@
                        (BitPosition) \
                      )
 
+//#error "XCP_int.h"
 #if (defined XCP_SET_FLAG_U8_ATOMIC)
 #error XCP_SET_FLAG_U8_ATOMIC already defined
 #endif

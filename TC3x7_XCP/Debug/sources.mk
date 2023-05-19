@@ -25,6 +25,8 @@ SECONDARY_SIZE :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Autosar/Base/static \
+Autosar/BswM/gen \
+Autosar/BswM/static \
 Autosar/Can/gen \
 Autosar/Can/static \
 Autosar/CanIf/gen \

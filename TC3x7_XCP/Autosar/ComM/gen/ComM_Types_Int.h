@@ -45,7 +45,6 @@ typedef struct /* ComM_ConfigType */ {
     VAR( uint16, TYPEDEF ) DirectNumChannelsOfAllUser[2]; /* Index of first channel of a user in COMM_ConfigLayoutType.aChannelsOfAllUser */
 } ComM_ConfigType;
 
-
 /*==================[external function declarations]=========================*/
 
 

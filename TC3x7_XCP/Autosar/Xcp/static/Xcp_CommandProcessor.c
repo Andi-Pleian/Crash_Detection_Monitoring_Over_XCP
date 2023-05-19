@@ -51,7 +51,7 @@
 
 #include <Xcp.h>                /* Module public API */
 #if ( (XCP_DEFAULT_XCP_MODULE_STATE == STD_ON) || (XCP_ENABLE_XCP_CONTROL_API == STD_ON) )
-#include <TSAutosar.h>          /* EB specific standard types */
+//#include <TSAutosar.h>          /* EB specific standard types */
 #include <TSMem.h>              /* EB memory functions */
 #include <SchM_Xcp.h>           /* Needed for exclusive area definition */
 #include <Xcp_Trace.h>

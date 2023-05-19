@@ -222,6 +222,8 @@ typedef struct
  */
 typedef struct
 {
+        //TODO ANDI
+        uint8 dummy_attr;
 #if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
   VAR(CanIf_UlRxIndFctPtrType, TYPEDEF)       UlRxIndFctPtr;         /**< <UL>_RxIndication */
 #endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */

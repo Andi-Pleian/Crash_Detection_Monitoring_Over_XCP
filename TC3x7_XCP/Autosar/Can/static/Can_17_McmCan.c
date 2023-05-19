@@ -1964,7 +1964,7 @@ LOCAL_INLINE Std_ReturnType Can_lInitClkSetting(uint8 KernelIndx)
 ** Return value     : E_OK/E_NOT_OK                                           **
 **                                                                            **
 *******************************************************************************/
-LOCAL_INLINE Std_ReturnType Can_lInitializeController(uint8 ControllerId)
+Std_ReturnType Can_lInitializeController(uint8 ControllerId)
 {
   Ifx_CAN_N *NodeRegAddressPtr;
   Ifx_CAN *MCMBaseAddressPtr;
@@ -3466,8 +3466,8 @@ static Can_ReturnType Can_lWriteMsgObj( Can_HwHandleType HthIndex,
         }
 
         /* Tx Buffer Add Request i
-         * Each Tx Buffer has its own "Add Request" bit. Writing a ‘1’ will set the corresponding "Add Request" bit; writing a
-         * ‘0’ has no impact. This enables the Host to set transmission requests for multiple Tx Buffers with one write to TXBAR.
+         * Each Tx Buffer has its own "Add Request" bit. Writing a ï¿½1ï¿½ will set the corresponding "Add Request" bit; writing a
+         * ï¿½0ï¿½ has no impact. This enables the Host to set transmission requests for multiple Tx Buffers with one write to TXBAR.
          * TXBAR bits are set only for those Tx Buffers configured via TXBC. When no Tx scan is running, the bits are
          * reset immediately, else the bits remain set until the Tx scan process has completed.*/
         

@@ -35,7 +35,7 @@
 #include <Xcp.h>              /* Module public API */
 #if ( (XCP_DEFAULT_XCP_MODULE_STATE == STD_ON) || (XCP_ENABLE_XCP_CONTROL_API == STD_ON) )
 
-#include <TSAutosar.h>        /* EB specific standard types */
+//#include <TSAutosar.h>        /* EB specific standard types */
 #include <Xcp_Trace.h>
 
 #include <Xcp_Int.h>          /* Internal types */
@@ -307,12 +307,12 @@ VAR(uint8, XCP_VAR) Xcp_TransmissionDisabled[XCP_CONNECTION_FLAG_SIZE] = {FALSE}
 
 //TODO ANDI
 /* Connection status of XCP module */
-//VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
-//{
-//  XCP_STATE_DISCONNECTED,
-//  XCP_INIT_CONNECTION_ID,
-//  0U
-//};
+VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
+{
+  XCP_STATE_DISCONNECTED,
+  XCP_INIT_CONNECTION_ID,
+  0U
+};
 
 #define XCP_STOP_SEC_VAR_UNSPECIFIED
 #include <MemMap.h>

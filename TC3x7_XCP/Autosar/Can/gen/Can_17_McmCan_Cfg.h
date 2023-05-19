@@ -85,7 +85,7 @@
 /* CAN_ID_MIXED  : Standard and Extended Message Identifiers are configured */
 /* CAN_ID_EXTENDED : Extended Message Identifier is only configured */
 /* CAN_ID_STANDARD : Standard Message Identifier is only configured */
-#define CAN_ID_CONFIG_TYPE                              (CAN_ID_STANDARD)
+#define CAN_ID_CONFIG_TYPE                              (CAN_ID_MIXED)
 
 /* Maximum number of Standard Id filter elements configured in a ConfigSet */
 #define CAN_NOOF_SID_FILTER_CONFIG                              (1U)

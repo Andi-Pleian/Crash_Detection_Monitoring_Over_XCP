@@ -157,7 +157,7 @@
 #if (defined COMM_DEV_ERROR_DETECT)
 #error COMM_DEV_ERROR_DETECT already defined
 #endif
-#define COMM_DEV_ERROR_DETECT             STD_ON
+#define COMM_DEV_ERROR_DETECT             STD_OFF
 
 /** \brief Enable/disable the version info API */
 #if (defined COMM_VERSION_INFO_API)
@@ -182,7 +182,7 @@
 #if (defined COMM_DCM_ENABLED)
 #error COMM_DCM_ENABLED already defined
 #endif
-#define COMM_DCM_ENABLED                  STD_ON
+#define COMM_DCM_ENABLED                  STD_OFF
 
 /** \brief Wake up of one channel shall lead to a wake up of all channels if
  * switch is enabled. */

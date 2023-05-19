@@ -2962,13 +2962,13 @@ extern VAR(boolean, XCP_VAR) Xcp_Initialized;
 
 /** \brief Connection status of XCP module. */
 //TODO ANDI
-//extern VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus;
-extern VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
-{
-  XCP_STATE_DISCONNECTED,
-  0,//XCP_INIT_CONNECTION_ID,
-  0U
-};
+extern VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus;
+//extern VAR(Xcp_ConnectionStatusType, XCP_VAR) Xcp_ConnectionStatus =
+//{
+//  XCP_STATE_DISCONNECTED,
+//  0,//XCP_INIT_CONNECTION_ID,
+//  0U
+//};
 
 #define XCP_STOP_SEC_VAR_UNSPECIFIED
 #include <MemMap.h>

@@ -31,4 +31,18 @@ void blinkLED(void) {
     IfxPort_togglePin(LED_P20_11);                                                /* Toggle the state of the LED      */
     waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, WAIT_TIME));      /* Wait 500 milliseconds            */
 }
+//#include <Std_Types.h>
+//#include <ComStack_Types.h>
+//#include <CanSM_BswM.h>
+//#include <BswM_CanSM.h>
+//#include <BswM_CanSM.h>
 
+//typedef uint8 CanSM_BswMCurrentStateType;
+//typedef uint8 CanSM_BswMCurrentStateType;
+//typedef uint8 NetworkHandleType;
+
+//void BswM_CanSM_CurrentState
+//(
+///*NetworkHandleType*/uint8 Network,
+///*CanSM_BswMCurrentStateType*/uint8 CurrentState
+//);
