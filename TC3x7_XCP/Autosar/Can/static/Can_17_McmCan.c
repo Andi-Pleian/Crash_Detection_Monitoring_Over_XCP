@@ -40,6 +40,9 @@
 #include "IfxCan_reg.h"
 #include "IfxSrc_reg.h"
 
+//TODO ANDI
+#include "Mcal_Stubs.h"
+
 /* MCAL header file containing global macros, type definitions and functions
 needed by all MCAL drivers */
 #include "McalLib.h"

@@ -44,6 +44,7 @@ RM := rm -rf
 -include Autosar/BswM/static/subdir.mk
 -include Autosar/BswM/gen/subdir.mk
 -include Autosar/Base/static/subdir.mk
+-include Autosar/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++_DEPS)),)

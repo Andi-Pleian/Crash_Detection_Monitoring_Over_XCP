@@ -7850,6 +7850,7 @@ org.eclipse.swt.SWTException: Widget is disposed
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 11:57:09.414
 !MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1549 milliseconds. (full boost)
@@ -7863,6 +7864,8 @@ org.eclipse.swt.SWTException: Widget is disposed
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 11:58:20.606
 !MESSAGE Include paths were discovered in 29 milliseconds.
 =======
+=======
+>>>>>>> Stashed changes
 !SESSION 2023-05-17 10:45:49.726 -----------------------------------------------
 eclipse.buildId=1.9.0
 java.version=17.0.4.1
@@ -8525,6 +8528,7 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 11:35:10.440
 !MESSAGE Include paths were discovered in 31 milliseconds.
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 12:01:30.634
@@ -8532,3 +8536,35 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 12:01:30.667
 !MESSAGE Include paths were discovered in 30 milliseconds.
+=======
+>>>>>>> Stashed changes
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:24:23.032
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1411 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:24:23.061
+!MESSAGE Include paths were discovered in 26 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:26:11.581
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1399 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:26:11.611
+!MESSAGE Include paths were discovered in 27 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:26:59.326
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1416 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:26:59.359
+!MESSAGE Include paths were discovered in 27 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:30:14.251
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1407 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:30:14.287
+!MESSAGE Include paths were discovered in 34 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:31:32.601
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 1419 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:31:32.644
+!MESSAGE Include paths were discovered in 39 milliseconds.

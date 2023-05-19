@@ -35,6 +35,7 @@ Autosar/CanSM/gen \
 Autosar/CanSM/static \
 Autosar/ComM/gen \
 Autosar/ComM/static \
+Autosar \
 Autosar/Xcp/gen \
 Autosar/Xcp/static \
 . \
