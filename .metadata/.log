@@ -8568,3 +8568,9 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:31:32.644
 !MESSAGE Include paths were discovered in 39 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:35:43.832
+!MESSAGE Boosting configuration Debug of project TC3x7_XCP boosted in 233 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-05-19 15:35:43.863
+!MESSAGE Include paths were discovered in 27 milliseconds.
