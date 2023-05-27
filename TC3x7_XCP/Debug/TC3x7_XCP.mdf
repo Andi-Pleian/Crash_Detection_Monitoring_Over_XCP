@@ -11,7 +11,6 @@ space	mpe:tc0:csa	104	8
 space	mpe:tc1:linear	201	8
 space	mpe:tc1:abs24	202	8
 # chip <name> <id> <mau size> <size> <type>
-chip	mpe:dsram0	2	8	196608	ram
 chip	mpe:psram0	3	8	32768	ram
 chip	mpe:pfls1	5	8	2097152	rom
 chip	mpe:pfls0	4	8	2097152	rom
@@ -21,6 +20,7 @@ chip	mpe:ucb	7	8	24576	rom
 chip	mpe:cpu0_dlmu	8	8	65536	ram
 chip	mpe:cpu1_dlmu	9	8	65536	ram
 chip	mpe:dfls0	6	8	131072	nvram
+chip	mpe:dsram0	2	8	196608	ram
 # map <space id> <start in space> <size in space> <chip id> <start on chip>
 map	201	3489660928	196608	0	0
 map	202	3489660928	196608	0	0

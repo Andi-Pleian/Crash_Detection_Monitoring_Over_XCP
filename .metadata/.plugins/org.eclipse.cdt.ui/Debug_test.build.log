@@ -1,0 +1,13 @@
+20:03:17 **** Incremental Build of configuration Debug for project Debug_test ****
+make --output-sync -j16 all 
+TASKING VX-toolset for AURIX Development Studio (non-commercial): ELF size v1.1r8 Build 22011964
+Invoking: Print Size
+elfsize  "Debug_test.elf"
+Total sizes:
+ROM: 0x42a5 (17061) = code: 0x2f24 (12068) + romdata: 0x1381 (4993)
+RAM: 0x11915 (71957) = data + bss
+Finished building: Debug_test.siz
+ 
+
+20:03:18 Build Finished. 0 errors, 0 warnings. (took 983ms)
+

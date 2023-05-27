@@ -1,0 +1,84 @@
+/*
+ * Can_Drv.c
+ *
+ *  Created on: May 19, 2023
+ *      Author: uif47623
+ */
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Includes------------------------------------------------------*/
+/*********************************************************************************************************************/
+#include "Can_Drv.h"
+/*********************************************************************************************************************/
+/*-------------------------------------------------Global variables--------------------------------------------------*/
+/*********************************************************************************************************************/
+McmCanType McmCan;
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+IFX_INTERRUPT(canIsrTxHandler, 0, ISR_PRIORITY_CAN_TX);
+IFX_INTERRUPT(canIsrRxHandler, 0, ISR_PRIORITY_CAN_RX);
+
+void Can_Drv_v_InitCan() {
+    // load default CAN module config into config struct
+    IfxCan_Can_initModuleConfig(&McmCan.canConfig, &MODULE_CAN0);
+    // init CAN module with default config
+    IfxCan_Can_initModule(&McmCan.canModule, &McmCan.canConfig);
+
+
+    // load default config in config struct
+    IfxCan_Can_initNodeConfig(&McmCan.canNodeConfig, &McmCan.canModule);
+    McmCan.canNodeConfig.nodeId = IfxCan_NodeId_0;
+    McmCan.canNodeConfig.frame.type = IfxCan_FrameType_transmit;
+    // set tx mode to dedicated buffers
+    McmCan.canNodeConfig.txConfig.txMode = 2;
+
+    McmCan.canNodeConfig.interruptConfig.transmissionCompletedEnabled = TRUE;
+    McmCan.canNodeConfig.interruptConfig.traco.priority = 2; //ISR_PRIORITY_CAN_TX;
+    McmCan.canNodeConfig.interruptConfig.traco.interruptLine = IfxCan_InterruptLine_0;
+    McmCan.canNodeConfig.interruptConfig.traco.typeOfService = IfxSrc_Tos_cpu0;
+
+    IfxCan_Can_initNode(&McmCan.canSrcNode, &McmCan.canNodeConfig);
+
+
+    // CONFIG Destination CAN node
+
+
+    IfxCan_Can_initNodeConfig(&McmCan.canNodeConfig, &McmCan.canModule);
+    McmCan.canNodeConfig.nodeId = IfxCan_NodeId_1;
+    McmCan.canNodeConfig.frame.type = IfxCan_FrameType_receive;
+
+    McmCan.canNodeConfig.interruptConfig.messageStoredToDedicatedRxBufferEnabled = TRUE;
+    McmCan.canNodeConfig.interruptConfig.reint.priority = 1; //ISR_PRIORITY_CAN_RX;
+    McmCan.canNodeConfig.interruptConfig.reint.interruptLine = IfxCan_InterruptLine_1;
+    McmCan.canNodeConfig.interruptConfig.reint.typeOfService = IfxSrc_Tos_cpu0;
+    IfxCan_Can_initNode(&McmCan.canDstNode, &McmCan.canNodeConfig);
+
+
+    // CONFIG CAN Filter
+
+
+
+    McmCan.canFilter.number = 0;
+    McmCan.canFilter.elementConfiguration = IfxCan_FilterElementConfiguration_storeInRxBuffer;
+    McmCan.canFilter.id1 = (uint32)0x777; //CAN_MESSAGE_ID;
+    McmCan.canFilter.rxBufferOffset = IfxCan_RxBufferId_0;
+
+    IfxCan_Can_setStandardFilter(&McmCan.canDstNode, &McmCan.canFilter);
+}
+
+void Can_Drv_v_TransmitCanMessage(void) {
+    IfxCan_Can_initMessage(&McmCan.txMsg);
+
+    McmCan.txData[0] = (uint32)0xC0CAC01A;
+    McmCan.txData[1] = (uint32)0xBA5EBA11
+}
+
+void canIsrRxHandler(void)
+{
+
+}
+
+void canIsrTxHandler(void)
+{
+
+}

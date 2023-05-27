@@ -1,9 +1,13 @@
-Aurix Flasher 2.5.3.0, built on 3/17/2022 3:12:47 PM
-Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
-::Loading HEX file .......... 
- ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
-::Erasing Flash memory .......... (Pass)
-::Programming Flash memory .......... (Pass)
-Overall time: 1073 ms
-AurixFlasher Exit Status: Pass
-Flashing was successfull
+14:31:02 **** Incremental Build of configuration Debug for project test3 ****
+make --output-sync -j16 all 
+Invoking: Print Size
+TASKING VX-toolset for AURIX Development Studio (non-commercial): ELF size v1.1r8 Build 22011964
+elfsize  "test3.elf"
+Total sizes:
+ROM: 0x3a0b (14859) = code: 0x26a2 (9890) + romdata: 0x1369 (4969)
+RAM: 0xc115 (49429) = data + bss
+Finished building: test3.siz
+ 
+
+14:31:03 Build Finished. 0 errors, 0 warnings. (took 886ms)
+
