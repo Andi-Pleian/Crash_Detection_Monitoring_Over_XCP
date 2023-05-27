@@ -64,34 +64,15 @@ void core0_main(void) {
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
-
-    //init_leds2();
-
     // Start GPT12 timer
 //    GPT12_v_InitTimer();
 
-//    wait_ms(1000);
     initMcmcan();
-    //initLeds();
-
-//    wait_ms(1000);
-//    wait_ms(1000);
-//    transmitCanMessage();   //LED ON
-//    wait_ms(1000);
-//    wait_ms(1000);
-//    transmitCanMessage();   //LED OFF
-//    wait_ms(1000);
-//    wait_ms(1000);
-//    transmitCanMessage();   //LED ON
-
-    initLED();
-
+    initLeds();
 
     while(1) {
-        //blinkLED();
         transmitCanMessage();
-        blinkLED();
-        wait_ms(100);
+        wait_ms(1000);
     }
 }
 

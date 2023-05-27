@@ -43,7 +43,6 @@ void canIsrTxHandler(void)
     IfxCan_Node_clearInterruptFlag(g_mcmcan.canSrcNode.node, IfxCan_Interrupt_transmissionCompleted);
 
     /* Just to indicate that the CAN message has been transmitted by turning on LED1 */
-    //IfxPort_setPinLow(g_led1.port, g_led1.pinIndex);
     IfxPort_togglePin(g_led1.port, g_led1.pinIndex);
 }
 
@@ -54,26 +53,14 @@ void canIsrTxHandler(void)
 void canIsrRxHandler(void)
 {
     /* Clear the "Message stored to Dedicated RX Buffer" interrupt flag */
-    //IfxCan_Node_clearInterruptFlag(g_mcmcan.canDstNode.node, IfxCan_Interrupt_messageStoredToDedicatedRxBuffer);
+    IfxCan_Node_clearInterruptFlag(g_mcmcan.canSrcNode.node, IfxCan_Interrupt_messageStoredToDedicatedRxBuffer);
 
     /* Read the received CAN message */
-    //IfxCan_Can_readMessage(&g_mcmcan.canDstNode, &g_mcmcan.rxMsg, g_mcmcan.rxData);
+    IfxCan_Can_readMessage(&g_mcmcan.canSrcNode, &g_mcmcan.rxMsg, g_mcmcan.rxData);
 
-    //wait_ms(1000);  // wait 1000ms after receiving
-    //IfxPort_togglePin(g_led2.port, g_led2.pinIndex);
-
-//    /* Check if the received data matches with the transmitted one */
-//    if( ( g_mcmcan.rxData[0] == g_mcmcan.txData[0] ) &&
-//        ( g_mcmcan.rxData[1] == g_mcmcan.txData[1] ) &&
-//        ( g_mcmcan.rxMsg.messageId == g_mcmcan.txMsg.messageId ) )
-//    {
-//        /* Turn on the LED2 to indicate correctness of the received message */
-//        //IfxPort_setPinLow(g_led2.port, g_led2.pinIndex);
-//        wait_ms(1000);  // wait 1000ms after receiving
-//        IfxPort_togglePin(g_led2.port, g_led2.pinIndex);
-//    }
-
-    //IfxCan_Status readStatus = IfxCan_Can_readMessage
+    if (g_mcmcan.rxMsg.messageId == 0x100) {
+        IfxPort_togglePin(g_led2.port, g_led2.pinIndex);
+    }
 }
 
 /* Function to initialize MCMCAN module and nodes related for this application use case */
@@ -121,7 +108,7 @@ void initMcmcan(void)
     g_mcmcan.canNodeConfig.pins = &pins;
     g_mcmcan.canNodeConfig.nodeId = IfxCan_NodeId_0;
 
-    g_mcmcan.canNodeConfig.frame.type = IfxCan_FrameType_transmit;
+    g_mcmcan.canNodeConfig.frame.type = IfxCan_FrameType_transmitAndReceive; //transmit doar pt src
 
     g_mcmcan.canNodeConfig.interruptConfig.transmissionCompletedEnabled = TRUE;
     g_mcmcan.canNodeConfig.interruptConfig.traco.priority = ISR_PRIORITY_CAN_TX;
@@ -129,39 +116,12 @@ void initMcmcan(void)
     g_mcmcan.canNodeConfig.interruptConfig.traco.typeOfService = IfxSrc_Tos_cpu0;
 
 
-    IfxCan_Can_initNode(&g_mcmcan.canSrcNode, &g_mcmcan.canNodeConfig);
+    g_mcmcan.canNodeConfig.interruptConfig.messageStoredToDedicatedRxBufferEnabled = TRUE;
+    g_mcmcan.canNodeConfig.interruptConfig.reint.priority = ISR_PRIORITY_CAN_RX;
+    g_mcmcan.canNodeConfig.interruptConfig.reint.interruptLine = IfxCan_InterruptLine_1;
+    g_mcmcan.canNodeConfig.interruptConfig.reint.typeOfService = IfxSrc_Tos_cpu0;
 
-    /* ==========================================================================================
-     * Destination CAN node configuration and initialization:
-     * ==========================================================================================
-     *  - load default CAN node configuration into configuration structure
-     *
-     *  - set destination CAN node in the "Loop-Back" mode (no external pins are used)
-     *  - assign destination CAN node to CAN node 1
-     *
-     *  - define the frame to be the receiving one
-     *
-     *  - once the message is stored in the dedicated RX buffer, raise the interrupt
-     *  - define the receive interrupt priority
-     *  - assign the interrupt line 1 to the receive interrupt
-     *  - receive interrupt service routine should be serviced by the CPU0
-     *
-     *  - initialize the destination CAN node with the modified configuration
-     * ==========================================================================================
-     */
-//    IfxCan_Can_initNodeConfig(&g_mcmcan.canNodeConfig, &g_mcmcan.canModule);
-//
-//    //g_mcmcan.canNodeConfig.busLoopbackEnabled = TRUE;
-//    g_mcmcan.canNodeConfig.nodeId = IfxCan_NodeId_1;
-//
-//    g_mcmcan.canNodeConfig.frame.type = IfxCan_FrameType_receive;
-//
-//    g_mcmcan.canNodeConfig.interruptConfig.messageStoredToDedicatedRxBufferEnabled = TRUE;
-//    g_mcmcan.canNodeConfig.interruptConfig.reint.priority = ISR_PRIORITY_CAN_RX;
-//    g_mcmcan.canNodeConfig.interruptConfig.reint.interruptLine = IfxCan_InterruptLine_1;
-//    g_mcmcan.canNodeConfig.interruptConfig.reint.typeOfService = IfxSrc_Tos_cpu0;
-//
-//    IfxCan_Can_initNode(&g_mcmcan.canDstNode, &g_mcmcan.canNodeConfig);
+    IfxCan_Can_initNode(&g_mcmcan.canSrcNode, &g_mcmcan.canNodeConfig);
 
     /* ==========================================================================================
      * CAN filter configuration and initialization:
@@ -174,12 +134,12 @@ void initMcmcan(void)
      *  - initialize the standard filter with the modified configuration
      * ==========================================================================================
      */
-//    g_mcmcan.canFilter.number = 0;
-//    g_mcmcan.canFilter.elementConfiguration = IfxCan_FilterElementConfiguration_storeInRxBuffer;
-//    g_mcmcan.canFilter.id1 = 123;  //CAN_MESSAGE_ID;
-//    g_mcmcan.canFilter.rxBufferOffset = IfxCan_RxBufferId_0;
-//
-//    IfxCan_Can_setStandardFilter(&g_mcmcan.canDstNode, &g_mcmcan.canFilter);
+    g_mcmcan.canFilter.number = 0;
+    g_mcmcan.canFilter.elementConfiguration = IfxCan_FilterElementConfiguration_storeInRxBuffer;
+    g_mcmcan.canFilter.id1 = 0x100;  //CAN_MESSAGE_ID;
+    g_mcmcan.canFilter.rxBufferOffset = IfxCan_RxBufferId_0;
+
+    IfxCan_Can_setStandardFilter(&g_mcmcan.canSrcNode, &g_mcmcan.canFilter);
 }
 
 /* Function to initialize both TX and RX messages with the default data values.
