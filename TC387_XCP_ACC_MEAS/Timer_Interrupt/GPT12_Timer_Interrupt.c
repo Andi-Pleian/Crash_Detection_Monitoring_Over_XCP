@@ -71,5 +71,14 @@ void interruptGpt12(void) {
     TS_v_Run();     //Run task scheduler
 }
 
+/* Waits until a timeout in milliseconds */
+void wait_ms(uint32 ms)
+{
+    sint32 Fsys = IfxStm_getFrequency(&MODULE_STM0);
+    Ifx_TickTime waitms = (Fsys / (1000 / ms));
+
+    wait(waitms);
+}
+
 //END OF FILE
 

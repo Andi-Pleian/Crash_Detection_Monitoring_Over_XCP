@@ -15,16 +15,19 @@
 //#include "Global_Types.h"
 #include "Platform_Types.h"
 #include "Bsp.h"
+#include "Xcp.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Defines------------------------------------------------------*/
 /*********************************************************************************************************************/
 
-#define TS_MAX_TASKS        10
-#define TS_NUM_TASKS        2
+#define TS_MAX_TASKS            10
+#define TS_NUM_TASKS            2
 
-#define TS_TASK_1MS_ID      1
-#define TS_TASK_10MS_ID     2
+#define TS_TASK_1MS_ID          1
+#define TS_TASK_10MS_ID         2
+
+#define TS_TASK_INVALID_TASK    -1
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Structs------------------------------------------------------*/
@@ -45,10 +48,12 @@ typedef struct {
 /*---------------------------------------------Function Prototypes     ----------------------------------------------*/
 /*********************************************************************************************************************/
 
-extern void TS_v_Task1ms  (void);
-extern void TS_v_Task10ms (void);
+extern void TS_v_Task1ms        (void);
+extern void TS_v_Task10ms       (void);
 
-extern void TS_v_Run        (void);
+extern void TS_v_Run            (void);
+
+extern void TS_v_ChangeState    (uint32);
 
 #endif /* TASK_SCHEDULER_H_ */
 

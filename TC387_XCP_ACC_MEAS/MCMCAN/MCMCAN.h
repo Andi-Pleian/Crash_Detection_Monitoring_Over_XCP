@@ -17,7 +17,9 @@
 #include "IfxCan_Can.h"
 #include "IfxCan.h"
 #include "IfxCpu_Irq.h"
-#include "IfxPort.h"                                        /* For GPIO Port Pin Control                            */
+#include "IfxPort.h"
+#include "Can.h"
+/* For GPIO Port Pin Control                            */
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
@@ -44,7 +46,6 @@ typedef struct
     IfxCan_Can_Config canConfig;                            /* CAN module configuration structure                   */
     IfxCan_Can canModule;                                   /* CAN module handle                                    */
     IfxCan_Can_Node canSrcNode;                             /* CAN source node handle data structure                */
-    IfxCan_Can_Node canDstNode;                             /* CAN destination node handle data structure           */
     IfxCan_Can_NodeConfig canNodeConfig;                    /* CAN node configuration structure                     */
     IfxCan_Filter canFilter;                                /* CAN filter configuration structure                   */
     IfxCan_Message txMsg;                                   /* Transmitted CAN message structure                    */
@@ -59,5 +60,8 @@ typedef struct
 void initMcmcan(void);
 void transmitCanMessage(void);
 void initLeds(void);
+Can_ReturnType MCMCAN_Write(Can_HwHandleType, const Can_PduType*);
 
 #endif /* MCMCAN_MCMCAN_H_ */
+
+//END OF FILE

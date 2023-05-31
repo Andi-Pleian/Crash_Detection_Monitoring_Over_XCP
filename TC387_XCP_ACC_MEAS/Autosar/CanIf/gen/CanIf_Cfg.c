@@ -19,7 +19,7 @@
 #define CANIF_NO_PBCFG_REQUIRED
 #include <CanIf.h>                /* CanIf Types */
 #include <CanIf_Int.h>
-#include <Xcp_Cbk.h>
+#include "Xcp_Cbk.h"
 
 
 
@@ -53,13 +53,13 @@ CONST( CanIf_CbkFctPtrTblType, CANIF_APPL_CONST ) CanIf_CbkFctPtrTbl[] =
   {
      /* PDUR */
 #if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
-    &PduR_CanIfRxIndication,
+    NULL_PTR,
 #endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */
 #if (CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON)
     NULL_PTR,
 #endif /* CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON */
 #if (CANIF_TX_CONFIRMATION_SUPPORT == STD_ON)
-    &PduR_CanIfTxConfirmation,
+    NULL_PTR,
 #endif /* CANIF_TX_CONFIRMATION_SUPPORT == STD_ON */
 #if (CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON)
     NULL_PTR,
@@ -70,6 +70,24 @@ CONST( CanIf_CbkFctPtrTblType, CANIF_APPL_CONST ) CanIf_CbkFctPtrTbl[] =
   },
   {
      /* XCP */
+#if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
+    &Xcp_CanIfRxIndication,
+#endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */
+#if (CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif /* CANIF_CDD_RX_INDICATION_SUPPORT == STD_ON */
+#if (CANIF_TX_CONFIRMATION_SUPPORT == STD_ON)
+    &Xcp_CanIfTxConfirmation,
+#endif /* CANIF_TX_CONFIRMATION_SUPPORT == STD_ON */
+#if (CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif /* CANIF_DLC_ERROR_NOTIF_SUPPORT == STD_ON */
+#if (CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON)
+    NULL_PTR,
+#endif  /* CANIF_DLC_PASSED_NOTIF_SUPPORT == STD_ON */
+  },
+  {
+     /* CDD */
 #if (CANIF_UL_RX_INDICATION_SUPPORT == STD_ON)
     &Xcp_CanIfRxIndication,
 #endif /* CANIF_UL_RX_INDICATION_SUPPORT == STD_ON */

@@ -302,7 +302,7 @@
 #if (defined CANIF_UL_RX_INDICATION_SUPPORT)
 #error CANIF_UL_RX_INDICATION_SUPPORT already defined!
 #endif /* #if( defined CANIF_UL_RX_INDICATION_SUPPORT)*/
-#define CANIF_UL_RX_INDICATION_SUPPORT   STD_OFF
+#define CANIF_UL_RX_INDICATION_SUPPORT   STD_ON
 
 /** \brief Switch for <Cdd>_RxIndication support
  **
@@ -311,7 +311,7 @@
 #if (defined CANIF_CDD_RX_INDICATION_SUPPORT)
 #error CANIF_CDD_RX_INDICATION_SUPPORT already defined!
 #endif /* #if( defined CANIF_CDD_RX_INDICATION_SUPPORT)*/
-#define CANIF_CDD_RX_INDICATION_SUPPORT   STD_OFF
+#define CANIF_CDD_RX_INDICATION_SUPPORT   STD_ON
 
 /** \brief Switch for <UL>_TxConfirmation support
  **
@@ -320,7 +320,7 @@
 #if (defined CANIF_TX_CONFIRMATION_SUPPORT)
 #error CANIF_TX_CONFIRMATION_SUPPORT already defined!
 #endif /* #if( defined CANIF_TX_CONFIRMATION_SUPPORT)*/
-#define CANIF_TX_CONFIRMATION_SUPPORT   STD_OFF
+#define CANIF_TX_CONFIRMATION_SUPPORT   STD_ON
 
 /** \brief Switch for DLC error notification support
  **
@@ -564,7 +564,7 @@
 #if (defined CANIF_CFG_SIGNATURE)
 #error CANIF_CFG_SIGNATURE already defined!
 #endif /* #if( defined CANIF_CFG_SIGNATURE)*/
-#define CANIF_CFG_SIGNATURE 1432847315U
+#define CANIF_CFG_SIGNATURE 1253391118U
 
 /** \brief Compile time Published information verfication value */
 #if (defined CANIF_PUBLIC_INFO_SIGNATURE)

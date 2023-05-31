@@ -10,6 +10,8 @@
 #include "GPT12_Timer_Interrupt.h"
 #include "MCMCAN.h"
 #include "Bsp.h"
+#include "CanIf.h"
+#include "Xcp.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -21,36 +23,6 @@ IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
 
-/* Waits until a timeout in milliseconds */
-void wait_ms(uint32 ms)
-{
-    sint32 Fsys = IfxStm_getFrequency(&MODULE_STM0);
-    Ifx_TickTime waitms = (Fsys / (1000 / ms));
-
-    wait(waitms);
-}
-
-void init_leds2() {
-    /* Initialization of the LED */
-    IfxPort_setPinModeOutput(&MODULE_P20, 12, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    /* Switch OFF the LED (low-level active) */
-    IfxPort_setPinHigh(&MODULE_P20, 12);
-
-    /* Initialization of the LED */
-    IfxPort_setPinModeOutput(&MODULE_P20, 13, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    /* Switch OFF the LED (low-level active) */
-    IfxPort_setPinHigh(&MODULE_P20, 13);
-
-    /* Initialization of the LED */
-    IfxPort_setPinModeOutput(&MODULE_P20, 11, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
-    /* Switch OFF the LED (low-level active) */
-    IfxPort_setPinHigh(&MODULE_P20, 11);
-}
-
-void led2ON_Init() {
-    IfxPort_setPinLow(&MODULE_P20, 12);
-}
-#define LED_P20_11    &MODULE_P20,11
 void core0_main(void) {
     IfxCpu_enableInterrupts();
     
@@ -64,15 +36,17 @@ void core0_main(void) {
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
-    // Start GPT12 timer
-//    GPT12_v_InitTimer();
-
     initMcmcan();
+    CanIf_Init(&CanIf_InitCfg);
+    Xcp_Init(&XcpConfig);
     initLeds();
 
+    // Start GPT12 timer
+    GPT12_v_InitTimer();
+
     while(1) {
-        transmitCanMessage();
-        wait_ms(1000);
+        //transmitCanMessage();
+        //wait_ms(1000);
     }
 }
 

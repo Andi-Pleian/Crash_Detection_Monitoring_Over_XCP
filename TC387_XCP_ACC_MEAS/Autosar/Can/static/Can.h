@@ -4,6 +4,7 @@
 #define _CAN_H_
 
 #include "Can_17_McmCan.h"
+#include "MCMCAN.h"
 
 
 /* Published parameters */
@@ -28,7 +29,7 @@
 #define Can_DisableControllerInterrupts     Can_17_McmCan_DisableControllerInterrupts
 #define Can_EnableControllerInterrupts      Can_17_McmCan_EnableControllerInterrupts
 #define Can_CheckWakeup                     Can_17_McmCan_CheckWakeup
-#define Can_Write                           Can_17_McmCan_Write
+#define Can_Write                           MCMCAN_Write//Can_17_McmCan_Write
 #define Can_MainFunction_Write              Can_17_McmCan_MainFunction_Write
 #define Can_MainFunction_Read               Can_17_McmCan_MainFunction_Read
 #define Can_MainFunction_BusOff             Can_17_McmCan_MainFunction_BusOff

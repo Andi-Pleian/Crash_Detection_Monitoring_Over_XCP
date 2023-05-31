@@ -1434,10 +1434,12 @@ FUNC( Std_ReturnType, CANIF_CODE ) CanIf_Transmit
     SchM_Enter_CanIf_SCHM_CANIF_EXCLUSIVE_AREA_0();
 
     /* check current controller mode */
-    if( CanIf_CanControllerMode[ControllerId] == CANIF_CS_STARTED )
+    //TODO ANDI
+    if(1)//CanIf_CanControllerMode[ControllerId] == CANIF_CS_STARTED )
     {
       /* make sure that the current mode allows message transmissions */
-      if( CanIf_PduMode[ControllerId] == CANIF_ONLINE )
+        //TODO ANDI
+      if(1)//CanIf_PduMode[ControllerId] == CANIF_ONLINE )
       {
 #if( CANIF_PUBLIC_PN_SUPPORT == STD_ON )
         /* CANIF750, CANIF752: Reject Tx PDUs if partial networking filter is
@@ -1556,7 +1558,7 @@ FUNC( Std_ReturnType, CANIF_CODE ) CanIf_Transmit
       SchM_Enter_CanIf_SCHM_CANIF_EXCLUSIVE_AREA_0();
 
       /* transmitting the Can message */
-      CanRetVal = Can_Write( CanHth, &PduInfo );
+      CanRetVal = Can_Write( CanHth, &PduInfo );//MCMCAN_Write( CanHth, &PduInfo );
 
       if( CanRetVal != CAN_OK )
       {
@@ -3310,7 +3312,8 @@ FUNC( void, CANIF_CODE ) CanIf_RxIndication
 
 
             /* --- check channel mode ---------------------------------------------- */
-            if( !CANIF_CONDITION_RX_NOT_ALLOWED( ControllerId ) )
+            //TODO ANDI
+            if(1)//!CANIF_CONDITION_RX_NOT_ALLOWED( ControllerId ) )
             {
 
               PduInfoType PduInfo;            /* PDU information */

@@ -13,18 +13,11 @@
 #include "Ifx_Types.h"
 #include "IfxGpt12.h"
 #include "IfxPort.h"
+#include "MCMCAN.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
 /*********************************************************************************************************************/
-/**
- * task1 => 500ms
- * task2 => 1000ms
- * task3 => 2000ms
- *
- * the led order is: led1 - led2 - led1 - led3
- */
-
 /**
  * Array with all tasks
  */
@@ -32,14 +25,11 @@ S_TS_Task tasks[TS_NUM_TASKS] = {
         {TS_TASK_1MS_ID,      1,     1,   TS_v_Task1ms},
         {TS_TASK_10MS_ID,     10,    10,  TS_v_Task10ms},
 };
-//S_TS_Task tasks[NUM_TASKS] = {
-//  {TASK1_ID, 100, 100, task1},
-//  {TASK2_ID, 200, 200, task2},
-//  {TASK3_ID, 300, 300, task3},
-//};
 
 uint32 counter1ms   = 0;
-uint32 counter10ms  = 0;
+uint8 counter10ms  = 0;
+
+extern uint32 TS_G_CurrentState = TS_TASK_INVALID_TASK;
 
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
@@ -90,6 +80,9 @@ void led2ON() {
  * Cyclic task that executes at 1ms
  */
 void TS_v_Task1ms (void) {
+    TS_v_ChangeState(TS_TASK_1MS_ID);
+
+#ifdef TASK_DEBUGGING
     // LED1 => ON
     counter1ms++;
 
@@ -97,19 +90,32 @@ void TS_v_Task1ms (void) {
     if (counter1ms == 5000) {
         led1ON();
     }
+#endif
 }
 
 /**
  * Cyclic task that executes at 10ms
  */
 void TS_v_Task10ms (void) {
-//    LED2 => ON
+    TS_v_ChangeState(TS_TASK_10MS_ID);
+
+#ifdef TASK_DEBUGGING
+    // LED2 => ON
     counter10ms++;
 
     // if 10.000ms passed turn on led2
     if (counter10ms == 1000) {
         led2ON();
     }
+#endif
+    //transmitCanMessage();
+    Xcp_MainFunction();
+
+    counter10ms++;
+}
+
+void TS_v_ChangeState(uint32 newState) {
+    TS_G_CurrentState = newState;
 }
 
 //END OF FILE

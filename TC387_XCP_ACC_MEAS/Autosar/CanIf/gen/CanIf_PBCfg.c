@@ -71,7 +71,7 @@ CanIf_ConstConfigLayoutType CanIf_ConfigLayout = {
     { /* RootCfg */
         UINT32_C( 2147485970 ), /* PlatformSignature */
         UINT32_C( 2416897657 ), /* LcfgSignature */
-        UINT32_C( 1432847315 ), /* CfgSignature */
+        UINT32_C( 1253391118 ), /* CfgSignature */
         UINT32_C( 3410186675 ), /* PublicInfoSignature */
         TS_MAKEREF2CFG( txLPduConfig[0] ), /* txLPduConfigPtr */
         TS_MAKEREF2CFG( rxLPduConfig[0] ), /* rxLPduConfigPtr */

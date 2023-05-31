@@ -12,7 +12,9 @@
 /*-----------------------------------------------Function Prototypes-------------------------------------------------*/
 /*********************************************************************************************************************/
 void GPT12_v_InitTimer  (void);                          /* Function to initialize the GPT12 Module and start the timer  */
-void interruptGpt12     (void);                             /* Interrupt Service Routine of the GPT12                       */
+void interruptGpt12     (void);                          /* Interrupt Service Routine of the GPT12                       */
+
+extern void wait_ms     (uint32);                        /* Delay function */
 
 #endif /* TIMER_INTERRUPT_GPT12_TIMER_INTERRUPT_H_ */
 
