@@ -21,6 +21,8 @@ RM := rm -rf
 -include Libraries/iLLD/TC38A/Tricore/Mtu/Std/subdir.mk
 -include Libraries/iLLD/TC38A/Tricore/Gtm/Std/subdir.mk
 -include Libraries/iLLD/TC38A/Tricore/Gpt12/Std/subdir.mk
+-include Libraries/iLLD/TC38A/Tricore/Evadc/Std/subdir.mk
+-include Libraries/iLLD/TC38A/Tricore/Evadc/Adc/subdir.mk
 -include Libraries/iLLD/TC38A/Tricore/Cpu/Trap/subdir.mk
 -include Libraries/iLLD/TC38A/Tricore/Cpu/Std/subdir.mk
 -include Libraries/iLLD/TC38A/Tricore/Cpu/Irq/subdir.mk
@@ -45,6 +47,7 @@ RM := rm -rf
 -include Autosar/BswM/gen/subdir.mk
 -include Autosar/Base/static/subdir.mk
 -include Autosar/subdir.mk
+-include ADC/subdir.mk
 -include subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++_DEPS)),)

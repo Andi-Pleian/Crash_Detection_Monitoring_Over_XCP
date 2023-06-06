@@ -24,6 +24,7 @@ SECONDARY_SIZE :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+ADC \
 Autosar/Base/static \
 Autosar/BswM/gen \
 Autosar/BswM/static \
@@ -49,6 +50,8 @@ Libraries/iLLD/TC38A/Tricore/Can/Std \
 Libraries/iLLD/TC38A/Tricore/Cpu/Irq \
 Libraries/iLLD/TC38A/Tricore/Cpu/Std \
 Libraries/iLLD/TC38A/Tricore/Cpu/Trap \
+Libraries/iLLD/TC38A/Tricore/Evadc/Adc \
+Libraries/iLLD/TC38A/Tricore/Evadc/Std \
 Libraries/iLLD/TC38A/Tricore/Gpt12/Std \
 Libraries/iLLD/TC38A/Tricore/Gtm/Std \
 Libraries/iLLD/TC38A/Tricore/Mtu/Std \
