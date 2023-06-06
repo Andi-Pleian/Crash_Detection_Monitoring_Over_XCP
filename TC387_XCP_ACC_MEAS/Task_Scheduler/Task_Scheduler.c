@@ -14,6 +14,7 @@
 #include "IfxGpt12.h"
 #include "IfxPort.h"
 #include "MCMCAN.h"
+#include "ADC_Queued_Scan.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -109,6 +110,8 @@ void TS_v_Task10ms (void) {
     }
 #endif
     //transmitCanMessage();
+    readEVADC();
+
     Xcp_MainFunction();
 
     counter10ms++;

@@ -13,6 +13,7 @@
 #include "CanIf.h"
 #include "Xcp.h"
 #include "ADC.h"
+#include "ADC_Queued_Scan.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -45,10 +46,13 @@ void core0_main(void) {
     // Start GPT12 timer
     GPT12_v_InitTimer();
 
+    /* Function to initialize the EVADC with default parameters */
+    initEVADC();
 
     while(1) {
         //transmitCanMessage();
         //wait_ms(1000);
+        //readEVADC();
     }
 }
 
