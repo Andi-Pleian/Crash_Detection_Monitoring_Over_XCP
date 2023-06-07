@@ -5,13 +5,12 @@ const int zpin = A3;       // z-axis (only on 3-axis models)
 void setup() {
   // initialize the serial communications:
   Serial.begin(9600);
-
-  digitalWrite(groundpin, LOW);
-  digitalWrite(powerpin, HIGH);
 }
 
 void loop() {
   // print the sensor values:
+  int xvalue = analogRead(xpin);
+  int x = map(xvalue, 267, 400, -100, 100);
   Serial.print(analogRead(xpin));
   // print a tab between values:
   Serial.print("\t");

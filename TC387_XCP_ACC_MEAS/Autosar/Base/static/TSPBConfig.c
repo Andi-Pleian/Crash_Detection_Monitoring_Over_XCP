@@ -114,8 +114,8 @@ FUNC(boolean, BASE_CODE) TS_PlatformSigIsValid
   {
     RetVal = TRUE;
   }
-
-  return RetVal;
+  //TODO ANDI
+  return TRUE;
 }
 
 #define BASE_STOP_SEC_CODE

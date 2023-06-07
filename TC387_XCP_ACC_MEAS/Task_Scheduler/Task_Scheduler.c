@@ -15,6 +15,8 @@
 #include "IfxPort.h"
 #include "MCMCAN.h"
 #include "ADC_Queued_Scan.h"
+#include "CanSM.h"
+#include "ComM.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -112,6 +114,8 @@ void TS_v_Task10ms (void) {
     //transmitCanMessage();
     readEVADC();
 
+    CanSM_MainFunction();
+    ComM_MainFunction_0();
     Xcp_MainFunction();
 
     counter10ms++;
