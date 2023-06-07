@@ -195,13 +195,13 @@ void readEVADC()
     y_AxisG = CONVERT_TO_G(y_AxisValue);
     z_AxisG = CONVERT_TO_G(z_AxisValue);
 
-//    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD) {
-//        x_AxisG -= GET_FRACT(x_AxisG);
-//    }
-//    if (GET_FRACT(y_AxisG) < ADC_THRESHOLD) {
-//        y_AxisG -= GET_FRACT(y_AxisG);
-//    }
-//    if (GET_FRACT(z_AxisG) < ADC_THRESHOLD) {
-//        z_AxisG -= GET_FRACT(z_AxisG);
-//    }
+    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD) {
+        x_AxisG -= GET_FRACT(x_AxisG);
+    }
+    if (GET_FRACT(y_AxisG) < ADC_THRESHOLD) {
+        y_AxisG -= GET_FRACT(y_AxisG);
+    }
+    if (GET_FRACT(z_AxisG) < ADC_THRESHOLD) {
+        z_AxisG -= GET_FRACT(z_AxisG);
+    }
 }

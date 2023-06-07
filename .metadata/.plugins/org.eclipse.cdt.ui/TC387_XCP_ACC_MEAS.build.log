@@ -1,13 +1,9 @@
-18:16:55 **** Incremental Build of configuration Debug for project TC387_XCP_ACC_MEAS ****
-make --output-sync -j16 all 
-Invoking: Print Size
-TASKING VX-toolset for AURIX Development Studio (non-commercial): ELF size v1.1r8 Build 22011964
-elfsize  "TC387_XCP_ACC_MEAS.elf"
-Total sizes:
-ROM: 0xe25f (57951) = code: 0xc212 (49682) + romdata: 0x204d (8269)
-RAM: 0xd06e (53358) = data + bss
-Finished building: TC387_XCP_ACC_MEAS.siz
- 
-
-18:16:57 Build Finished. 0 errors, 0 warnings. (took 1s.551ms)
-
+Aurix Flasher 2.5.3.0, built on 3/17/2022 3:12:47 PM
+Connected to device... [TRICORE] DAS JDS miniWiggler V3.1
+::Loading HEX file .......... 
+ ::Warning: The given program file is trying to write on reserved memory addresses, which will be skipped.
+::Erasing Flash memory .......... (Pass)
+::Programming Flash memory .......... (Pass)
+Overall time: 1992 ms
+AurixFlasher Exit Status: Pass
+Flashing was successfull

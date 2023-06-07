@@ -57,12 +57,10 @@
 #define Z_MINUS_1G_VALUE    1058
 #define Z_PLUS_1G_VALUE     1570
 
-#define ADC_THRESHOLD       0.01
 #define MINUS_THRESHOLD     -100
 #define PLUS_THRESHOLD      100
 
 #define CONVERT_TO_G(x)     (float)x / (-100.00)
-#define GET_FRACT(x)        x - (int) x
 
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
@@ -194,14 +192,4 @@ void readEVADC()
     x_AxisG = CONVERT_TO_G(x_AxisValue);
     y_AxisG = CONVERT_TO_G(y_AxisValue);
     z_AxisG = CONVERT_TO_G(z_AxisValue);
-
-//    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD) {
-//        x_AxisG -= GET_FRACT(x_AxisG);
-//    }
-//    if (GET_FRACT(y_AxisG) < ADC_THRESHOLD) {
-//        y_AxisG -= GET_FRACT(y_AxisG);
-//    }
-//    if (GET_FRACT(z_AxisG) < ADC_THRESHOLD) {
-//        z_AxisG -= GET_FRACT(z_AxisG);
-//    }
 }
