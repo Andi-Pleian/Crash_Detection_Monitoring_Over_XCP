@@ -1314,6 +1314,18 @@ ASAP2_VERSION 1 71
       /end XCP_ON_CAN
     /end IF_DATA
 
+    /begin MEASUREMENT CarState ""
+      SBYTE CAR_STATE_T 0 0 -128 127
+      ECU_ADDRESS 0x700002E4
+      SYMBOL_LINK "CarData.carState" 0
+    /end MEASUREMENT
+
+    /begin MEASUREMENT CrashState ""
+      SBYTE CRASH_STATE_T 0 0 -128 127
+      ECU_ADDRESS 0x700002E5
+      SYMBOL_LINK "CarData.crashState" 0
+    /end MEASUREMENT
+
     /begin MEASUREMENT _STT_PH_e_Phase ""
       SBYTE _STT_PH_e_Phase.CONVERSION 0 0 0 255
       ECU_ADDRESS 0x700213DD
@@ -1340,7 +1352,7 @@ ASAP2_VERSION 1 71
 
     /begin MEASUREMENT g_results ""
       UBYTE NO_COMPU_METHOD 0 0 0 255
-      ECU_ADDRESS 0x70000244
+      ECU_ADDRESS 0x70000250
       SYMBOL_LINK "g_results" 0
       /begin IF_DATA XCP
         /begin DAQ_EVENT FIXED_EVENT_LIST
@@ -1362,7 +1374,7 @@ ASAP2_VERSION 1 71
 
     /begin MEASUREMENT x_AxisResult ""
       UWORD NO_COMPU_METHOD 0 0 0 65535
-      ECU_ADDRESS 0x70000244
+      ECU_ADDRESS 0x70000250
       SYMBOL_LINK "g_results._0_.B.RESULT" 0
       /begin IF_DATA XCP
         /begin DAQ_EVENT FIXED_EVENT_LIST
@@ -1384,7 +1396,7 @@ ASAP2_VERSION 1 71
 
     /begin MEASUREMENT y_AxisResult ""
       UWORD NO_COMPU_METHOD 0 0 0 65535
-      ECU_ADDRESS 0x70000248
+      ECU_ADDRESS 0x70000254
       SYMBOL_LINK "g_results._1_.B.RESULT" 0
       /begin IF_DATA XCP
         /begin DAQ_EVENT FIXED_EVENT_LIST
@@ -1406,7 +1418,7 @@ ASAP2_VERSION 1 71
 
     /begin MEASUREMENT z_AxisResult ""
       UWORD NO_COMPU_METHOD 0 0 0 65535
-      ECU_ADDRESS 0x7000024C
+      ECU_ADDRESS 0x70000258
       SYMBOL_LINK "g_results._2_.B.RESULT" 0
       /begin IF_DATA XCP
         /begin DAQ_EVENT FIXED_EVENT_LIST
@@ -1414,6 +1426,11 @@ ASAP2_VERSION 1 71
         /end DAQ_EVENT
       /end IF_DATA
     /end MEASUREMENT
+
+    /begin COMPU_METHOD CAR_STATE_T ""
+      TAB_VERB "%.0" ""
+      COMPU_TAB_REF CAR_STATE_T
+    /end COMPU_METHOD
 
     /begin COMPU_METHOD COMBO_ISC_Redundant_VariantType.CONVERSION "@@@@RuleName created by CANape"
       LINEAR "%3.1" ""
@@ -1423,6 +1440,11 @@ ASAP2_VERSION 1 71
     /begin COMPU_METHOD COMBO_PITCH_VariantType.CONVERSION "@@@@RuleName created by CANape"
       LINEAR "%3.1" ""
       COEFFS_LINEAR 0.001953152 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD CRASH_STATE_T ""
+      TAB_VERB "%.0" ""
+      COMPU_TAB_REF CRASH_STATE_T
     /end COMPU_METHOD
 
     /begin COMPU_METHOD EXC1_DloopOutput_Resistance.CONVERSION "@@@@RuleName created by CANape"
@@ -1735,6 +1757,24 @@ ASAP2_VERSION 1 71
       TAB_VERB "%.0" ""
       COMPU_TAB_REF _STT_PH_e_Phase.CONVERSION
     /end COMPU_METHOD
+
+    /begin COMPU_VTAB CAR_STATE_T "" TAB_VERB 6
+      0 "CAR_STATE_ERROR"
+      1 "CAR_STATE_NORMAL"
+      2 "CAR_STATE_UPSIDE_DOWN"
+      3 "CAR_STATE_FLIPPED_RIGHT"
+      4 "CAR_STATE_FLIPPED_LEFT"
+      5 "CAR_STATE_CRASHED"
+    /end COMPU_VTAB
+
+    /begin COMPU_VTAB CRASH_STATE_T "" TAB_VERB 6
+      0 "CRASH_STATE_ERROR"
+      1 "NO_CRASH"
+      2 "BACKSIDE_CRASH"
+      3 "FRONTSIDE_CRASH"
+      4 "LEFTSIDE_CRASH"
+      5 "RIGHTSIDE_CRASH"
+    /end COMPU_VTAB
 
     /begin COMPU_VTAB_RANGE DMV_CODES "Table to define the ranges of the DMV codes" 22
       50 50 "MC_t_SYC_REF_SQUIB"

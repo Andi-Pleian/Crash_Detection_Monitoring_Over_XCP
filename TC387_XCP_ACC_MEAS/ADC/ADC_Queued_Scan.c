@@ -84,6 +84,8 @@ float x_AxisG = AXIS_DEFAULT_VALUE;
 float y_AxisG = AXIS_DEFAULT_VALUE;
 float z_AxisG = AXIS_DEFAULT_VALUE;
 
+ADC_Results_t ADC_Results;
+
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
@@ -95,6 +97,13 @@ void fillAndStartQueue(void);                             /* Function to add eac
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
+
+void getADCRes(ADC_Results_t paramRes) {
+    paramRes.xAxisValue = ADC_Results.xAxisValue;
+    paramRes.yAxisValue = ADC_Results.yAxisValue;
+    paramRes.zAxisValue = ADC_Results.zAxisValue;
+}
+
 /* Function to initialize the EVADC with default parameters */
 void initEVADC()
 {
@@ -194,6 +203,10 @@ void readEVADC()
     x_AxisG = CONVERT_TO_G(x_AxisValue);
     y_AxisG = CONVERT_TO_G(y_AxisValue);
     z_AxisG = CONVERT_TO_G(z_AxisValue);
+
+    ADC_Results.xAxisValue = x_AxisG;
+    ADC_Results.yAxisValue = y_AxisG;
+    ADC_Results.zAxisValue = z_AxisG;
 
 //    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD) {
 //        x_AxisG -= GET_FRACT(x_AxisG);

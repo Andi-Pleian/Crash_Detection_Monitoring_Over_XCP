@@ -17,6 +17,7 @@
 #include "Base_Modules.h"
 #include "ComM.h"
 #include "CanSM.h"
+#include "Crash_Detection.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -41,6 +42,7 @@ void core0_main(void) {
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
+    initCrashDetection();
     initMcmcan();
     CanIf_Init(&CanIf_InitCfg);
 

@@ -28,10 +28,18 @@
 #ifndef ADC_QUEUED_SCAN_H_
 #define ADC_QUEUED_SCAN_H_
 
+typedef struct {
+        float xAxisValue;
+        float yAxisValue;
+        float zAxisValue;
+} ADC_Results_t;
+
 /*********************************************************************************************************************/
 /*------------------------------------------------Function Prototypes------------------------------------------------*/
 /*********************************************************************************************************************/
 void initEVADC(void);
 void readEVADC(void);
+
+extern void getADCRes(ADC_Results_t);
 
 #endif /* ADC_QUEUED_SCAN_H_ */

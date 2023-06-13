@@ -42,6 +42,7 @@ Autosar/Xcp/static \
 . \
 Configurations/Debug \
 Configurations \
+Crash_Detection \
 Libraries/Infra/Platform/Tricore/Compilers \
 Libraries/Infra/Ssw/TC38A/Tricore \
 Libraries/Service/CpuGeneric/SysSe/Bsp \

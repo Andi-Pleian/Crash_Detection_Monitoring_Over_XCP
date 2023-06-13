@@ -31,6 +31,7 @@ RM := rm -rf
 -include Libraries/Service/CpuGeneric/SysSe/Bsp/subdir.mk
 -include Libraries/Infra/Ssw/TC38A/Tricore/subdir.mk
 -include Libraries/Infra/Platform/Tricore/Compilers/subdir.mk
+-include Crash_Detection/subdir.mk
 -include Configurations/Debug/subdir.mk
 -include Configurations/subdir.mk
 -include Autosar/Xcp/static/subdir.mk

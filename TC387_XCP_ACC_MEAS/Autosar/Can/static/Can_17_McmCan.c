@@ -970,6 +970,23 @@ Std_ReturnType Can_17_McmCan_SetBaudrate( uint8 Controller,
 Can_ReturnType Can_17_McmCan_SetControllerMode( uint8 Controller,
                                             Can_StateTransitionType Transition)
 {
+  if (Transition == CAN_T_STOP) {
+      Can_17_McmCan_ControllerMode[Controller] = CANIF_CS_STOPPED;
+  }
+  if (Transition == CAN_T_START) {
+      Can_17_McmCan_ControllerMode[Controller] = CANIF_CS_STARTED;
+  }
+  if (Transition == CAN_T_SLEEP) {
+        Can_17_McmCan_ControllerMode[Controller] = CANIF_CS_SLEEP;
+  }
+  if (Transition == CAN_T_WAKEUP) {
+          Can_17_McmCan_ControllerMode[Controller] = CANIF_CS_STARTED;
+  }
+
+    /* Notify successful state transition to upper layer */
+  CanIf_ControllerModeIndication(Controller,
+                                 Can_17_McmCan_ControllerMode[Controller]);
+  return CAN_OK;
   Can_ReturnType ApiStatus;
   Std_ReturnType DetStatus;
   /* Set with Not OK */

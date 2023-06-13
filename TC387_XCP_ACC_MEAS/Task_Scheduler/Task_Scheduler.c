@@ -17,6 +17,7 @@
 #include "ADC_Queued_Scan.h"
 #include "CanSM.h"
 #include "ComM.h"
+#include "Crash_Detection.h"
 
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
@@ -113,7 +114,7 @@ void TS_v_Task10ms (void) {
 #endif
     //transmitCanMessage();
     readEVADC();
-
+    MainFunction_CrashDetection();
     CanSM_MainFunction();
     ComM_MainFunction_0();
     Xcp_MainFunction();
