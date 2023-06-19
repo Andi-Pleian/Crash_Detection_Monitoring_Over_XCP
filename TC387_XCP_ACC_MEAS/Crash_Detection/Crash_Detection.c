@@ -13,6 +13,8 @@
 /*********************************************************************************************************************/
 CrashDetection_T CarData;
 extern ADC_Results_t ADC_Results;
+
+enum CRASH_DETECTION_CALIB CD_Calibration;
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
@@ -112,7 +114,7 @@ enum CAR_STATE_T computeCarState() {
 enum RET_VAL checkFrontCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_yVal() > 1.5) {
+    if (get_yVal() < -1.5) {
         retVal = VAL_OK;
     }
 
@@ -142,7 +144,7 @@ enum RET_VAL checkRightCrash(){
 enum RET_VAL checkBackCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_yVal() < -1.5) {
+    if (get_yVal() > 1.5) {
         retVal = VAL_OK;
     }
 
@@ -185,6 +187,8 @@ void initCrashDetection() {
     CarData.carState     = CAR_STATE_NORMAL;
     CarData.crashState   = CRASH_STATE_NO_CRASH;
 
+    CD_Calibration = CRASH_DETECTION_NO_ACTION;
+
     //TODO: init CD_ADC_Results
 }
 
@@ -202,6 +206,12 @@ void MainFunction_CrashDetection() {
     } else {
         // car crashed, stop computing to keep the values car state and crash state
         // TODO: send blackbox on can
+
+        // if CD_Calibration was set to reset the algorithm, init CD again in order to
+        // start computing car/crash data
+        if (CD_Calibration == CRASH_DETECTION_RESET) {
+            initCrashDetection();
+        }
     }
 }
 

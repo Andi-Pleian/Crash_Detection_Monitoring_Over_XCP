@@ -15,22 +15,34 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-enum CAR_STATE_T {CAR_STATE_ERROR,
-                  CAR_STATE_NORMAL,
-                  CAR_STATE_UPSIDE_DOWN,
-                  CAR_STATE_FLIPPED_RIGHT,
-                  CAR_STATE_FLIPPED_LEFT,
-                  CAR_STATE_CRASHED};
+enum CAR_STATE_T {
+    CAR_STATE_ERROR,
+    CAR_STATE_NORMAL,
+    CAR_STATE_UPSIDE_DOWN,
+    CAR_STATE_FLIPPED_RIGHT,
+    CAR_STATE_FLIPPED_LEFT,
+    CAR_STATE_CRASHED
+};
 
-enum CRASH_STATE_T {CRASH_STATE_ERROR,
-                    CRASH_STATE_NO_CRASH,
-                    CRASH_STATE_BACKSIDE_CRASH,
-                    CRASH_STATE_FRONTSIDE_CRASH,
-                    CRASH_STATE_LEFTSIDE_CRASH,
-                    CRASH_STATE_RIGHTSIDE_CRASH};
+enum CRASH_STATE_T {
+    CRASH_STATE_ERROR,
+    CRASH_STATE_NO_CRASH,
+    CRASH_STATE_BACKSIDE_CRASH,
+    CRASH_STATE_FRONTSIDE_CRASH,
+    CRASH_STATE_LEFTSIDE_CRASH,
+    CRASH_STATE_RIGHTSIDE_CRASH
+};
+
 enum RET_VAL {
-        VAL_NOK,
-        VAL_OK
+    VAL_NOK,
+    VAL_OK
+};
+
+// TODO: find more actions to do here.
+enum CRASH_DETECTION_CALIB {
+    CRASH_DETECTION_NO_ACTION,
+    CRASH_DETECTION_RESET,
+    CRASH_DETECTION_CHANGE_AXIS
 };
 
 #define DEFAULT_AXIS_VALUE 0

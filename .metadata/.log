@@ -1066,3 +1066,87 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 
 !ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:06:46.765
 !MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:33:12.484
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1757 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:33:12.518
+!MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:33:57.384
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1765 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:33:57.421
+!MESSAGE Include paths were discovered in 34 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:35:00.967
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1763 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:35:01.000
+!MESSAGE Include paths were discovered in 31 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:35:26.888
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 273 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:35:26.923
+!MESSAGE Include paths were discovered in 32 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:36:46.290
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1529 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:36:46.335
+!MESSAGE Include paths were discovered in 42 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:40:35.732
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1472 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:40:35.768
+!MESSAGE Include paths were discovered in 34 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:41:31.067
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1510 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:41:31.104
+!MESSAGE Include paths were discovered in 35 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:43:47.515
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1916 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:43:47.560
+!MESSAGE Include paths were discovered in 42 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:44:03.840
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 264 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 14:44:03.875
+!MESSAGE Include paths were discovered in 33 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:30:20.383
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1741 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:30:20.415
+!MESSAGE Include paths were discovered in 30 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:30:40.541
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 272 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:30:40.575
+!MESSAGE Include paths were discovered in 31 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:37:20.624
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1480 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:37:20.659
+!MESSAGE Include paths were discovered in 33 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:49:07.254
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 1774 milliseconds. (full boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:49:07.295
+!MESSAGE Include paths were discovered in 38 milliseconds.
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:49:50.090
+!MESSAGE Boosting configuration Debug of project TC387_XCP_ACC_MEAS boosted in 282 milliseconds. (incremental boost)
+
+!ENTRY com.infineon.aurix.buildsystem 1 0 2023-06-19 15:49:50.125
+!MESSAGE Include paths were discovered in 32 milliseconds.

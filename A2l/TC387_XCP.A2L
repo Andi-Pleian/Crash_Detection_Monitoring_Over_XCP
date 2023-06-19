@@ -1314,15 +1314,20 @@ ASAP2_VERSION 1 71
       /end XCP_ON_CAN
     /end IF_DATA
 
+    /begin CHARACTERISTIC CD_Calibration ""
+      VALUE 0x700002D8 __SByte_Value 0 CRASH_DETECTION_CALIB -128 127
+      SYMBOL_LINK "CD_Calibration" 0
+    /end CHARACTERISTIC
+
     /begin MEASUREMENT CarState ""
       SBYTE CAR_STATE_T 0 0 -128 127
-      ECU_ADDRESS 0x700002E4
+      ECU_ADDRESS 0x700002E8
       SYMBOL_LINK "CarData.carState" 0
     /end MEASUREMENT
 
     /begin MEASUREMENT CrashState ""
       SBYTE CRASH_STATE_T_Copy1 0 0 -128 127
-      ECU_ADDRESS 0x700002E5
+      ECU_ADDRESS 0x700002E9
       SYMBOL_LINK "CarData.crashState" 0
     /end MEASUREMENT
 
@@ -1440,6 +1445,11 @@ ASAP2_VERSION 1 71
     /begin COMPU_METHOD COMBO_PITCH_VariantType.CONVERSION "@@@@RuleName created by CANape"
       LINEAR "%3.1" ""
       COEFFS_LINEAR 0.001953152 0
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD CRASH_DETECTION_CALIB ""
+      TAB_VERB "%.0" ""
+      COMPU_TAB_REF CRASH_DETECTION_CALIB
     /end COMPU_METHOD
 
     /begin COMPU_METHOD CRASH_STATE_T ""
@@ -1770,6 +1780,12 @@ ASAP2_VERSION 1 71
       3 "CAR_STATE_FLIPPED_RIGHT"
       4 "CAR_STATE_FLIPPED_LEFT"
       5 "CAR_STATE_CRASHED"
+    /end COMPU_VTAB
+
+    /begin COMPU_VTAB CRASH_DETECTION_CALIB "" TAB_VERB 3
+      0 "CRASH_DETECTION_NO_ACTION"
+      1 "CRASH_DETECTION_RESET"
+      2 "CRASH_DETECTION_CHANGE_AXIS"
     /end COMPU_VTAB
 
     /begin COMPU_VTAB CRASH_STATE_T "" TAB_VERB 6
@@ -3668,6 +3684,10 @@ ASAP2_VERSION 1 71
       FNC_VALUES 1 SBYTE ROW_DIR DIRECT
     /end RECORD_LAYOUT
 
+    /begin RECORD_LAYOUT __SByte_Value
+      FNC_VALUES 1 SBYTE ROW_DIR DIRECT
+    /end RECORD_LAYOUT
+
     /begin RECORD_LAYOUT __SLONG_S
       FNC_VALUES 1 SLONG COLUMN_DIR DIRECT
     /end RECORD_LAYOUT
@@ -3713,6 +3733,9 @@ ASAP2_VERSION 1 71
     /end RECORD_LAYOUT
 
     /begin GROUP NewGroup ""
+      /begin REF_CHARACTERISTIC
+        CD_Calibration
+      /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         counter10ms g_results x_AxisG x_AxisResult y_AxisG y_AxisResult z_AxisG
         z_AxisResult

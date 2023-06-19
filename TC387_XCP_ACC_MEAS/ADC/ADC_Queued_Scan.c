@@ -57,7 +57,7 @@
 #define Z_MINUS_1G_VALUE    1058
 #define Z_PLUS_1G_VALUE     1570
 
-#define ADC_THRESHOLD       0.01
+#define ADC_THRESHOLD       0.1
 #define MINUS_THRESHOLD     -100
 #define PLUS_THRESHOLD      100
 
@@ -182,7 +182,9 @@ sint32 map(sint32 x, sint32 inMin, sint32 inMax, sint32 outMin, sint32 outMax){
     return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
-void normalizeStaticVal(sint32 x) {
+float normalizeStaticVal(float value) {
+    float x = value;
+
     if (x > 0) {
         //check if x is in threshold interval
         if (x < 0.1) {
@@ -194,6 +196,8 @@ void normalizeStaticVal(sint32 x) {
             x = 0;
         }
     }
+
+    return x;
 }
 
 /* Function to read the EVADC used channel */
@@ -222,17 +226,17 @@ void readEVADC()
     // if not, Z value will be -1g when car is normal and it is not correct
     z_AxisG = CHANGE_SIGN(CONVERT_TO_G(z_AxisValue));
 
-    ADC_Results.xAxisValue = x_AxisG;
-    ADC_Results.yAxisValue = y_AxisG;
-    ADC_Results.zAxisValue = z_AxisG;
+    ADC_Results.xAxisValue = x_AxisG;//normalizeStaticVal(x_AxisG);
+    ADC_Results.yAxisValue = y_AxisG;//normalizeStaticVal(y_AxisG);
+    ADC_Results.zAxisValue = z_AxisG;//normalizeStaticVal(z_AxisG);
 
-//    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD) {
-//        x_AxisG -= GET_FRACT(x_AxisG);
-//    }
-//    if (GET_FRACT(y_AxisG) < ADC_THRESHOLD) {
-//        y_AxisG -= GET_FRACT(y_AxisG);
-//    }
-//    if (GET_FRACT(z_AxisG) < ADC_THRESHOLD) {
-//        z_AxisG -= GET_FRACT(z_AxisG);
-//    }
+    if (GET_FRACT(x_AxisG) < ADC_THRESHOLD && GET_FRACT(x_AxisG) > CHANGE_SIGN(ADC_THRESHOLD)) {
+        x_AxisG -= GET_FRACT(x_AxisG);
+    }
+    if (GET_FRACT(y_AxisG) < ADC_THRESHOLD && GET_FRACT(y_AxisG) > CHANGE_SIGN(ADC_THRESHOLD)) {
+        y_AxisG -= GET_FRACT(y_AxisG);
+    }
+    if (GET_FRACT(z_AxisG) < ADC_THRESHOLD && GET_FRACT(z_AxisG) > CHANGE_SIGN(ADC_THRESHOLD)) {
+        z_AxisG -= GET_FRACT(z_AxisG);
+    }
 }
