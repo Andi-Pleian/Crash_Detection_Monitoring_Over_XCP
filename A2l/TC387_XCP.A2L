@@ -1321,7 +1321,7 @@ ASAP2_VERSION 1 71
     /end MEASUREMENT
 
     /begin MEASUREMENT CrashState ""
-      SBYTE CRASH_STATE_T 0 0 -128 127
+      SBYTE CRASH_STATE_T_Copy1 0 0 -128 127
       ECU_ADDRESS 0x700002E5
       SYMBOL_LINK "CarData.crashState" 0
     /end MEASUREMENT
@@ -1445,6 +1445,11 @@ ASAP2_VERSION 1 71
     /begin COMPU_METHOD CRASH_STATE_T ""
       TAB_VERB "%.0" ""
       COMPU_TAB_REF CRASH_STATE_T
+    /end COMPU_METHOD
+
+    /begin COMPU_METHOD CRASH_STATE_T_Copy1 "enumeration table"
+      TAB_VERB "%.0" ""
+      COMPU_TAB_REF CRASH_STATE_T_Copy1
     /end COMPU_METHOD
 
     /begin COMPU_METHOD EXC1_DloopOutput_Resistance.CONVERSION "@@@@RuleName created by CANape"
@@ -1774,6 +1779,15 @@ ASAP2_VERSION 1 71
       3 "FRONTSIDE_CRASH"
       4 "LEFTSIDE_CRASH"
       5 "RIGHTSIDE_CRASH"
+    /end COMPU_VTAB
+
+    /begin COMPU_VTAB CRASH_STATE_T_Copy1 "enumeration table" TAB_VERB 6
+      0 "CRASH_STATE_ERROR"
+      1 "CRASH_STATE_NO_CRASH"
+      2 "CRASH_STATE_BACKSIDE_CRASH"
+      3 "CRASH_STATE_FRONTSIDE_CRASH"
+      4 "CRASH_STATE_LEFTSIDE_CRASH"
+      5 "CRASH_STATE_RIGHTSIDE_CRASH"
     /end COMPU_VTAB
 
     /begin COMPU_VTAB_RANGE DMV_CODES "Table to define the ranges of the DMV codes" 22

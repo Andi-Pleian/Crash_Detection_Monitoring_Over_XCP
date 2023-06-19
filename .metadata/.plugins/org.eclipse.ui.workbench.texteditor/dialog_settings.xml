@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="CanIf_SetControllerModeInternal"/>
+			<item value="Can_SetControllerMode"/>
 			<item value="COMM_FULL_COMMUNICATION"/>
 			<item value="CanSM_Config_0"/>
 			<item value="P00_1"/>

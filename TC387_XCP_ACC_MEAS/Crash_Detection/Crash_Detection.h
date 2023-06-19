@@ -23,18 +23,18 @@ enum CAR_STATE_T {CAR_STATE_ERROR,
                   CAR_STATE_CRASHED};
 
 enum CRASH_STATE_T {CRASH_STATE_ERROR,
-                    NO_CRASH,
-                    BACKSIDE_CRASH,
-                    FRONTSIDE_CRASH,
-                    LEFTSIDE_CRASH,
-                    RIGHTSIDE_CRASH};
+                    CRASH_STATE_NO_CRASH,
+                    CRASH_STATE_BACKSIDE_CRASH,
+                    CRASH_STATE_FRONTSIDE_CRASH,
+                    CRASH_STATE_LEFTSIDE_CRASH,
+                    CRASH_STATE_RIGHTSIDE_CRASH};
 enum RET_VAL {
         VAL_NOK,
         VAL_OK
 };
+
 #define DEFAULT_AXIS_VALUE 0
-//#define VAL_OK 1
-//#define VAL_NOK 0
+
 /*********************************************************************************************************************/
 /*--------------------------------------------------Data Structures--------------------------------------------------*/
 /*********************************************************************************************************************/

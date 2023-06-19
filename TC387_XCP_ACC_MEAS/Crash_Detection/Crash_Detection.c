@@ -57,6 +57,7 @@ enum RET_VAL isZValOK() {
 enum RET_VAL checkUpsideDown() {
     enum RET_VAL retVal = VAL_NOK;
 
+    // if value on Z axis is under specific threshold return OK
     if (get_zVal() < -0.5) {
         retVal = VAL_OK;
     }
@@ -65,33 +66,113 @@ enum RET_VAL checkUpsideDown() {
 }
 
 enum RET_VAL checkFlippedLeft() {
-    return 0;
+    enum RET_VAL retVal = VAL_NOK;
+
+    // if value on X axis is over specific threshold return OK
+    if (get_xVal() > 0.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
 }
 
 enum RET_VAL checkFlippedRight() {
-    return 0;
+    enum RET_VAL retVal = VAL_NOK;
+
+    // if value on X axis is over specific threshold return OK
+    if (get_xVal() < -0.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
 }
 
-
-enum CAR_STATE_T    computeCarState() {
+/**
+ *   Return the state of the car on the road.
+ */
+enum CAR_STATE_T computeCarState() {
    // init return val with error state
    enum CAR_STATE_T retVal = CAR_STATE_ERROR;
 
-  /* if (isXValOK() && isZValOK()) {
-       //retVal = CAR_STATE_NORMAL;
-   } else */ if (checkUpsideDown() == VAL_OK){
+   // check if car is upside down or on a side
+  if (checkUpsideDown()){
        retVal = CAR_STATE_UPSIDE_DOWN;
    } else if (checkFlippedRight()){
        retVal = CAR_STATE_FLIPPED_RIGHT;
    } else if (checkFlippedLeft()){
        retVal = CAR_STATE_FLIPPED_LEFT;
+   } else {
+       // if all values are in normal ranges, car state is set to normal
+       retVal = CAR_STATE_NORMAL;
    }
 
    return retVal;
 }
 
-enum CRASH_STATE_T  computeCrashState() {
+enum RET_VAL checkFrontCrash(){
+    enum RET_VAL retVal = VAL_NOK;
+
+    if (get_yVal() > 1.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
+}
+
+enum RET_VAL checkLeftCrash(){
+    enum RET_VAL retVal = VAL_NOK;
+
+    if (get_xVal() > 1.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
+}
+
+enum RET_VAL checkRightCrash(){
+    enum RET_VAL retVal = VAL_NOK;
+
+    if (get_xVal() < -1.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
+}
+
+enum RET_VAL checkBackCrash(){
+    enum RET_VAL retVal = VAL_NOK;
+
+    if (get_yVal() < -1.5) {
+        retVal = VAL_OK;
+    }
+
+    return retVal;
+}
+
+/**
+ *   Return the crash state of the car.
+ */
+enum CRASH_STATE_T computeCrashState() {
+    // init return val with error state
     enum CRASH_STATE_T retVal = CRASH_STATE_ERROR;
+
+    // check type of crash
+    if (checkFrontCrash()) {
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
+        retVal = CRASH_STATE_FRONTSIDE_CRASH;
+    } else if (checkLeftCrash()) {
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
+        retVal = CRASH_STATE_LEFTSIDE_CRASH;
+    } else if (checkRightCrash()) {
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
+        retVal = CRASH_STATE_RIGHTSIDE_CRASH;
+    } else if (checkBackCrash()) {
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
+        retVal = CRASH_STATE_BACKSIDE_CRASH;
+    } else {
+        // if all values are in normal ranges, crash state is set to normal
+        retVal = CRASH_STATE_NO_CRASH;
+    }
 
     return retVal;
 }
@@ -102,7 +183,7 @@ void initCrashDetection() {
     CarData.zVal = DEFAULT_AXIS_VALUE;
 
     CarData.carState     = CAR_STATE_NORMAL;
-    CarData.crashState   = NO_CRASH;
+    CarData.crashState   = CRASH_STATE_NO_CRASH;
 
     //TODO: init CD_ADC_Results
 }
@@ -114,8 +195,14 @@ void MainFunction_CrashDetection() {
     CarData.yVal = get_yVal();
     CarData.zVal = get_zVal();
 
-    CarData.carState     = computeCarState();
-    CarData.crashState   = computeCrashState();
+    // only compute car data if car not crashed
+    if (CarData.carState != CAR_STATE_CRASHED) {
+        CarData.carState     = computeCarState();
+        CarData.crashState   = computeCrashState();
+    } else {
+        // car crashed, stop computing to keep the values car state and crash state
+        // TODO: send blackbox on can
+    }
 }
 
 //END OF FILE

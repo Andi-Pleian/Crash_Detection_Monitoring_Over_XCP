@@ -64,6 +64,8 @@
 #define CONVERT_TO_G(x)     (float)x / (-100.00)
 #define GET_FRACT(x)        x - (int) x
 
+#define CHANGE_SIGN(x)      -x
+
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
@@ -180,6 +182,20 @@ sint32 map(sint32 x, sint32 inMin, sint32 inMax, sint32 outMin, sint32 outMax){
     return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 }
 
+void normalizeStaticVal(sint32 x) {
+    if (x > 0) {
+        //check if x is in threshold interval
+        if (x < 0.1) {
+            x = 0;
+        }
+    } else if (x < 0) {
+        //check if x is in threshold interval
+        if (x > -0.1) {
+            x = 0;
+        }
+    }
+}
+
 /* Function to read the EVADC used channel */
 void readEVADC()
 {
@@ -202,7 +218,9 @@ void readEVADC()
 
     x_AxisG = CONVERT_TO_G(x_AxisValue);
     y_AxisG = CONVERT_TO_G(y_AxisValue);
-    z_AxisG = CONVERT_TO_G(z_AxisValue);
+    // sensor is inverted, so Z value should be inverted as well
+    // if not, Z value will be -1g when car is normal and it is not correct
+    z_AxisG = CHANGE_SIGN(CONVERT_TO_G(z_AxisValue));
 
     ADC_Results.xAxisValue = x_AxisG;
     ADC_Results.yAxisValue = y_AxisG;
