@@ -15,6 +15,19 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
+
+#define UPSIDE_DOWN_VAL     -0.5
+
+#define FLIPPED_LEFT_VAL     0.5
+#define FLIPPED_RIGHT_VAL   -0.5
+
+#define FRONT_CRASH_VAL     -1.5
+#define BACK_CRASH_VAL       1.5
+
+#define LEFT_CRASH_VAL       1.5
+#define RIGHT_CRASH_VAL      -1.5
+
+
 enum CAR_STATE_T {
     CAR_STATE_ERROR,
     CAR_STATE_NORMAL,
@@ -56,8 +69,10 @@ typedef struct {
         float zVal;
 
         enum CAR_STATE_T     carState;
+        enum CAR_STATE_T     carFlipInfo;
         enum CRASH_STATE_T   crashState;
 }CrashDetection_T;
+
 /*********************************************************************************************************************/
 /*-----------------------------------------------Function Prototypes-------------------------------------------------*/
 /*********************************************************************************************************************/
@@ -65,10 +80,6 @@ typedef struct {
 float get_xVal();
 float get_yVal();
 float get_zVal();
-
-enum RET_VAL isXValOK();
-enum RET_VAL isYValOK();
-enum RET_VAL isZValOK();
 
 enum RET_VAL checkUpsideDown();
 enum RET_VAL checkFlippedLeft();

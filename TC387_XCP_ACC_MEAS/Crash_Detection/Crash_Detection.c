@@ -31,36 +31,11 @@ float get_zVal() {
     return ADC_Results.zAxisValue;
 }
 
-
-enum RET_VAL isXValOK() {
-    enum RET_VAL retVal = VAL_NOK;
-
-    if (get_xVal() > 0.5 || get_xVal() < -0.5) {
-        retVal = VAL_NOK;
-    } else {
-        retVal = VAL_OK;
-    }
-
-    return retVal;
-}
-
-enum RET_VAL isZValOK() {
-    enum RET_VAL retVal = VAL_NOK;
-
-    if (get_zVal() > -0.9 || get_zVal() < -1.5) {
-        retVal = VAL_NOK;
-    } else {
-        retVal = VAL_OK;
-    }
-
-    return retVal;
-}
-
 enum RET_VAL checkUpsideDown() {
     enum RET_VAL retVal = VAL_NOK;
 
     // if value on Z axis is under specific threshold return OK
-    if (get_zVal() < -0.5) {
+    if (get_zVal() < UPSIDE_DOWN_VAL) {
         retVal = VAL_OK;
     }
 
@@ -71,7 +46,7 @@ enum RET_VAL checkFlippedLeft() {
     enum RET_VAL retVal = VAL_NOK;
 
     // if value on X axis is over specific threshold return OK
-    if (get_xVal() > 0.5) {
+    if (get_xVal() > FLIPPED_LEFT_VAL) {
         retVal = VAL_OK;
     }
 
@@ -82,7 +57,7 @@ enum RET_VAL checkFlippedRight() {
     enum RET_VAL retVal = VAL_NOK;
 
     // if value on X axis is over specific threshold return OK
-    if (get_xVal() < -0.5) {
+    if (get_xVal() < FLIPPED_RIGHT_VAL) {
         retVal = VAL_OK;
     }
 
@@ -98,14 +73,18 @@ enum CAR_STATE_T computeCarState() {
 
    // check if car is upside down or on a side
   if (checkUpsideDown()){
-       retVal = CAR_STATE_UPSIDE_DOWN;
+      CarData.carFlipInfo = CAR_STATE_UPSIDE_DOWN; // set flip info in case of crash
+      retVal = CAR_STATE_UPSIDE_DOWN;
    } else if (checkFlippedRight()){
-       retVal = CAR_STATE_FLIPPED_RIGHT;
+       CarData.carFlipInfo = CAR_STATE_FLIPPED_RIGHT; // set flip info in case of crash
+      retVal = CAR_STATE_FLIPPED_RIGHT;
    } else if (checkFlippedLeft()){
-       retVal = CAR_STATE_FLIPPED_LEFT;
+       CarData.carFlipInfo = CAR_STATE_FLIPPED_LEFT; // set flip info in case of crash
+      retVal = CAR_STATE_FLIPPED_LEFT;
    } else {
-       // if all values are in normal ranges, car state is set to normal
-       retVal = CAR_STATE_NORMAL;
+      // if all values are in normal ranges, car state is set to normal
+       CarData.carFlipInfo = CAR_STATE_NORMAL;
+      retVal = CAR_STATE_NORMAL;
    }
 
    return retVal;
@@ -114,7 +93,7 @@ enum CAR_STATE_T computeCarState() {
 enum RET_VAL checkFrontCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_yVal() < -1.5) {
+    if (get_yVal() < FRONT_CRASH_VAL) {
         retVal = VAL_OK;
     }
 
@@ -124,7 +103,7 @@ enum RET_VAL checkFrontCrash(){
 enum RET_VAL checkLeftCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_xVal() > 1.5) {
+    if (get_xVal() > LEFT_CRASH_VAL) {
         retVal = VAL_OK;
     }
 
@@ -134,7 +113,7 @@ enum RET_VAL checkLeftCrash(){
 enum RET_VAL checkRightCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_xVal() < -1.5) {
+    if (get_xVal() < RIGHT_CRASH_VAL) {
         retVal = VAL_OK;
     }
 
@@ -144,7 +123,7 @@ enum RET_VAL checkRightCrash(){
 enum RET_VAL checkBackCrash(){
     enum RET_VAL retVal = VAL_NOK;
 
-    if (get_yVal() > 1.5) {
+    if (get_yVal() > BACK_CRASH_VAL) {
         retVal = VAL_OK;
     }
 
@@ -185,6 +164,7 @@ void initCrashDetection() {
     CarData.zVal = DEFAULT_AXIS_VALUE;
 
     CarData.carState     = CAR_STATE_NORMAL;
+    CarData.carFlipInfo  = CAR_STATE_NORMAL;
     CarData.crashState   = CRASH_STATE_NO_CRASH;
 
     CD_Calibration = CRASH_DETECTION_NO_ACTION;
@@ -204,6 +184,9 @@ void MainFunction_CrashDetection() {
         CarData.carState     = computeCarState();
         CarData.crashState   = computeCrashState();
     } else {
+        // if crashed, compute car state only to keep flip state accurate
+        computeCarState();
+
         // car crashed, stop computing to keep the values car state and crash state
         // TODO: send blackbox on can
 

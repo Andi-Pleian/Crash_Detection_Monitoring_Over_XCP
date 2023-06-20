@@ -1327,8 +1327,14 @@ ASAP2_VERSION 1 71
 
     /begin MEASUREMENT CrashState ""
       SBYTE CRASH_STATE_T_Copy1 0 0 -128 127
-      ECU_ADDRESS 0x700002E9
+      ECU_ADDRESS 0x700002EA
       SYMBOL_LINK "CarData.crashState" 0
+    /end MEASUREMENT
+
+    /begin MEASUREMENT FlipState ""
+      SBYTE CAR_STATE_T 0 0 -128 127
+      ECU_ADDRESS 0x700002E9
+      SYMBOL_LINK "CarData.carFlipInfo" 0
     /end MEASUREMENT
 
     /begin MEASUREMENT _STT_PH_e_Phase ""
@@ -3737,8 +3743,8 @@ ASAP2_VERSION 1 71
         CD_Calibration
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
-        counter10ms g_results x_AxisG x_AxisResult y_AxisG y_AxisResult z_AxisG
-        z_AxisResult
+        FlipState counter10ms g_results x_AxisG x_AxisResult y_AxisG y_AxisResult
+        z_AxisG z_AxisResult
       /end REF_MEASUREMENT
     /end GROUP
 
