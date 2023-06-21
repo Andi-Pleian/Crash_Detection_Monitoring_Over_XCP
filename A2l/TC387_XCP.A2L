@@ -1350,9 +1350,27 @@ ASAP2_VERSION 1 71
       /end IF_DATA
     /end MEASUREMENT
 
+    /begin MEASUREMENT adc_xVal ""
+      FLOAT32_IEEE NO_COMPU_METHOD 0 0 -3.40282346639E+38 3.40282346639E+38
+      ECU_ADDRESS 0x7000021C
+      SYMBOL_LINK "ADC_Results.xAxisValue" 0
+    /end MEASUREMENT
+
+    /begin MEASUREMENT adc_yVal ""
+      FLOAT32_IEEE NO_COMPU_METHOD 0 0 -3.40282346639E+38 3.40282346639E+38
+      ECU_ADDRESS 0x70000220
+      SYMBOL_LINK "ADC_Results.yAxisValue" 0
+    /end MEASUREMENT
+
+    /begin MEASUREMENT adc_zVal ""
+      FLOAT32_IEEE NO_COMPU_METHOD 0 0 -3.40282346639E+38 3.40282346639E+38
+      ECU_ADDRESS 0x70000224
+      SYMBOL_LINK "ADC_Results.zAxisValue" 0
+    /end MEASUREMENT
+
     /begin MEASUREMENT counter10ms ""
       UBYTE NO_COMPU_METHOD 0 0 0 255
-      ECU_ADDRESS 0x700001A4
+      ECU_ADDRESS 0x700001A0
       SYMBOL_LINK "counter10ms" 0
       /begin IF_DATA XCP
         /begin DAQ_EVENT FIXED_EVENT_LIST
@@ -3743,8 +3761,8 @@ ASAP2_VERSION 1 71
         CD_Calibration
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
-        FlipState counter10ms g_results x_AxisG x_AxisResult y_AxisG y_AxisResult
-        z_AxisG z_AxisResult
+        FlipState adc_xVal adc_yVal adc_zVal counter10ms g_results x_AxisG
+        x_AxisResult y_AxisG y_AxisResult z_AxisG z_AxisResult
       /end REF_MEASUREMENT
     /end GROUP
 

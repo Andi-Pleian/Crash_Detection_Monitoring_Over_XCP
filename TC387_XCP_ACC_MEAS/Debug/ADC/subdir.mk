@@ -4,20 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../ADC/ADC.c \
-../ADC/ADC_Queued_Scan.c 
+../ADC/ADC.c 
 
 COMPILED_SRCS += \
-./ADC/ADC.src \
-./ADC/ADC_Queued_Scan.src 
+./ADC/ADC.src 
 
 C_DEPS += \
-./ADC/ADC.d \
-./ADC/ADC_Queued_Scan.d 
+./ADC/ADC.d 
 
 OBJS += \
-./ADC/ADC.o \
-./ADC/ADC_Queued_Scan.o 
+./ADC/ADC.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -40,7 +36,7 @@ ADC/%.o: ./ADC/%.src ADC/subdir.mk
 clean: clean-ADC
 
 clean-ADC:
-	-$(RM) ./ADC/ADC.d ./ADC/ADC.o ./ADC/ADC.src ./ADC/ADC_Queued_Scan.d ./ADC/ADC_Queued_Scan.o ./ADC/ADC_Queued_Scan.src
+	-$(RM) ./ADC/ADC.d ./ADC/ADC.o ./ADC/ADC.src
 
 .PHONY: clean-ADC
 

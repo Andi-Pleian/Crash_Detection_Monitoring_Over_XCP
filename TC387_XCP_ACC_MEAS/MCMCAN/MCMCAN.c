@@ -19,11 +19,6 @@ McmcanType                  CAN_Control;                    /* Global MCMCAN con
 IfxPort_Pin_Config          g_led1;                         /* Global LED1 configuration and control structure      */
 IfxPort_Pin_Config          g_led2;                         /* Global LED2 configuration and control structure      */
 
-
-
-/*********************************************************************************************************************/
-/*---------------------------------------------Function Implementations----------------------------------------------*/
-/*********************************************************************************************************************/
 /* Macro to define Interrupt Service Routine.
  * This macro:
  * - defines linker section as .intvec_tc<vector number>_<interrupt priority>.
@@ -37,7 +32,9 @@ IfxPort_Pin_Config          g_led2;                         /* Global LED2 confi
  */
 IFX_INTERRUPT(canIsrTxHandler, 0, ISR_PRIORITY_CAN_TX);
 IFX_INTERRUPT(canIsrRxHandler, 0, ISR_PRIORITY_CAN_RX);
-
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
 /* Interrupt Service Routine (ISR) called once the TX interrupt has been generated.
  * Turns on the LED1 to indicate successful CAN message transmission.
  */
@@ -45,9 +42,6 @@ void canIsrTxHandler(void)
 {
     /* Clear the "Transmission Completed" interrupt flag */
     IfxCan_Node_clearInterruptFlag(CAN_Control.canSrcNode.node, IfxCan_Interrupt_transmissionCompleted);
-
-    /* Just to indicate that the CAN message has been transmitted by turning on LED1 */
-    IfxPort_togglePin(g_led1.port, g_led1.pinIndex);
 
     PduIdType CanTxPduId = 0;
 
@@ -62,9 +56,6 @@ void canIsrRxHandler(void)
 
     uint8 dataArray[8];
 
-
-
-
     /* Clear the "Message stored to Dedicated RX Buffer" interrupt flag */
     IfxCan_Node_clearInterruptFlag(CAN_Control.canSrcNode.node, IfxCan_Interrupt_messageStoredToDedicatedRxBuffer);
 
@@ -73,8 +64,6 @@ void canIsrRxHandler(void)
 
     // Check rx message id
     if (CAN_Control.rxMsg.messageId == 0x7f1) {
-        IfxPort_togglePin(g_led2.port, g_led2.pinIndex);
-
         RxMailboxInfo.CanId = CAN_Control.rxMsg.messageId;
         RxMailboxInfo.ControllerId = 0;
         RxMailboxInfo.Hoh = Can_17_McmCanConf_CanHardwareObject_HOH_Rx0_contr_ACSM5_PS_CAN;
@@ -166,8 +155,6 @@ void transmitCanMessage(void)
     }
 }
 
-
-
 Can_ReturnType MCMCAN_Write( Can_HwHandleType Hth, const Can_PduType* PduInfo ) {
     /* Initialization of the TX message with the default configuration */
     IfxCan_Can_initMessage(&CAN_Control.txMsg);
@@ -185,27 +172,6 @@ Can_ReturnType MCMCAN_Write( Can_HwHandleType Hth, const Can_PduType* PduInfo ) 
     }
 
     return 0;
-}
-
-/* Function to initialize the LEDs */
-void initLeds(void)
-{
-
-    g_led1.port      = &MODULE_P20;//&MODULE_P13;
-    g_led1.pinIndex  = 11;//PIN0;
-    g_led1.mode      = IfxPort_OutputIdx_general;
-
-    g_led2.port      = &MODULE_P20;//&MODULE_P13;
-    g_led2.pinIndex  = 13;//PIN1;
-    g_led2.mode      = IfxPort_OutputIdx_general;
-
-    /* Set the pin input/output mode for both pins connected to the LEDs */
-    IfxPort_setPinModeOutput(g_led1.port, g_led1.pinIndex, IfxPort_OutputMode_pushPull, g_led1.mode);
-    IfxPort_setPinModeOutput(g_led2.port, g_led2.pinIndex, IfxPort_OutputMode_pushPull, g_led2.mode);
-
-    /* Initialize the pins connected to LEDs to level "HIGH", which keep the LEDs turned off as default state */
-    IfxPort_setPinHigh(g_led1.port, g_led1.pinIndex);
-    IfxPort_setPinHigh(g_led2.port, g_led2.pinIndex);
 }
 
 //END OF FILE

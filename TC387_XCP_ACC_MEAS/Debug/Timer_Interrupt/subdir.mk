@@ -4,16 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Timer_Interrupt/GPT12_Timer_Interrupt.c 
+../Timer_Interrupt/Timer_Interrupt.c 
 
 COMPILED_SRCS += \
-./Timer_Interrupt/GPT12_Timer_Interrupt.src 
+./Timer_Interrupt/Timer_Interrupt.src 
 
 C_DEPS += \
-./Timer_Interrupt/GPT12_Timer_Interrupt.d 
+./Timer_Interrupt/Timer_Interrupt.d 
 
 OBJS += \
-./Timer_Interrupt/GPT12_Timer_Interrupt.o 
+./Timer_Interrupt/Timer_Interrupt.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -36,7 +36,7 @@ Timer_Interrupt/%.o: ./Timer_Interrupt/%.src Timer_Interrupt/subdir.mk
 clean: clean-Timer_Interrupt
 
 clean-Timer_Interrupt:
-	-$(RM) ./Timer_Interrupt/GPT12_Timer_Interrupt.d ./Timer_Interrupt/GPT12_Timer_Interrupt.o ./Timer_Interrupt/GPT12_Timer_Interrupt.src
+	-$(RM) ./Timer_Interrupt/Timer_Interrupt.d ./Timer_Interrupt/Timer_Interrupt.o ./Timer_Interrupt/Timer_Interrupt.src
 
 .PHONY: clean-Timer_Interrupt
 

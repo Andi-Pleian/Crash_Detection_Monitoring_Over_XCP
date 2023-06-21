@@ -1,34 +1,28 @@
 /*********************************************************************************************************************/
 /*-----------------------------------------------------Includes------------------------------------------------------*/
 /*********************************************************************************************************************/
-
+#include "ADC.h"
+#include "Timer_Interrupt.h"
 #include "Blinky_LED.h"
 #include "Ifx_Types.h"
 #include "IfxCpu.h"
 #include "IfxScuWdt.h"
 #include "Task_Scheduler.h"
-#include "GPT12_Timer_Interrupt.h"
 #include "MCMCAN.h"
 #include "Bsp.h"
 #include "CanIf.h"
 #include "Xcp.h"
-#include "ADC.h"
-#include "ADC_Queued_Scan.h"
 #include "Base_Modules.h"
 #include "ComM.h"
 #include "CanSM.h"
 #include "Crash_Detection.h"
-
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
 /*********************************************************************************************************************/
-
 IFX_ALIGN(4) IfxCpu_syncEvent g_cpuSyncEvent = 0;
-
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
-
 void core0_main(void) {
     IfxCpu_enableInterrupts();
     
@@ -50,21 +44,18 @@ void core0_main(void) {
     ComM_Init(BASE_COMM_CONFIG_PTR);
 
     Xcp_Init(&XcpConfig);
-    initLeds();
 
     ComM_CommunicationAllowed(0,TRUE);
     ComM_RequestComMode( 0, COMM_FULL_COMMUNICATION );
 
     // Start GPT12 timer
-    GPT12_v_InitTimer();
+    initTimer();
 
     /* Function to initialize the EVADC with default parameters */
     initEVADC();
 
     while(1) {
-        //transmitCanMessage();
-        //wait_ms(1000);
-        //readEVADC();
+
     }
 }
 
