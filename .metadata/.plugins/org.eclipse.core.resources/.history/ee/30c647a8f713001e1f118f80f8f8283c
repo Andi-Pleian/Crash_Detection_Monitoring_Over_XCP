@@ -73,13 +73,13 @@ enum CAR_STATE_T computeCarState() {
 
    // check if car is upside down or on a side
   if (checkUpsideDown()){
-      CarData.carFlipInfo = CAR_STATE_UPSIDE_DOWN;
+      CarData.carFlipInfo = CAR_STATE_UPSIDE_DOWN; // set flip info in case of crash
       retVal = CAR_STATE_UPSIDE_DOWN;
    } else if (checkFlippedRight()){
-       CarData.carFlipInfo = CAR_STATE_FLIPPED_RIGHT;
+       CarData.carFlipInfo = CAR_STATE_FLIPPED_RIGHT; // set flip info in case of crash
       retVal = CAR_STATE_FLIPPED_RIGHT;
    } else if (checkFlippedLeft()){
-       CarData.carFlipInfo = CAR_STATE_FLIPPED_LEFT;
+       CarData.carFlipInfo = CAR_STATE_FLIPPED_LEFT; // set flip info in case of crash
       retVal = CAR_STATE_FLIPPED_LEFT;
    } else {
       // if all values are in normal ranges, car state is set to normal
@@ -139,16 +139,16 @@ enum CRASH_STATE_T computeCrashState() {
 
     // check type of crash
     if (checkFrontCrash()) {
-        CarData.carState = CAR_STATE_CRASHED;
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
         retVal = CRASH_STATE_FRONTSIDE_CRASH;
     } else if (checkLeftCrash()) {
-        CarData.carState = CAR_STATE_CRASHED;
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
         retVal = CRASH_STATE_LEFTSIDE_CRASH;
     } else if (checkRightCrash()) {
-        CarData.carState = CAR_STATE_CRASHED;
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
         retVal = CRASH_STATE_RIGHTSIDE_CRASH;
     } else if (checkBackCrash()) {
-        CarData.carState = CAR_STATE_CRASHED;
+        CarData.carState = CAR_STATE_CRASHED;   // set car state to crashed
         retVal = CRASH_STATE_BACKSIDE_CRASH;
     } else {
         // if all values are in normal ranges, crash state is set to normal
@@ -158,7 +158,7 @@ enum CRASH_STATE_T computeCrashState() {
     return retVal;
 }
 
-void Init_CrashDetection() {
+void initCrashDetection() {
     CarData.xVal = DEFAULT_AXIS_VALUE;
     CarData.yVal = DEFAULT_AXIS_VALUE;
     CarData.zVal = DEFAULT_AXIS_VALUE;
@@ -188,12 +188,12 @@ void MainFunction_CrashDetection() {
         computeCarState();
 
         // car crashed, stop computing to keep the values car state and crash state
-        // TODO: blackbox
+        // TODO: send blackbox on can
 
         // if CD_Calibration was set to reset the algorithm, init CD again in order to
         // start computing car/crash data
         if (CD_Calibration == CRASH_DETECTION_RESET) {
-            Init_CrashDetection();
+            initCrashDetection();
         }
     }
 }

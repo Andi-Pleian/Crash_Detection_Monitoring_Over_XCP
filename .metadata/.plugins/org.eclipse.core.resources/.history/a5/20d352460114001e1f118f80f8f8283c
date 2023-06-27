@@ -158,7 +158,7 @@ enum CRASH_STATE_T computeCrashState() {
     return retVal;
 }
 
-void Init_CrashDetection() {
+void initCrashDetection() {
     CarData.xVal = DEFAULT_AXIS_VALUE;
     CarData.yVal = DEFAULT_AXIS_VALUE;
     CarData.zVal = DEFAULT_AXIS_VALUE;
@@ -193,7 +193,7 @@ void MainFunction_CrashDetection() {
         // if CD_Calibration was set to reset the algorithm, init CD again in order to
         // start computing car/crash data
         if (CD_Calibration == CRASH_DETECTION_RESET) {
-            Init_CrashDetection();
+            initCrashDetection();
         }
     }
 }

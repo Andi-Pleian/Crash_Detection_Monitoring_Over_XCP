@@ -36,7 +36,7 @@ void core0_main(void) {
     IfxCpu_emitEvent(&g_cpuSyncEvent);
     IfxCpu_waitEvent(&g_cpuSyncEvent, 1);
 
-    Init_CrashDetection();
+    initCrashDetection();
     initMcmcan();
     CanIf_Init(&CanIf_InitCfg);
 

@@ -89,7 +89,7 @@ enum CRASH_STATE_T getCrashState();
 enum CAR_STATE_T    computeCarState();
 enum CRASH_STATE_T  computeCrashState();
 
-void Init_CrashDetection();
+void initCrashDetection();
 void MainFunction_CrashDetection();
 
 #endif /* CRASH_DETECTION_CRASH_DETECTION_H_ */
