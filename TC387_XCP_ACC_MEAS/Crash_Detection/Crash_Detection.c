@@ -64,9 +64,6 @@ enum RET_VAL checkFlippedRight() {
     return retVal;
 }
 
-/**
- *   Return the state of the car on the road.
- */
 enum CAR_STATE_T computeCarState() {
    // init return val with error state
    enum CAR_STATE_T retVal = CAR_STATE_ERROR;
@@ -130,9 +127,6 @@ enum RET_VAL checkBackCrash(){
     return retVal;
 }
 
-/**
- *   Return the crash state of the car.
- */
 enum CRASH_STATE_T computeCrashState() {
     // init return val with error state
     enum CRASH_STATE_T retVal = CRASH_STATE_ERROR;

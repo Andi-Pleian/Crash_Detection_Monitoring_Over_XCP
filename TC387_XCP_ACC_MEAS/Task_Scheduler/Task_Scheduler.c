@@ -19,9 +19,7 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Globals------------------------------------------------------*/
 /*********************************************************************************************************************/
-/**
- * Array with all tasks
- */
+/* Array with all tasks */
 S_Task tasks[NUM_TASKS] = {
         {TASK_1MS_ID,      1,     1,   task1ms},
         {TASK_10MS_ID,     10,    10,  task10ms},
@@ -34,45 +32,34 @@ extern uint32 currentState = TASK_INVALID_TASK;
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
-/**
- * Task_Scheduler Main function
- */
 void MainFunction_TaskScheduler (void) {
     static uint16 tickCounter = 0;
-
     uint8 i;
 
-    // Loop through each task
     for (i = 0; i < NUM_TASKS; i++) {
         S_Task *currentTask = &tasks[i];
 
-        // Check if task needs to be executed
+        // check if task needs to be executed
         if (currentTask->remainingTime == 0) {
-            // Execute task
+            // execute task
             currentTask->function();
 
-            // Reset remaining time to period
+            // reset remaining time
             currentTask->remainingTime = currentTask->period;
         }
-        // Decrement remaining time
+        // decrement remaining time
         if (tickCounter % 10 == 0) {
-            currentTask->remainingTime -= 1; // Tick interval is 10 ms
+            currentTask->remainingTime -= 1;
         }
     }
-    // Increment tick counter
-    tickCounter += 1; // Assume tick interval is 10 ms
+
+    tickCounter += 1;
 }
 
-/**
- * Cyclic task that executes at 1ms
- */
 void task1ms (void) {
     changeState(TASK_1MS_ID);
 }
 
-/**
- * Cyclic task that executes at 10ms
- */
 void task10ms (void) {
     changeState(TASK_10MS_ID);
 

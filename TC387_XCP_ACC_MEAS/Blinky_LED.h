@@ -9,4 +9,3 @@ void initLED    (void);
 void blinkLED   (void);
 
 #endif /* BLINKY_LED_H_ */
-

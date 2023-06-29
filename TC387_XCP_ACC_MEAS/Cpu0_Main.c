@@ -48,10 +48,10 @@ void core0_main(void) {
     ComM_CommunicationAllowed(0,TRUE);
     ComM_RequestComMode( 0, COMM_FULL_COMMUNICATION );
 
-    // Start GPT12 timer
+    // start GPT12 timer
     initTimer();
 
-    /* Function to initialize the EVADC with default parameters */
+    // function to init EVADC
     initEVADC();
 
     while(1) {

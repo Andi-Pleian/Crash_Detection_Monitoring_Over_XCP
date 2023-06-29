@@ -11,8 +11,8 @@
 /*********************************************************************************************************************/
 /*-----------------------------------------------Function Prototypes-------------------------------------------------*/
 /*********************************************************************************************************************/
-void initTimer          (void);                          /* Function to initialize the GPT12 Module and start the timer  */
-void interruptGpt12     (void);                          /* Interrupt Service Routine of the GPT12                       */
+void initTimer          (void);                          /* init GPT12 Module and start timer  */
+void interruptGpt12     (void);                          /* ISR of GPT12                       */
 
 #endif /* TIMER_INTERRUPT_H_ */
 

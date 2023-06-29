@@ -22,16 +22,16 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define CAN_MESSAGE_ID              (uint32)0x777           /* Message ID that will be used in arbitration phase    */
-#define PIN0                        0                       /* LED1 used in TX ISR is connected to this pin         */
-#define PIN1                        1                       /* LED2 used in RX ISR is connected to this pin         */
-#define INVALID_RX_DATA_VALUE       0xA5                    /* Used to invalidate RX message data content           */
-#define INVALID_ID_VALUE            (uint32)0xFFFFFFFF      /* Used to invalidate RX message ID value               */
-#define ISR_PRIORITY_CAN_TX         2                       /* Define the CAN TX interrupt priority                 */
-#define ISR_PRIORITY_CAN_RX         1                       /* Define the CAN RX interrupt priority                 */
-#define TX_DATA_LOW_WORD            (uint32)0xC0CAC01A      /* Define CAN data lower word to be transmitted         */
-#define TX_DATA_HIGH_WORD           (uint32)0xBA5EBA11      /* Define CAN data higher word to be transmitted        */
-#define MAXIMUM_CAN_DATA_PAYLOAD    2                       /* Define maximum classical CAN payload in 4-byte words */
+#define CAN_MESSAGE_ID              (uint32)0x777
+#define PIN0                        0
+#define PIN1                        1
+#define INVALID_RX_DATA_VALUE       0xA5
+#define INVALID_ID_VALUE            (uint32)0xFFFFFFFF
+#define ISR_PRIORITY_CAN_TX         2
+#define ISR_PRIORITY_CAN_RX         1
+#define TX_DATA_LOW_WORD            (uint32)0xC0CAC01A
+#define TX_DATA_HIGH_WORD           (uint32)0xBA5EBA11
+#define MAXIMUM_CAN_DATA_PAYLOAD    2
 
 #define TX_PIN IfxCan_TXD00_P20_8_OUT
 #define RX_PIN IfxCan_RXD00B_P20_7_IN
@@ -40,7 +40,7 @@
 /*********************************************************************************************************************/
 typedef struct
 {
-    IfxCan_Can_Config canConfig;                            /* CAN module configuration structure                   */
+    IfxCan_Can_Config canConfig;                            /* CAN configuration structure                          */
     IfxCan_Can canModule;                                   /* CAN module handle                                    */
     IfxCan_Can_Node canSrcNode;                             /* CAN source node handle data structure                */
     IfxCan_Can_NodeConfig canNodeConfig;                    /* CAN node configuration structure                     */

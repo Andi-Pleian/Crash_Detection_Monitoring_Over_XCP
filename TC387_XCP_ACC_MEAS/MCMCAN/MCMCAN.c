@@ -15,32 +15,18 @@
 /*********************************************************************************************************************/
 /*-------------------------------------------------Global variables--------------------------------------------------*/
 /*********************************************************************************************************************/
-McmcanType                  CAN_Control;                    /* Global MCMCAN configuration and control structure    */
-IfxPort_Pin_Config          g_led1;                         /* Global LED1 configuration and control structure      */
-IfxPort_Pin_Config          g_led2;                         /* Global LED2 configuration and control structure      */
+McmcanType                  CAN_Control;
+IfxPort_Pin_Config          g_led1;
+IfxPort_Pin_Config          g_led2;
 
-/* Macro to define Interrupt Service Routine.
- * This macro:
- * - defines linker section as .intvec_tc<vector number>_<interrupt priority>.
- * - defines compiler specific attribute for the interrupt functions.
- * - defines the Interrupt service routine as ISR function.
- *
- * IFX_INTERRUPT(isr, vectabNum, priority)
- *  - isr: Name of the ISR function.
- *  - vectabNum: Vector table number.
- *  - priority: Interrupt priority. Refer Usage of Interrupt Macro for more details.
- */
 IFX_INTERRUPT(canIsrTxHandler, 0, ISR_PRIORITY_CAN_TX);
 IFX_INTERRUPT(canIsrRxHandler, 0, ISR_PRIORITY_CAN_RX);
 /*********************************************************************************************************************/
 /*---------------------------------------------Function Implementations----------------------------------------------*/
 /*********************************************************************************************************************/
-/* Interrupt Service Routine (ISR) called once the TX interrupt has been generated.
- * Turns on the LED1 to indicate successful CAN message transmission.
- */
 void canIsrTxHandler(void)
 {
-    /* Clear the "Transmission Completed" interrupt flag */
+    // clear the "Transmission Completed" interrupt flag
     IfxCan_Node_clearInterruptFlag(CAN_Control.canSrcNode.node, IfxCan_Interrupt_transmissionCompleted);
 
     PduIdType CanTxPduId = 0;
@@ -48,7 +34,7 @@ void canIsrTxHandler(void)
     CanIf_TxConfirmation(CanTxPduId);
 }
 
-/* Interrupt Service Routine (ISR) called once the RX interrupt has been generated. */
+// ISR called each RX interrupt
 void canIsrRxHandler(void)
 {
     Can_HwType RxMailboxInfo;
@@ -56,14 +42,15 @@ void canIsrRxHandler(void)
 
     uint8 dataArray[8];
 
-    /* Clear the "Message stored to Dedicated RX Buffer" interrupt flag */
+    // clear the "Message stored to Dedicated RX Buffer" interrupt flag
     IfxCan_Node_clearInterruptFlag(CAN_Control.canSrcNode.node, IfxCan_Interrupt_messageStoredToDedicatedRxBuffer);
 
-    /* Read the received CAN message */
+    // read the received CAN message
     IfxCan_Can_readMessage(&CAN_Control.canSrcNode, &CAN_Control.rxMsg, CAN_Control.rxData);
 
-    // Check rx message id
+    // check rx message id
     if (CAN_Control.rxMsg.messageId == 0x7f1) {
+        // adapt received message to fit in structure member
         RxMailboxInfo.CanId = CAN_Control.rxMsg.messageId;
         RxMailboxInfo.ControllerId = 0;
         RxMailboxInfo.Hoh = Can_17_McmCanConf_CanHardwareObject_HOH_Rx0_contr_ACSM5_PS_CAN;
@@ -85,19 +72,14 @@ void canIsrRxHandler(void)
     }
 }
 
-/* Function to initialize MCMCAN module and nodes related for this application use case */
 void initMcmcan(void)
 {
-    /**
-     * Load default CAN module configuration into configuration structure
-     */
+    // load default CAN module configuration
     IfxCan_Can_initModuleConfig (&CAN_Control.canConfig,        &MODULE_CAN0);
     IfxCan_Can_initModule       (&CAN_Control.canModule,        &CAN_Control.canConfig);
     IfxCan_Can_initNodeConfig   (&CAN_Control.canNodeConfig,    &CAN_Control.canModule);
 
-    /**
-     * CAN Node Configuration
-     */
+
     const IfxCan_Can_Pins pins = {
         &TX_PIN, IfxPort_OutputMode_pushPull,
         &RX_PIN, IfxPort_InputMode_pullUp,
@@ -123,50 +105,46 @@ void initMcmcan(void)
 
     IfxCan_Can_initNode(&CAN_Control.canSrcNode, &CAN_Control.canNodeConfig);
 
-    /**
-     * CAN Filter Configuration
-     */
+    // CAN Filter Configuration
     CAN_Control.canFilter.number = 0;
     CAN_Control.canFilter.elementConfiguration = IfxCan_FilterElementConfiguration_storeInRxBuffer;
-    CAN_Control.canFilter.id1 = 0x7f1;  //CAN_MESSAGE_ID;
+    CAN_Control.canFilter.id1 = 0x7f1;
     CAN_Control.canFilter.rxBufferOffset = IfxCan_RxBufferId_0;
 
     IfxCan_Can_setStandardFilter(&CAN_Control.canSrcNode, &CAN_Control.canFilter);
 }
 
-/* Function to initialize TX message
- * After initialization of the message, the TX message is transmitted.
- */
 void transmitCanMessage(void)
 {
-    /* Initialization of the TX message with the default configuration */
+    // initialization of the TX message with the default configuration
     IfxCan_Can_initMessage(&CAN_Control.txMsg);
 
-    /* Define the content of the data to be transmitted */
+    // define the content of the data to be transmitted
     CAN_Control.txData[0] = TX_DATA_LOW_WORD;
     CAN_Control.txData[1] = TX_DATA_HIGH_WORD;
 
-    // Set the message ID
+    // set the message ID
     CAN_Control.txMsg.messageId = CAN_MESSAGE_ID;
 
-    // Send CAN message
+    // send CAN message
     while ( IfxCan_Status_notSentBusy ==
            IfxCan_Can_sendMessage(&CAN_Control.canSrcNode, &CAN_Control.txMsg, &CAN_Control.txData[0]) ) {
     }
 }
 
+// function that will be used in autosar
 Can_ReturnType MCMCAN_Write( Can_HwHandleType Hth, const Can_PduType* PduInfo ) {
-    /* Initialization of the TX message with the default configuration */
+    // initialization of the TX message with the default configuration
     IfxCan_Can_initMessage(&CAN_Control.txMsg);
 
-    /* Define the content of the data to be transmitted */
+    // define the content of the data to be transmitted
     CAN_Control.txData[0] = PduInfo->sdu[0] | (PduInfo->sdu[1] << 8) | (PduInfo->sdu[2] << 16) | (PduInfo->sdu[3] << 24);
     CAN_Control.txData[1] = PduInfo->sdu[4] | (PduInfo->sdu[5] << 8) | (PduInfo->sdu[6] << 16) | (PduInfo->sdu[7] << 24);
 
-    // Set the message ID
+    // set the message ID
     CAN_Control.txMsg.messageId = PduInfo->id;
 
-    // Send CAN message
+    // send CAN message
     while ( IfxCan_Status_notSentBusy ==
            IfxCan_Can_sendMessage(&CAN_Control.canSrcNode, &CAN_Control.txMsg, &CAN_Control.txData[0]) ) {
     }

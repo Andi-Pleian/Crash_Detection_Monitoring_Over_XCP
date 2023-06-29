@@ -53,11 +53,10 @@ enum RET_VAL {
     VAL_OK
 };
 
-// TODO: find more actions to do here.
+//TODO: change axis
 enum CRASH_DETECTION_CALIB {
     CRASH_DETECTION_NO_ACTION,
-    CRASH_DETECTION_RESET,
-    CRASH_DETECTION_CHANGE_AXIS
+    CRASH_DETECTION_RESET
 };
 /*********************************************************************************************************************/
 /*--------------------------------------------------Data Structures--------------------------------------------------*/

@@ -14,13 +14,13 @@
 /*********************************************************************************************************************/
 /*------------------------------------------------------Macros-------------------------------------------------------*/
 /*********************************************************************************************************************/
-#define GROUPID_2           IfxEvadc_GroupId_2                  /* EVADC group                                      */
+#define GROUPID_2           IfxEvadc_GroupId_2
 
 #define CHANNELS_NUM        3                                   /* Number of used channels                          */
 
-#define AN17_CHID           1                                   /* Channel ID for pin AN17                          */
-#define AN20_CHID           4                                   /* Channel ID for pin AN20                          */
-#define AN21_CHID           5                                   /* Channel ID for pin AN21                          */
+#define AN17_CHID           1
+#define AN20_CHID           4
+#define AN21_CHID           5
 
 #define AXIS_DEFAULT_VALUE  -100
 
