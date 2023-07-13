@@ -1,2 +1,2 @@
-# Crash Detection Monitoring over XCP measurement and calibration protocol
+# Crash detection monitoring over XCP measurement and calibration protocol
  
