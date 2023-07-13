@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/TC387_XCP_ACC_MEAS/ADC/ADXL355.c" element2="/TC387_XCP_ACC_MEAS/ADC/ADXL355.h" element3="/TC387_XCP_ACC_MEAS/ADC/Communication.h" element4="/TC387_XCP_ACC_MEAS/ADC/Timer.c" element5="/TC387_XCP_ACC_MEAS/ADC/Timer.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1685608150659"/>
+</session>

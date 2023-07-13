@@ -1,0 +1,19 @@
+/*
+ * Timer_Interrupt.h
+ *
+ *  Created on: Apr 4, 2023
+ *      Author: uif47623
+ */
+
+#ifndef TIMER_INTERRUPT_H_
+#define TIMER_INTERRUPT_H_
+
+/*********************************************************************************************************************/
+/*-----------------------------------------------Function Prototypes-------------------------------------------------*/
+/*********************************************************************************************************************/
+void initTimer          (void);                          /* Init GPT12 Module and start timer  */
+void interruptGpt12     (void);                          /* ISR of GPT12                       */
+
+#endif /* TIMER_INTERRUPT_H_ */
+
+//END OF FILE

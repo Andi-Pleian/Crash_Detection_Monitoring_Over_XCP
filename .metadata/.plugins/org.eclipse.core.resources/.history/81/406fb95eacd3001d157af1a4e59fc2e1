@@ -1,0 +1,41 @@
+/*********************************************************************************************************************/
+/*-----------------------------------------------------Includes------------------------------------------------------*/
+/*********************************************************************************************************************/
+#include "IfxPort.h"
+#include "Bsp.h"
+
+/*********************************************************************************************************************/
+/*------------------------------------------------------Macros-------------------------------------------------------*/
+/*********************************************************************************************************************/
+#define LED_P20_11    &MODULE_P20,11                                        /* LED D107: Port, Pin definition       */
+#define LED_P20_12    &MODULE_P20,11                                        /* LED D107: Port, Pin definition       */
+#define LED_P20_13    &MODULE_P20,11                                        /* LED D107: Port, Pin definition       */
+#define LED_P20_14    &MODULE_P20,11                                        /* LED D107: Port, Pin definition       */
+#define WAIT_TIME   1000                                                     /* Wait time constant in milliseconds   */
+
+/*********************************************************************************************************************/
+/*---------------------------------------------Function Implementations----------------------------------------------*/
+/*********************************************************************************************************************/
+/* This function initializes the port pin which drives the LED */
+void initLED(void)
+{
+    /* Initialization of the LED */
+    IfxPort_setPinModeOutput(LED_P20_11, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    //IfxPort_setPinModeOutput(LED_P20_12, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    //IfxPort_setPinModeOutput(LED_P20_13, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+    //IfxPort_setPinModeOutput(LED_P20_14, IfxPort_OutputMode_pushPull, IfxPort_OutputIdx_general);
+
+    /* Switch OFF the LED (low-level active) */
+    IfxPort_setPinHigh(LED_P20_11);
+    //IfxPort_setPinHigh(LED_P20_12);
+    //IfxPort_setPinHigh(LED_P20_13);
+    //IfxPort_setPinHigh(LED_P20_14);
+}
+
+/* This function toggles the port pin and wait 500 milliseconds */
+void blinkLED(void)
+{
+    IfxPort_togglePin(LED_P20_11);                                                /* Toggle the state of the LED      */
+    waitTime(IfxStm_getTicksFromMilliseconds(BSP_DEFAULT_TIMER, WAIT_TIME));      /* Wait 500 milliseconds            */
+}
+

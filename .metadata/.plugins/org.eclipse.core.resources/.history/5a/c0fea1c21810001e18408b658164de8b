@@ -1,0 +1,24 @@
+/*
+ * ADC.h
+ *
+ *  Created on: Jun 1, 2023
+ *      Author: uif47623
+ */
+#ifndef ADC_H_
+#define ADC_H_
+
+typedef struct {
+        float xAxisValue;
+        float yAxisValue;
+        float zAxisValue;
+} ADC_Results_t;
+
+/*********************************************************************************************************************/
+/*------------------------------------------------Function Prototypes------------------------------------------------*/
+/*********************************************************************************************************************/
+void initEVADC(void);
+void readEVADC(void);
+
+extern void getADCRes(ADC_Results_t);
+
+#endif /* ADC_H_ */
